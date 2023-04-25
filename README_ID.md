@@ -55,7 +55,7 @@ Kami memiliki [repositori khusus](https://github.com/projectdiscovery/nuclei-tem
 Nuclei membutuhkan **go1.19** agar dapat diinstall. Jalankan perintah berikut untuk menginstal versi terbaru -
 
 ```sh
-go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
 ```
 
 **Metode [instalasi lain dapat ditemukan di sini](https://nuclei.projectdiscovery.io/nuclei/get-started/).**

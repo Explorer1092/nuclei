@@ -3,7 +3,7 @@ package utils
 import (
 	"strings"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
 )
 
 const (

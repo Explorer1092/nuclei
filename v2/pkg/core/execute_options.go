@@ -6,11 +6,11 @@ import (
 
 	"github.com/remeh/sizedwaitgroup"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types/scanstrategy"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/types/scanstrategy"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 

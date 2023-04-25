@@ -9,16 +9,16 @@ import (
 	"golang.org/x/exp/maps"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/interactsh"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/utils"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/utils"
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 )
 
 var _ protocols.Request = &Request{}

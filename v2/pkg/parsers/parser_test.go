@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/disk"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader/filter"
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
 	"github.com/stretchr/testify/require"
 )
 

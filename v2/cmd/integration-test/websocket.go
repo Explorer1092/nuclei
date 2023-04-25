@@ -6,7 +6,7 @@ import (
 
 	"github.com/gobwas/ws/wsutil"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
 )
 
 var websocketTestCases = map[string]testutils.TestCase{

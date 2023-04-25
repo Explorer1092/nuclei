@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/extensions"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates/extensions"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 

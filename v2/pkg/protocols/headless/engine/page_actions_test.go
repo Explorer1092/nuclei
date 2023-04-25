@@ -16,9 +16,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils/testheadless"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils/testheadless"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
 )
 
 func TestActionNavigate(t *testing.T) {

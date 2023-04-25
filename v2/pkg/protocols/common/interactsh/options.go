@@ -4,9 +4,9 @@ import (
 	"time"
 
 	"github.com/projectdiscovery/interactsh/pkg/client"
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/progress"
-	"github.com/projectdiscovery/nuclei/v2/pkg/reporting"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/progress"
+	"github.com/Explorer1092/nuclei/v2/pkg/reporting"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 
