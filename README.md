@@ -56,7 +56,7 @@ We have a [dedicated repository](https://github.com/projectdiscovery/nuclei-temp
 Nuclei requires **go1.19** to install successfully. Run the following command to install the latest version -
 
 ```sh
-go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
 ```
 
 <details>

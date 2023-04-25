@@ -18,7 +18,7 @@ import (
 	"github.com/go-rod/rod/lib/utils"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"

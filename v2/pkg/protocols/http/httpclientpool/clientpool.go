@@ -17,9 +17,9 @@ import (
 	"golang.org/x/net/publicsuffix"
 
 	"github.com/projectdiscovery/fastdialer/fastdialer"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/rawhttp"
 	"github.com/projectdiscovery/retryablehttp-go"
 )

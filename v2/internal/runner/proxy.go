@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	proxyutils "github.com/projectdiscovery/utils/proxy"
