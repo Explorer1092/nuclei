@@ -1,4 +1,4 @@
-module github.com/projectdiscovery/nuclei/v2
+module github.com/Explorer1092/nuclei/v2
 
 go 1.19
 
