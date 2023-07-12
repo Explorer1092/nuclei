@@ -417,8 +417,6 @@ github.com/projectdiscovery/mapcidr v1.1.2 h1:Mmq/nPqvVc7fjvH/kJVK0IBOny/LrJIxZ4
 github.com/projectdiscovery/mapcidr v1.1.2/go.mod h1:Aoq0x/wJl6KDbtQ8OcPkjIDCqx2iEyx5ty1nzso8wXM=
 github.com/projectdiscovery/networkpolicy v0.0.6 h1:yDvm0XCrS9HeemRrBS+J+22surzVczM94W5nHiOy/1o=
 github.com/projectdiscovery/networkpolicy v0.0.6/go.mod h1:8HJQ/33Pi7v3a3MRWIQGXzpj+zHw2d60TysEL4qdoQk=
-github.com/projectdiscovery/nuclei/v2 v2.9.8 h1:Ct/WkotS/dDq/Cx+IgFqpa5nDo7uDgexMBaak7ApmYo=
-github.com/projectdiscovery/nuclei/v2 v2.9.8/go.mod h1:7Zh3CgznJtRHfcMQZ//B48AYjTZCGIJK9fiwFzf4Wqs=
 github.com/projectdiscovery/ratelimit v0.0.8 h1:K6S/DCr48xNxTXHRmU82wl1mj7j0VrXnAKr8sKTacHI=
 github.com/projectdiscovery/ratelimit v0.0.8/go.mod h1:JJAtj8Rd5DNqN5FgwyMHWIi4BHivOw1+8gDrpsBf8Ic=
 github.com/projectdiscovery/rawhttp v0.1.16-0.20230703065054-806b4fcfab11 h1:kj5HPwajW4IbSYLrZIg03yXGp4id0tYMulSOhU5t5Lo=

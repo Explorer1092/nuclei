@@ -8,6 +8,7 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/disk"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/stringslice"
 	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
 	"github.com/stretchr/testify/require"
@@ -54,7 +55,7 @@ func TestLoadTemplate(t *testing.T) {
 					SeverityHolder: severity.Holder{Severity: severity.Medium},
 				},
 			},
-			expectedErr: errors.New(`mandatory 'name' field is missing, invalid field format for 'id' (allowed format is ^([a-zA-Z0-9\p{Han}\!\(\)\.]+[-_])*[a-zA-Z0-9\p{Han}\!\(\)\.]+$)`),
+			expectedErr: errors.New("mandatory 'name' field is missing, invalid field format for 'id' (allowed format is ^([a-zA-Z0-9]+[-_])*[a-zA-Z0-9]+$)"),
 		},
 		{
 			name: "emptySeverity",
@@ -151,11 +152,7 @@ func TestLoadTemplate(t *testing.T) {
 					require.NoError(t, err)
 					require.True(t, success)
 				} else {
-<<<<<<< HEAD
-					require.Equal(t, errors.New(`invalid field format for 'id' (allowed format is ^([a-zA-Z0-9\p{Han}\!\(\)\.]+[-_])*[a-zA-Z0-9\p{Han}\!\(\)\.]+$)`), err)
-=======
 					require.ErrorContains(t, err, "invalid field format for 'id' (allowed format is ^([a-zA-Z0-9]+[-_])*[a-zA-Z0-9]+$)")
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 					require.False(t, success)
 				}
 			})
