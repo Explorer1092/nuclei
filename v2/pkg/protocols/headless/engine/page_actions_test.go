@@ -5,8 +5,8 @@ import (
 	"io"
 	"math/rand"
 	"net/http"
+	"net/http/cookiejar"
 	"net/http/httptest"
-	"net/url"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -16,9 +16,16 @@ import (
 
 	"github.com/stretchr/testify/require"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
 	"github.com/Explorer1092/nuclei/v2/pkg/testutils/testheadless"
 	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v2/pkg/testutils/testheadless"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 )
 
 func TestActionNavigate(t *testing.T) {
@@ -564,9 +571,11 @@ func testHeadless(t *testing.T, actions []*Action, timeout time.Duration, handle
 	ts := httptest.NewServer(http.HandlerFunc(handler))
 	defer ts.Close()
 
-	parsed, err := url.Parse(ts.URL)
-	require.Nil(t, err, "could not parse URL")
-	extractedData, page, err := instance.Run(parsed, actions, nil, timeout)
+	input := contextargs.NewWithInput(ts.URL)
+	input.CookieJar, err = cookiejar.New(nil)
+	require.Nil(t, err)
+
+	extractedData, page, err := instance.Run(input, actions, nil, &Options{Timeout: timeout})
 	assert(page, err, extractedData)
 
 	if page != nil {

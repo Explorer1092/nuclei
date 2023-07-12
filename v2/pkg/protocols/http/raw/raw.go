@@ -26,7 +26,7 @@ type Request struct {
 }
 
 // Parse parses the raw request as supplied by the user
-func Parse(request string, inputURL *urlutil.URL, unsafe bool) (*Request, error) {
+func Parse(request string, inputURL *urlutil.URL, unsafe, disablePathAutomerge bool) (*Request, error) {
 	rawrequest, err := readRawRequest(request, unsafe)
 	if err != nil {
 		return nil, err
@@ -45,6 +45,9 @@ func Parse(request string, inputURL *urlutil.URL, unsafe bool) (*Request, error)
 			return nil, errorutil.NewWithErr(err).WithTag("raw").Msgf("failed to parse url %v from template", rawrequest.Path)
 		}
 		cloned := inputURL.Clone()
+		if disablePathAutomerge {
+			cloned.Path = ""
+		}
 		parseErr := cloned.MergePath(urlx.GetRelativePath(), true)
 		if parseErr != nil {
 			return nil, errorutil.NewWithTag("raw", "could not automergepath for template path %v", urlx.GetRelativePath()).Wrap(parseErr)
@@ -58,19 +61,22 @@ func Parse(request string, inputURL *urlutil.URL, unsafe bool) (*Request, error)
 		if (cloned.Path == "" || cloned.Path == "/") && !strings.HasPrefix(prevPath, "/") {
 			// Edgecase if raw unsafe request is
 			// GET 1337?with=param HTTP/1.1
-			if tmpurl, err := urlutil.ParseRelativePath(prevPath, true); err == nil && len(tmpurl.Params) > 0 {
+			if tmpurl, err := urlutil.ParseRelativePath(prevPath, true); err == nil && !tmpurl.Params.IsEmpty() {
 				// if raw request contains parameters
-				cloned.Params.Merge(tmpurl.Params)
+				cloned.Params.Merge(tmpurl.Params.Encode())
 				unsafeRelativePath = strings.TrimPrefix(tmpurl.Path, "/") + "?" + cloned.Params.Encode()
 			} else {
 				// if raw request does not contain param
-				if len(cloned.Params) > 0 {
+				if !cloned.Params.IsEmpty() {
 					unsafeRelativePath = prevPath + "?" + cloned.Params.Encode()
 				} else {
 					unsafeRelativePath = prevPath
 				}
 			}
 		} else {
+			if disablePathAutomerge {
+				cloned.Path = ""
+			}
 			err = cloned.MergePath(rawrequest.Path, true)
 			if err != nil {
 				return nil, errorutil.NewWithErr(err).WithTag("raw").Msgf("failed to automerge %v from unsafe template", rawrequest.Path)
@@ -81,6 +87,9 @@ func Parse(request string, inputURL *urlutil.URL, unsafe bool) (*Request, error)
 
 	default:
 		cloned := inputURL.Clone()
+		if disablePathAutomerge {
+			cloned.Path = ""
+		}
 		parseErr := cloned.MergePath(rawrequest.Path, true)
 		if parseErr != nil {
 			return nil, errorutil.NewWithTag("raw", "could not automergepath for template path %v", rawrequest.Path).Wrap(parseErr)
@@ -96,6 +105,35 @@ func Parse(request string, inputURL *urlutil.URL, unsafe bool) (*Request, error)
 	}
 
 	return rawrequest, nil
+}
+
+// ParseRawRequest parses the raw request as supplied by the user
+// this function should only be used for self-contained requests
+func ParseRawRequest(request string, unsafe bool) (*Request, error) {
+	req, err := readRawRequest(request, unsafe)
+	if err != nil {
+		return nil, err
+	}
+	if strings.HasPrefix(req.Path, "http") {
+		urlx, err := urlutil.Parse(req.Path)
+		if err != nil {
+			return nil, errorutil.NewWithErr(err).Msgf("failed to parse url %v", req.Path)
+		}
+		req.Path = urlx.GetRelativePath()
+		req.FullURL = urlx.String()
+	} else {
+
+		if req.Path == "" {
+			return nil, errorutil.NewWithTag("self-contained-raw", "path cannot be empty in self contained request")
+		}
+		// given url is relative construct one using Host Header
+		if _, ok := req.Headers["Host"]; !ok {
+			return nil, errorutil.NewWithTag("self-contained-raw", "host header is required for relative path")
+		}
+		// Review: Current default scheme in self contained templates if relative path is provided is http
+		req.FullURL = fmt.Sprintf("%s://%s%s", urlutil.HTTP, strings.TrimSpace(req.Headers["Host"]), req.Path)
+	}
+	return req, nil
 }
 
 // reads raw request line by line following convention
@@ -121,7 +159,7 @@ read_line:
 		goto read_line
 	}
 
-	parts := strings.Split(s, " ")
+	parts := strings.Fields(s)
 	if len(parts) > 0 {
 		rawRequest.Method = parts[0]
 		if len(parts) == 2 && strings.Contains(parts[1], "HTTP") {

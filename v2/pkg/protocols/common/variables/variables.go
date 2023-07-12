@@ -5,12 +5,22 @@ import (
 	"strings"
 
 	"github.com/alecthomas/jsonschema"
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/marker"
 	"github.com/Explorer1092/nuclei/v2/pkg/types"
 	"github.com/Explorer1092/nuclei/v2/pkg/utils"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/interactsh"
+	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
+	stringsutil "github.com/projectdiscovery/utils/strings"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 )
 
 // Variable is a key-value pair of strings that can be used
@@ -20,11 +30,12 @@ type Variable struct {
 	utils.InsertionOrderedStringMap `yaml:"-" json:"-"`
 }
 
-func (variables *Variable) JSONSchemaType() *jsonschema.Type {
+func (variables Variable) JSONSchemaType() *jsonschema.Type {
 	gotType := &jsonschema.Type{
-		Type:        "map[string]string",
-		Title:       "variables for the request",
-		Description: "Additional variables for the request",
+		Type:                 "object",
+		Title:                "variables for the request",
+		Description:          "Additional variables for the request",
+		AdditionalProperties: []byte("true"),
 	}
 	return gotType
 }
@@ -35,7 +46,7 @@ func (variables *Variable) UnmarshalYAML(unmarshal func(interface{}) error) erro
 		return err
 	}
 
-	if variables.checkForLazyEval() {
+	if variables.LazyEval || variables.checkForLazyEval() {
 		return nil
 	}
 
@@ -64,7 +75,12 @@ func (variables *Variable) UnmarshalJSON(data []byte) error {
 func (variables *Variable) Evaluate(values map[string]interface{}) map[string]interface{} {
 	result := make(map[string]interface{}, variables.Len())
 	variables.ForEach(func(key string, value interface{}) {
-		result[key] = evaluateVariableValue(types.ToString(value), generators.MergeMaps(values, result), result)
+		valueString := types.ToString(value)
+		combined := generators.MergeMaps(values, result)
+		if value, ok := combined[key]; ok {
+			valueString = types.ToString(value)
+		}
+		result[key] = evaluateVariableValue(valueString, combined, result)
 	})
 	return result
 }
@@ -79,7 +95,11 @@ func (variables *Variable) EvaluateWithInteractsh(values map[string]interface{},
 		if strings.Contains(valueString, "interactsh-url") {
 			valueString, interactURLs = interact.Replace(valueString, interactURLs)
 		}
-		result[key] = evaluateVariableValue(valueString, generators.MergeMaps(values, result), result)
+		combined := generators.MergeMaps(values, result)
+		if value, ok := combined[key]; ok {
+			valueString = types.ToString(value)
+		}
+		result[key] = evaluateVariableValue(valueString, combined, result)
 	})
 	return result, interactURLs
 }
@@ -99,10 +119,11 @@ func evaluateVariableValue(expression string, values, processing map[string]inte
 // and sets the flag accordingly.
 func (variables *Variable) checkForLazyEval() bool {
 	variables.ForEach(func(key string, value interface{}) {
-		ret := expressions.FindExpressions(types.ToString(value), marker.ParenthesisOpen, marker.ParenthesisClose, nil)
-		if len(ret) > 0 {
-			variables.LazyEval = true
-			return
+		for _, v := range protocolutils.KnownVariables {
+			if stringsutil.ContainsAny(types.ToString(value), v) {
+				variables.LazyEval = true
+				return
+			}
 		}
 	})
 	return variables.LazyEval

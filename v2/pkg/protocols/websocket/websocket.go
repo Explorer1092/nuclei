@@ -18,6 +18,7 @@ import (
 
 	"github.com/projectdiscovery/fastdialer/fastdialer"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/operators"
 	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
 	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
@@ -32,6 +33,23 @@ import (
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/network/networkclientpool"
 	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators/extractors"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/network/networkclientpool"
+	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
+	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	urlutil "github.com/projectdiscovery/utils/url"
 )
 
@@ -69,7 +87,7 @@ type Request struct {
 
 	// cache any variables that may be needed for operation.
 	dialer  *fastdialer.Dialer
-	options *protocols.ExecuterOptions
+	options *protocols.ExecutorOptions
 }
 
 // Input is an input for the websocket protocol
@@ -95,7 +113,7 @@ const (
 )
 
 // Compile compiles the request generators preparing any requests possible.
-func (request *Request) Compile(options *protocols.ExecuterOptions) error {
+func (request *Request) Compile(options *protocols.ExecutorOptions) error {
 	request.options = options
 
 	client, err := networkclientpool.Get(options.Options, &networkclientpool.Configuration{})
@@ -172,10 +190,10 @@ func (request *Request) executeRequestWithPayloads(input, hostname string, dynam
 	if err != nil {
 		return errors.Wrap(err, parseUrlErrorMessage)
 	}
-	defaultVars := getWebsocketVariables(parsed)
+	defaultVars := protocolutils.GenerateVariables(parsed, false, nil)
 	optionVars := generators.BuildPayloadFromOptions(request.options.Options)
 	variables := request.options.Variables.Evaluate(generators.MergeMaps(defaultVars, optionVars, dynamicValues))
-	payloadValues := generators.MergeMaps(variables, defaultVars, optionVars, dynamicValues)
+	payloadValues := generators.MergeMaps(variables, defaultVars, optionVars, dynamicValues, request.options.Constants)
 
 	requestOptions := request.options
 	for key, value := range request.Headers {
@@ -406,18 +424,4 @@ func (request *Request) MakeResultEventItem(wrapped *output.InternalWrappedEvent
 // Type returns the type of the protocol request
 func (request *Request) Type() templateTypes.ProtocolType {
 	return templateTypes.WebsocketProtocol
-}
-
-func getWebsocketVariables(input *urlutil.URL) map[string]interface{} {
-	websocketVariables := make(map[string]interface{})
-
-	websocketVariables["Hostname"] = input.Host
-	websocketVariables["Host"] = input.Hostname()
-	websocketVariables["Scheme"] = input.Scheme
-	requestPath := input.Path
-	if values := urlutil.GetParams(input.URL.Query()); len(values) > 0 {
-		requestPath = requestPath + "?" + values.Encode()
-	}
-	websocketVariables["Path"] = requestPath
-	return websocketVariables
 }

@@ -6,6 +6,7 @@ import (
 	"regexp"
 	"strings"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
 	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
 	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader/filter"
@@ -14,31 +15,58 @@ import (
 	"github.com/Explorer1092/nuclei/v2/pkg/templates/signer"
 	"github.com/Explorer1092/nuclei/v2/pkg/utils"
 	"github.com/Explorer1092/nuclei/v2/pkg/utils/stats"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates/cache"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates/signer"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
+	"github.com/projectdiscovery/nuclei/v2/pkg/utils/stats"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"gopkg.in/yaml.v2"
 )
 
 const (
 	errMandatoryFieldMissingFmt = "mandatory '%s' field is missing"
 	errInvalidFieldFmt          = "invalid field format for '%s' (allowed format is %s)"
+	warningFieldMissingFmt      = "field '%s' is missing"
+	CouldNotLoadTemplate        = "Could not load template %s: %s"
+	LoadedWithWarnings          = "Loaded template %s: with syntax warning : %s"
 )
 
 // LoadTemplate returns true if the template is valid and matches the filtering criteria.
 func LoadTemplate(templatePath string, tagFilter *filter.TagFilter, extraTags []string, catalog catalog.Catalog) (bool, error) {
 	template, templateParseError := ParseTemplate(templatePath, catalog)
 	if templateParseError != nil {
-		return false, templateParseError
+		return false, fmt.Errorf(CouldNotLoadTemplate, templatePath, templateParseError)
 	}
 
 	if len(template.Workflows) > 0 {
 		return false, nil
 	}
 
-	if validationError := validateTemplateFields(template); validationError != nil {
+	validationError := validateTemplateMandatoryFields(template)
+	if validationError != nil {
 		stats.Increment(SyntaxErrorStats)
-		return false, validationError
+		return false, fmt.Errorf(CouldNotLoadTemplate, templatePath, validationError)
 	}
 
-	return isTemplateInfoMetadataMatch(tagFilter, template, extraTags)
+	ret, err := isTemplateInfoMetadataMatch(tagFilter, template, extraTags)
+	if err != nil {
+		return ret, fmt.Errorf(CouldNotLoadTemplate, templatePath, err)
+	}
+	// if template loaded then check the template for optional fields to add warnings
+	if ret {
+		validationWarning := validateTemplateOptionalFields(template)
+		if validationWarning != nil {
+			stats.Increment(SyntaxWarningStats)
+			return ret, fmt.Errorf(LoadedWithWarnings, templatePath, validationWarning)
+		}
+	}
+	return ret, nil
 }
 
 // LoadWorkflow returns true if the workflow is valid and matches the filtering criteria.
@@ -49,7 +77,8 @@ func LoadWorkflow(templatePath string, catalog catalog.Catalog) (bool, error) {
 	}
 
 	if len(template.Workflows) > 0 {
-		if validationError := validateTemplateFields(template); validationError != nil {
+		if validationError := validateTemplateMandatoryFields(template); validationError != nil {
+			stats.Increment(SyntaxErrorStats)
 			return false, validationError
 		}
 		return true, nil
@@ -68,7 +97,9 @@ func isTemplateInfoMetadataMatch(tagFilter *filter.TagFilter, template *template
 	return match, err
 }
 
-func validateTemplateFields(template *templates.Template) error {
+// validateTemplateMandatoryFields validates the mandatory fields of a template
+// return error from this function will cause hard fail and not proceed further
+func validateTemplateMandatoryFields(template *templates.Template) error {
 	info := template.Info
 
 	var errors []string
@@ -89,6 +120,24 @@ func validateTemplateFields(template *templates.Template) error {
 
 	if len(errors) > 0 {
 		return fmt.Errorf(strings.Join(errors, ", "))
+	}
+
+	return nil
+}
+
+// validateTemplateOptionalFields validates the optional fields of a template
+// return error from this function will throw a warning and proceed further
+func validateTemplateOptionalFields(template *templates.Template) error {
+	info := template.Info
+
+	var warnings []string
+
+	if template.Type() != types.WorkflowProtocol && utils.IsBlank(info.SeverityHolder.Severity.String()) {
+		warnings = append(warnings, fmt.Sprintf(warningFieldMissingFmt, "severity"))
+	}
+
+	if len(warnings) > 0 {
+		return fmt.Errorf(strings.Join(warnings, ", "))
 	}
 
 	return nil

@@ -52,7 +52,7 @@ Kami memiliki [repositori khusus](https://github.com/projectdiscovery/nuclei-tem
 
 # Instalasi Nuclei
 
-Nuclei membutuhkan **go1.19** agar dapat diinstall. Jalankan perintah berikut untuk menginstal versi terbaru -
+Nuclei membutuhkan **go1.20** agar dapat diinstall. Jalankan perintah berikut untuk menginstal versi terbaru -
 
 ```sh
 go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
@@ -232,7 +232,7 @@ UPDATE:
 
 STATISTICS:
    -stats                    display statistics about the running scan
-   -sj, -stats-json          write statistics data to an output file in JSONL(ines) format
+   -sj, -stats-json          dispaly statistics in JSONL(ines) format
    -si, -stats-interval int  number of seconds to wait between showing a statistics update (default 5)
    -m, -metrics              expose nuclei metrics on a port
    -mp, -metrics-port int    port to expose nuclei metrics on (default 9092)
@@ -304,7 +304,7 @@ Nuclei sangat meningkatkan cara Anda mendekati penilaian keamanan dengan menamba
 Para penguji penetrasi mendapatkan kekuatan penuh dari templat publik dan kemampuan penyesuaian kami untuk mempercepat proses penilaian mereka, dan khususnya dengan siklus regresi di mana Anda dapat dengan mudah memverifikasi perbaikannya.
 
 - Mudah untuk membuat daftar pemeriksa kepatuhan Anda, sederet standar (mis., OWASP 10 Teratas).
-- Dengan kemampuan seperti [fuzz](https://nuclei.projectdiscovery.io/templating-guide/#advance-fuzzing) dan [alur kerja](https://nuclei.projectdiscovery.io/templating-guide/#workflows), langkah manual yang rumit dan penilaian berulang dapat dengan mudah diotomatisasi dengan Nuclei.
+- Dengan kemampuan seperti [fuzz](https://nuclei.projectdiscovery.io/templating-guide/protocols/http-fuzzing/) dan [alur kerja](https://nuclei.projectdiscovery.io/templating-guide/workflows/), langkah manual yang rumit dan penilaian berulang dapat dengan mudah diotomatisasi dengan Nuclei.
 - Mudah untuk menguji ulang perbaikan kerentanan hanya dengan menjalankan ulang template.
 
 </td>

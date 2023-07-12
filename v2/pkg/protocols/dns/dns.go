@@ -6,6 +6,7 @@ import (
 	"github.com/miekg/dns"
 	"github.com/pkg/errors"
 
+<<<<<<< HEAD
 	"github.com/weppos/publicsuffix-go/publicsuffix"
 
 	"github.com/Explorer1092/nuclei/v2/pkg/operators"
@@ -13,7 +14,16 @@ import (
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/replacer"
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/dns/dnsclientpool"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/replacer"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/dns/dnsclientpool"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/retryabledns"
+	fileutil "github.com/projectdiscovery/utils/file"
 )
 
 // Request contains a DNS protocol request to be made from a template
@@ -62,9 +72,24 @@ type Request struct {
 	//     value: 100
 	TraceMaxRecursion int `yaml:"trace-max-recursion,omitempty"  jsonschema:"title=trace-max-recursion level for dns request,description=TraceMaxRecursion is the number of max recursion allowed for trace operations"`
 
+	// description: |
+	//   Attack is the type of payload combinations to perform.
+	//
+	//   Batteringram is inserts the same payload into all defined payload positions at once, pitchfork combines multiple payload sets and clusterbomb generates
+	//   permutations and combinations for all payloads.
+	AttackType generators.AttackTypeHolder `yaml:"attack,omitempty" json:"attack,omitempty" jsonschema:"title=attack is the payload combination,description=Attack is the type of payload combinations to perform,enum=batteringram,enum=pitchfork,enum=clusterbomb"`
+	// description: |
+	//   Payloads contains any payloads for the current request.
+	//
+	//   Payloads support both key-values combinations where a list
+	//   of payloads is provided, or optionally a single file can also
+	//   be provided as payload which will be read on run-time.
+	Payloads  map[string]interface{} `yaml:"payloads,omitempty" json:"payloads,omitempty" jsonschema:"title=payloads for the network request,description=Payloads contains any payloads for the current request"`
+	generator *generators.PayloadGenerator
+
 	CompiledOperators *operators.Operators `yaml:"-"`
 	dnsClient         *retryabledns.Client
-	options           *protocols.ExecuterOptions
+	options           *protocols.ExecutorOptions
 
 	// cache any variables that may be needed for operation.
 	class    uint16
@@ -107,12 +132,12 @@ func (request *Request) GetID() string {
 }
 
 // Options returns executer options for http request
-func (r *Request) Options() *protocols.ExecuterOptions {
+func (r *Request) Options() *protocols.ExecutorOptions {
 	return r.options
 }
 
 // Compile compiles the protocol request for further execution.
-func (request *Request) Compile(options *protocols.ExecuterOptions) error {
+func (request *Request) Compile(options *protocols.ExecutorOptions) error {
 	if request.Retries == 0 {
 		request.Retries = 3
 	}
@@ -145,10 +170,27 @@ func (request *Request) Compile(options *protocols.ExecuterOptions) error {
 	request.class = classToInt(request.Class)
 	request.options = options
 	request.question = questionTypeToInt(request.RequestType.String())
+	for name, payload := range options.Options.Vars.AsMap() {
+		payloadStr, ok := payload.(string)
+		// check if inputs contains the payload
+		if ok && fileutil.FileExists(payloadStr) {
+			if request.Payloads == nil {
+				request.Payloads = make(map[string]interface{})
+			}
+			request.Payloads[name] = payloadStr
+		}
+	}
+
+	if len(request.Payloads) > 0 {
+		request.generator, err = generators.New(request.Payloads, request.AttackType.Value, request.options.TemplatePath, request.options.Options.Sandbox, request.options.Catalog, request.options.Options.AttackType)
+		if err != nil {
+			return errors.Wrap(err, "could not parse payloads")
+		}
+	}
 	return nil
 }
 
-func (request *Request) getDnsClient(options *protocols.ExecuterOptions, metadata map[string]interface{}) (*retryabledns.Client, error) {
+func (request *Request) getDnsClient(options *protocols.ExecutorOptions, metadata map[string]interface{}) (*retryabledns.Client, error) {
 	dnsClientOptions := &dnsclientpool.Configuration{
 		Retries: request.Retries,
 	}
@@ -172,6 +214,11 @@ func (request *Request) getDnsClient(options *protocols.ExecuterOptions, metadat
 
 // Requests returns the total number of requests the YAML rule will perform
 func (request *Request) Requests() int {
+	if request.generator != nil {
+		payloadRequests := request.generator.NewIterator().Total()
+		return payloadRequests
+	}
+
 	return 1
 }
 
@@ -228,6 +275,8 @@ func questionTypeToInt(questionType string) uint16 {
 		question = dns.TypeCAA
 	case "TLSA":
 		question = dns.TypeTLSA
+	case "ANY":
+		question = dns.TypeANY
 	}
 	return question
 }
@@ -252,21 +301,4 @@ func classToInt(class string) uint16 {
 		result = dns.ClassANY
 	}
 	return uint16(result)
-}
-
-// GenerateVariables from a dns name
-func GenerateVariables(domain string) map[string]interface{} {
-	parsed, err := publicsuffix.Parse(strings.TrimSuffix(domain, "."))
-	if err != nil {
-		return map[string]interface{}{"FQDN": domain}
-	}
-
-	domainName := strings.Join([]string{parsed.SLD, parsed.TLD}, ".")
-	return map[string]interface{}{
-		"FQDN": domain,
-		"RDN":  domainName,
-		"DN":   parsed.SLD,
-		"TLD":  parsed.TLD,
-		"SD":   parsed.TRD,
-	}
 }

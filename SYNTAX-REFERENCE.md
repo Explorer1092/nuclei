@@ -184,8 +184,6 @@ file:
             - amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
     extensions:
         - all
-    archive: false
-    mimetype: false
 ```
 
 
@@ -348,6 +346,19 @@ Valid values:
 <div class="dt">
 
 Variables contains any variables for the current request.
+
+</div>
+
+<hr />
+
+<div class="dd">
+
+<code>constants</code>  <i>map[string]interface{}</i>
+
+</div>
+<div class="dt">
+
+Constants contains any scalar costant for the current template
 
 </div>
 
@@ -1458,6 +1469,19 @@ DigestAuthPassword specifies the password for digest authentication
 
 <hr />
 
+<div class="dd">
+
+<code>disable-path-automerge</code>  <i>bool</i>
+
+</div>
+<div class="dt">
+
+DisablePathAutomerge disables merging target url path with raw request path
+
+</div>
+
+<hr />
+
 
 
 
@@ -1469,6 +1493,8 @@ Appears in:
 
 
 - <code><a href="#httprequest">http.Request</a>.attack</code>
+
+- <code><a href="#dnsrequest">dns.Request</a>.attack</code>
 
 - <code><a href="#networkrequest">network.Request</a>.attack</code>
 
@@ -1571,6 +1597,8 @@ Appears in:
 
 
 - <code><a href="#httprequest">http.Request</a>.fuzzing</code>
+
+- <code><a href="#headlessrequest">headless.Request</a>.fuzzing</code>
 
 
 
@@ -1955,6 +1983,39 @@ trace-max-recursion: 100
 
 <div class="dd">
 
+<code>attack</code>  <i><a href="#generatorsattacktypeholder">generators.AttackTypeHolder</a></i>
+
+</div>
+<div class="dt">
+
+Attack is the type of payload combinations to perform.
+
+Batteringram is inserts the same payload into all defined payload positions at once, pitchfork combines multiple payload sets and clusterbomb generates
+permutations and combinations for all payloads.
+
+</div>
+
+<hr />
+
+<div class="dd">
+
+<code>payloads</code>  <i>map[string]interface{}</i>
+
+</div>
+<div class="dt">
+
+Payloads contains any payloads for the current request.
+
+Payloads support both key-values combinations where a list
+of payloads is provided, or optionally a single file can also
+be provided as payload which will be read on run-time.
+
+</div>
+
+<hr />
+
+<div class="dd">
+
 <code>recursion</code>  <i>dns.bool</i>
 
 </div>
@@ -2031,6 +2092,8 @@ Enum Values:
   - <code>CAA</code>
 
   - <code>TLSA</code>
+
+  - <code>ANY</code>
 </div>
 
 <hr />
@@ -2055,8 +2118,6 @@ extractors:
         - amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
 extensions:
     - all
-archive: false
-mimetype: false
 ```
 
 Part Definitions: 
@@ -2162,6 +2223,32 @@ Examples:
 max-size: 5Mb
 ```
 
+
+</div>
+
+<hr />
+
+<div class="dd">
+
+<code>archive</code>  <i>bool</i>
+
+</div>
+<div class="dt">
+
+elaborates archives
+
+</div>
+
+<hr />
+
+<div class="dd">
+
+<code>mime-type</code>  <i>bool</i>
+
+</div>
+<div class="dt">
+
+enables mime types check
 
 </div>
 
@@ -2640,6 +2727,32 @@ description: |
 <div class="dt">
 
 StopAtFirstMatch stops the execution of the requests and template as soon as a match is found.
+
+</div>
+
+<hr />
+
+<div class="dd">
+
+<code>fuzzing</code>  <i>[]<a href="#fuzzrule">fuzz.Rule</a></i>
+
+</div>
+<div class="dt">
+
+Fuzzing describes schema to fuzz headless requests
+
+</div>
+
+<hr />
+
+<div class="dd">
+
+<code>cookie-reuse</code>  <i>bool</i>
+
+</div>
+<div class="dt">
+
+CookieReuse is an optional setting that enables cookie reuse
 
 </div>
 

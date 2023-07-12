@@ -1,5 +1,6 @@
 package format
 
+<<<<<<< HEAD
 import (
 	"bytes"
 	"fmt"
@@ -242,4 +243,12 @@ func createBoldMarkdown(value string) string {
 
 func lineBreakToHTML(text string) string {
 	return strings.ReplaceAll(text, "\n", "<br>")
+=======
+type ResultFormatter interface {
+	MakeBold(text string) string
+	CreateCodeBlock(title string, content string, language string) string
+	CreateTable(headers []string, rows [][]string) (string, error)
+	CreateLink(title string, url string) string
+	CreateHorizontalLine() string
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 }

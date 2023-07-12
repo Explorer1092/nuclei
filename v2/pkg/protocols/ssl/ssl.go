@@ -11,6 +11,7 @@ import (
 
 	"github.com/projectdiscovery/fastdialer/fastdialer"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/model"
 	"github.com/Explorer1092/nuclei/v2/pkg/operators"
 	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
@@ -28,6 +29,25 @@ import (
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
 	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/model"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators/extractors"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/network/networkclientpool"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
+	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
+	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/tlsx/pkg/tlsx"
 	"github.com/projectdiscovery/tlsx/pkg/tlsx/clients"
 	"github.com/projectdiscovery/tlsx/pkg/tlsx/openssl"
@@ -78,7 +98,7 @@ type Request struct {
 	// cache any variables that may be needed for operation.
 	dialer  *fastdialer.Dialer
 	tlsx    *tlsx.Service
-	options *protocols.ExecuterOptions
+	options *protocols.ExecutorOptions
 }
 
 // CanCluster returns true if the request can be clustered.
@@ -93,7 +113,7 @@ func (request *Request) CanCluster(other *Request) bool {
 }
 
 // Compile compiles the request generators preparing any requests possible.
-func (request *Request) Compile(options *protocols.ExecuterOptions) error {
+func (request *Request) Compile(options *protocols.ExecutorOptions) error {
 	request.options = options
 
 	client, err := networkclientpool.Get(options.Options, &networkclientpool.Configuration{})
@@ -155,7 +175,7 @@ func (request *Request) Compile(options *protocols.ExecuterOptions) error {
 }
 
 // Options returns executer options for http request
-func (r *Request) Options() *protocols.ExecuterOptions {
+func (r *Request) Options() *protocols.ExecutorOptions {
 	return r.options
 }
 
@@ -187,10 +207,10 @@ func (request *Request) ExecuteWithResults(input *contextargs.Context, dynamicVa
 	payloadValues["Host"] = hostname
 	payloadValues["Port"] = port
 
-	hostnameVariables := dns.GenerateVariables(hostname)
+	hostnameVariables := protocolutils.GenerateDNSVariables(hostname)
 	values := generators.MergeMaps(payloadValues, hostnameVariables)
 	variablesMap := request.options.Variables.Evaluate(values)
-	payloadValues = generators.MergeMaps(variablesMap, payloadValues)
+	payloadValues = generators.MergeMaps(variablesMap, payloadValues, request.options.Constants)
 
 	if vardump.EnableVarDump {
 		gologger.Debug().Msgf("Protocol request variables: \n%s\n", vardump.DumpVariables(payloadValues))
@@ -255,17 +275,36 @@ func (request *Request) ExecuteWithResults(input *contextargs.Context, dynamicVa
 	data["template-id"] = requestOptions.TemplateID
 	data["template-info"] = requestOptions.TemplateInfo
 
+	// if response is not struct compatible, error out
+	if !structs.IsStruct(response) {
+		return errorutil.NewWithTag("ssl", "response cannot be parsed into a struct: %v", response)
+	}
+
 	// Convert response to key value pairs and first cert chain item as well
 	responseParsed := structs.New(response)
 	for _, f := range responseParsed.Fields() {
+		if !f.IsExported() {
+			// if field is not exported f.IsZero() , f.Value() will panic
+			continue
+		}
 		tag := utils.CleanStructFieldJSONTag(f.Tag("json"))
 		if tag == "" || f.IsZero() {
 			continue
 		}
 		data[tag] = f.Value()
 	}
+
+	// if certificate response is not struct compatible, error out
+	if !structs.IsStruct(response.CertificateResponse) {
+		return errorutil.NewWithTag("ssl", "certificate response cannot be parsed into a struct: %v", response.CertificateResponse)
+	}
+
 	responseParsed = structs.New(response.CertificateResponse)
 	for _, f := range responseParsed.Fields() {
+		if !f.IsExported() {
+			// if field is not exported f.IsZero() , f.Value() will panic
+			continue
+		}
 		tag := utils.CleanStructFieldJSONTag(f.Tag("json"))
 		if tag == "" || f.IsZero() {
 			continue

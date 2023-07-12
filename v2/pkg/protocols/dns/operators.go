@@ -8,12 +8,22 @@ import (
 
 	"github.com/miekg/dns"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/model"
 	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
 	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
 	"github.com/Explorer1092/nuclei/v2/pkg/output"
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
 	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/model"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators/extractors"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/retryabledns"
 )
 
@@ -79,7 +89,7 @@ func (request *Request) getMatchPart(part string, data output.InternalEvent) (in
 
 // responseToDSLMap converts a DNS response to a map for use in DSL matching
 func (request *Request) responseToDSLMap(req, resp *dns.Msg, host, matched string, traceData *retryabledns.TraceData) output.InternalEvent {
-	return output.InternalEvent{
+	ret := output.InternalEvent{
 		"host":          host,
 		"matched":       matched,
 		"request":       req.String(),
@@ -95,6 +105,10 @@ func (request *Request) responseToDSLMap(req, resp *dns.Msg, host, matched strin
 		"type":          request.Type().String(),
 		"trace":         traceToString(traceData, false),
 	}
+	if len(resp.Answer) > 0 {
+		ret = generators.MergeMaps(ret, recordsKeyValue(resp.Answer))
+	}
+	return ret
 }
 
 // MakeResultEvent creates a result event from internal wrapped event
@@ -146,4 +160,26 @@ func traceToString(traceData *retryabledns.TraceData, withSteps bool) string {
 		}
 	}
 	return buffer.String()
+}
+
+func recordsKeyValue(resourceRecords []dns.RR) output.InternalEvent {
+	var oe = make(output.InternalEvent)
+	for _, resourceRecord := range resourceRecords {
+		key := strings.ToLower(dns.TypeToString[resourceRecord.Header().Rrtype])
+		value := strings.ReplaceAll(resourceRecord.String(), resourceRecord.Header().String(), "")
+
+		// if the key is already present, we need to convert the value to a slice
+		// if the key has slice, then append the value to the slice
+		if previous, ok := oe[key]; ok {
+			switch v := previous.(type) {
+			case string:
+				oe[key] = []string{v, value}
+			case []string:
+				oe[key] = append(v, value)
+			}
+			continue
+		}
+		oe[key] = value
+	}
+	return oe
 }

@@ -232,6 +232,11 @@
           "type": "boolean",
           "title": "use case insensitive extract",
           "description": "use case insensitive extract"
+        },
+        "to": {
+          "type": "string",
+          "title": "save extracted values to file",
+          "description": "save extracted values to file"
         }
       },
       "additionalProperties": false,
@@ -367,6 +372,72 @@
       "title": "type of the matcher",
       "description": "Type of the matcher"
     },
+    "fuzz.Rule": {
+      "properties": {
+        "type": {
+          "enum": [
+            "replace",
+            "prefix",
+            "postfix",
+            "infix"
+          ],
+          "type": "string",
+          "title": "type of rule",
+          "description": "Type of fuzzing rule to perform"
+        },
+        "part": {
+          "enum": [
+            "query"
+          ],
+          "type": "string",
+          "title": "part of rule",
+          "description": "Part of request rule to fuzz"
+        },
+        "mode": {
+          "enum": [
+            "single",
+            "multiple"
+          ],
+          "type": "string",
+          "title": "mode of rule",
+          "description": "Mode of request rule to fuzz"
+        },
+        "keys": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "keys of parameters to fuzz",
+          "description": "Keys of parameters to fuzz"
+        },
+        "keys-regex": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "keys regex to fuzz",
+          "description": "Regex of parameter keys to fuzz"
+        },
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "values regex to fuzz",
+          "description": "Regex of parameter values to fuzz"
+        },
+        "fuzz": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "payloads of fuzz rule",
+          "description": "Payloads to perform fuzzing substitutions with"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "generators.AttackTypeHolder": {
       "enum": [
         "batteringram",
@@ -378,9 +449,10 @@
       "description": "Type of the attack"
     },
     "variables.Variable": {
-      "properties": {},
-      "additionalProperties": false,
-      "type": "object"
+      "additionalProperties": true,
+      "type": "object",
+      "title": "variables for the request",
+      "description": "Additional variables for the request"
     },
     "dns.DNSRequestTypeHolder": {
       "enum": [
@@ -394,7 +466,8 @@
         "TXT",
         "AAAA",
         "CAA",
-        "TLSA"
+        "TLSA",
+        "ANY"
       ],
       "type": "string",
       "title": "type of DNS request to make",
@@ -471,6 +544,21 @@
           "title": "trace-max-recursion level for dns request",
           "description": "TraceMaxRecursion is the number of max recursion allowed for trace operations"
         },
+        "attack": {
+          "$ref": "#/definitions/generators.AttackTypeHolder",
+          "title": "attack is the payload combination",
+          "description": "Attack is the type of payload combinations to perform"
+        },
+        "payloads": {
+          "patternProperties": {
+            ".*": {
+              "additionalProperties": true
+            }
+          },
+          "type": "object",
+          "title": "payloads for the network request",
+          "description": "Payloads contains any payloads for the current request"
+        },
         "recursion": {
           "type": "boolean",
           "title": "recurse all servers",
@@ -489,10 +577,6 @@
       "type": "object"
     },
     "file.Request": {
-      "required": [
-        "Archive",
-        "MimeType"
-      ],
       "properties": {
         "matchers": {
           "items": {
@@ -545,11 +629,15 @@
           "title": "max size data to run request on",
           "description": "Maximum size of the file to run request on"
         },
-        "Archive": {
-          "type": "boolean"
+        "archive": {
+          "type": "boolean",
+          "title": "enable archives",
+          "description": "Process compressed archives without unpacking"
         },
-        "MimeType": {
-          "type": "boolean"
+        "mime-type": {
+          "type": "boolean",
+          "title": "enable filtering by mime-type",
+          "description": "Filter files by mime-type"
         },
         "no-recursive": {
           "type": "boolean",
@@ -631,6 +719,19 @@
           "type": "string",
           "title": "condition between the matchers",
           "description": "Conditions between the matchers"
+        },
+        "fuzzing": {
+          "items": {
+            "$ref": "#/definitions/fuzz.Rule"
+          },
+          "type": "array",
+          "title": "fuzzin rules for http fuzzing",
+          "description": "Fuzzing describes rule schema to fuzz headless requests"
+        },
+        "cookie-reuse": {
+          "type": "boolean",
+          "title": "optional cookie reuse enable",
+          "description": "Optional setting that enables cookie reuse"
         }
       },
       "additionalProperties": false,
@@ -918,6 +1019,11 @@
           "type": "string",
           "title": "specifies the password for digest authentication",
           "description": "Optional parameter which specifies the password for digest auth"
+        },
+        "disable-path-automerge": {
+          "type": "boolean",
+          "title": "disable auto merging of path",
+          "description": "Disable merging target url path with raw request path"
         }
       },
       "additionalProperties": false,
@@ -930,72 +1036,6 @@
       "type": "string",
       "title": "type of the signature",
       "description": "Type of the signature"
-    },
-    "fuzz.Rule": {
-      "properties": {
-        "type": {
-          "enum": [
-            "replace",
-            "prefix",
-            "postfix",
-            "infix"
-          ],
-          "type": "string",
-          "title": "type of rule",
-          "description": "Type of fuzzing rule to perform"
-        },
-        "part": {
-          "enum": [
-            "query"
-          ],
-          "type": "string",
-          "title": "part of rule",
-          "description": "Part of request rule to fuzz"
-        },
-        "mode": {
-          "enum": [
-            "single",
-            "multiple"
-          ],
-          "type": "string",
-          "title": "mode of rule",
-          "description": "Mode of request rule to fuzz"
-        },
-        "keys": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "title": "keys of parameters to fuzz",
-          "description": "Keys of parameters to fuzz"
-        },
-        "keys-regex": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "title": "keys regex to fuzz",
-          "description": "Regex of parameter keys to fuzz"
-        },
-        "values": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "title": "values regex to fuzz",
-          "description": "Regex of parameter values to fuzz"
-        },
-        "fuzz": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "title": "payloads of fuzz rule",
-          "description": "Payloads to perform fuzzing substitutions with"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
     },
     "network.Input": {
       "properties": {
@@ -1452,6 +1492,16 @@
           "$ref": "#/definitions/variables.Variable",
           "title": "variables for the http request",
           "description": "Variables contains any variables for the current request"
+        },
+        "constants": {
+          "patternProperties": {
+            ".*": {
+              "additionalProperties": true
+            }
+          },
+          "type": "object",
+          "title": "constant for the template",
+          "description": "constants contains any constant for the template"
         }
       },
       "additionalProperties": false,

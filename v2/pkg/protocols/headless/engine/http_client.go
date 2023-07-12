@@ -11,9 +11,16 @@ import (
 
 	"golang.org/x/net/proxy"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
 	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
 	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/fastdialer/fastdialer/ja3/impersonate"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 )
 
 // newHttpClient creates a new http client for headless communication with a timeout
@@ -39,9 +46,14 @@ func newHttpClient(options *types.Options) (*http.Client, error) {
 	}
 
 	transport := &http.Transport{
-		ForceAttemptHTTP2:   options.ForceAttemptHTTP2,
-		DialContext:         dialer.Dial,
-		DialTLSContext:      dialer.DialTLS,
+		ForceAttemptHTTP2: options.ForceAttemptHTTP2,
+		DialContext:       dialer.Dial,
+		DialTLSContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+			if options.TlsImpersonate {
+				return dialer.DialTLSWithConfigImpersonate(ctx, network, addr, tlsConfig, impersonate.Random, nil)
+			}
+			return dialer.DialTLS(ctx, network, addr)
+		},
 		MaxIdleConns:        500,
 		MaxIdleConnsPerHost: 500,
 		MaxConnsPerHost:     500,
@@ -64,9 +76,7 @@ func newHttpClient(options *types.Options) (*http.Client, error) {
 		dc := dialer.(interface {
 			DialContext(ctx context.Context, network, addr string) (net.Conn, error)
 		})
-		if proxyErr == nil {
-			transport.DialContext = dc.DialContext
-		}
+		transport.DialContext = dc.DialContext
 	}
 
 	jar, _ := cookiejar.New(nil)

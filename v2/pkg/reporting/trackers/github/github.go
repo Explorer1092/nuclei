@@ -7,14 +7,20 @@ import (
 	"net/url"
 	"strings"
 
-	"golang.org/x/oauth2"
-
 	"github.com/google/go-github/github"
 	"github.com/pkg/errors"
+	"golang.org/x/oauth2"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/output"
 	"github.com/Explorer1092/nuclei/v2/pkg/reporting/format"
 	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/markdown/util"
+	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 
@@ -28,7 +34,7 @@ type Integration struct {
 type Options struct {
 	// BaseURL (optional) is the self-hosted GitHub application url
 	BaseURL string `yaml:"base-url" validate:"omitempty,url"`
-	// Username is the username of the github user
+	// Username is the username of the GitHub user
 	Username string `yaml:"username" validate:"required"`
 	// Owner is the owner name of the repository for issues.
 	Owner string `yaml:"owner" validate:"required"`
@@ -78,7 +84,7 @@ func New(options *Options) (*Integration, error) {
 // CreateIssue creates an issue in the tracker
 func (i *Integration) CreateIssue(event *output.ResultEvent) error {
 	summary := format.Summary(event)
-	description := format.MarkdownDescription(event)
+	description := format.CreateReportDescription(event, util.MarkdownFormatter{})
 	labels := []string{}
 	severityLabel := fmt.Sprintf("Severity: %s", event.Info.SeverityHolder.Severity.String())
 	if i.options.SeverityAsLabel && severityLabel != "" {
