@@ -11,9 +11,9 @@ import (
 	"path/filepath"
 	"sort"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
 	"github.com/Masterminds/semver/v3"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

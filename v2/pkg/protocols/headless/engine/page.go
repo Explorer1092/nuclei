@@ -9,10 +9,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/proto"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
 )
 
 // Page is a single page in an isolated browser instance

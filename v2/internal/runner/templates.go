@@ -6,15 +6,15 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader"
 	"github.com/alecthomas/chroma/quick"
 	"github.com/logrusorgru/aurora"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
 	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/parsers"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 )
 
 // log available templates for verbose (-vv)

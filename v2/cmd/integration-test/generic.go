@@ -10,7 +10,7 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
 )
 
 var genericTestcases = map[string]testutils.TestCase{

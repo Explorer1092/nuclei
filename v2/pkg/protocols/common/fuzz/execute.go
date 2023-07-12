@@ -4,10 +4,10 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
 	"github.com/pkg/errors"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
 	"github.com/projectdiscovery/retryablehttp-go"
 	urlutil "github.com/projectdiscovery/utils/url"
 )

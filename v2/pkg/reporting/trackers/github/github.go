@@ -11,10 +11,10 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/oauth2"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/markdown/util"
-	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/markdown/util"
+	"github.com/Explorer1092/nuclei/v2/pkg/reporting/format"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

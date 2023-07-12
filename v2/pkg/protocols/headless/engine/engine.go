@@ -10,7 +10,7 @@ import (
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/pkg/errors"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
 	fileutil "github.com/projectdiscovery/utils/file"
 	osutils "github.com/projectdiscovery/utils/os"
 	processutil "github.com/projectdiscovery/utils/process"

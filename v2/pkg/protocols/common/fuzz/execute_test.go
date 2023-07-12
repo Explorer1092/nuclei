@@ -3,7 +3,7 @@ package fuzz
 import (
 	"testing"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/stretchr/testify/require"
 )
 

@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
+	protocolutils "github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v2/pkg/utils"
 	"github.com/alecthomas/jsonschema"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/interactsh"
-	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
-	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 

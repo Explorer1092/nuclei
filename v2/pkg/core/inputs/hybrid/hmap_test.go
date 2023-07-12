@@ -7,11 +7,11 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
 	"github.com/miekg/dns"
 	"github.com/projectdiscovery/hmap/store/hybrid"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 	"github.com/stretchr/testify/require"
 )
 

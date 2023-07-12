@@ -12,10 +12,10 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/external/customtemplates"
 	"github.com/olekukonko/tablewriter"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v2/pkg/external/customtemplates"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	stringsutil "github.com/projectdiscovery/utils/strings"

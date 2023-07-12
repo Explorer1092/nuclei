@@ -1,6 +1,6 @@
 package main
 
-import "github.com/projectdiscovery/nuclei/v2/pkg/testutils"
+import "github.com/Explorer1092/nuclei/v2/pkg/testutils"
 
 // All Interactsh related testcases
 var interactshTestCases = map[string]testutils.TestCase{

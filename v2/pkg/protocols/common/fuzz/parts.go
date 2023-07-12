@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
 	"github.com/corpix/uarand"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
 	"github.com/projectdiscovery/retryablehttp-go"
 	sliceutil "github.com/projectdiscovery/utils/slice"
 	urlutil "github.com/projectdiscovery/utils/url"
