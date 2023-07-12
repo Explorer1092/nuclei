@@ -1,6 +1,6 @@
 package inputs
 
-import "github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+import "github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 
 type SimpleInputProvider struct {
 	Inputs []*contextargs.MetaInput

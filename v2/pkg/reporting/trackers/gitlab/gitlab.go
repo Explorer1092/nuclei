@@ -5,14 +5,9 @@ import (
 
 	"github.com/xanzy/go-gitlab"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/format"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/markdown/util"
 	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

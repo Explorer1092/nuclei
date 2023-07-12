@@ -6,16 +6,6 @@ import (
 	"regexp"
 	"strings"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader/filter"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/cache"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/signer"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils/stats"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
@@ -25,7 +15,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
 	"github.com/projectdiscovery/nuclei/v2/pkg/utils/stats"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"gopkg.in/yaml.v2"
 )
 

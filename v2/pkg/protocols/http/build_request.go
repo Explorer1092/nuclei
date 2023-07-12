@@ -11,17 +11,6 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/replacer"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/race"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/raw"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/utils"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
@@ -31,7 +20,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/utils"
 	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/rawhttp"
 	"github.com/projectdiscovery/retryablehttp-go"
 	errorutil "github.com/projectdiscovery/utils/errors"

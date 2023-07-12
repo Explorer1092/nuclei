@@ -10,7 +10,7 @@ import (
 
 	"github.com/projectdiscovery/fastdialer/fastdialer"
 	"github.com/projectdiscovery/networkpolicy"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 )
 
 // Dialer is a shared fastdialer instance for host DNS resolution

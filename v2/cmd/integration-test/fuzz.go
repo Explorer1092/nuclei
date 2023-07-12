@@ -8,8 +8,8 @@ import (
 	"net/url"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
 )
 
 var fuzzingTestCases = map[string]testutils.TestCase{

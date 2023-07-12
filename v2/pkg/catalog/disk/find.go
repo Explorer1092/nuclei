@@ -8,12 +8,8 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/pkg/errors"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-=======
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	stringsutil "github.com/projectdiscovery/utils/strings"
 	updateutils "github.com/projectdiscovery/utils/update"
 	urlutil "github.com/projectdiscovery/utils/url"

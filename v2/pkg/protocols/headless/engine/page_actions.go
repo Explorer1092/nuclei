@@ -18,12 +18,8 @@ import (
 	"github.com/go-rod/rod/lib/utils"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"

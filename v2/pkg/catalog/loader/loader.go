@@ -6,17 +6,17 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-	cfg "github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader/filter"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils/stats"
-	"github.com/Explorer1092/nuclei/v2/pkg/workflows"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
+	cfg "github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v2/pkg/parsers"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
+	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/utils/stats"
+	"github.com/projectdiscovery/nuclei/v2/pkg/workflows"
 )
 
 // Config contains the configuration options for the loader

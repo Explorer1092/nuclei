@@ -18,24 +18,6 @@ import (
 	"moul.io/http2curl"
 
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/tostring"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/fuzz"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/httpclientpool"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/signer"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/signerpool"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
@@ -52,7 +34,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/signerpool"
 	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/rawhttp"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 	urlutil "github.com/projectdiscovery/utils/url"

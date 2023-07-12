@@ -13,9 +13,9 @@ import (
 	"github.com/olekukonko/tablewriter"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-	"github.com/Explorer1092/nuclei/v2/internal/runner/nucleicloud"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/extensions"
+	"github.com/projectdiscovery/nuclei/v2/internal/runner/nucleicloud"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates/extensions"
 )
 
 // Get all the scan lists for a user/apikey.

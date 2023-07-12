@@ -19,18 +19,11 @@ import (
 	"github.com/projectdiscovery/hmap/store/hybrid"
 	"github.com/projectdiscovery/mapcidr"
 	"github.com/projectdiscovery/mapcidr/asn"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/uncover"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/uncover"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 	uncoverlib "github.com/projectdiscovery/uncover"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	fileutil "github.com/projectdiscovery/utils/file"
 	iputil "github.com/projectdiscovery/utils/ip"
 	readerutil "github.com/projectdiscovery/utils/reader"

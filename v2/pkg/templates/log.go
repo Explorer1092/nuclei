@@ -5,13 +5,10 @@ import (
 	"strings"
 
 	"github.com/logrusorgru/aurora"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-=======
+
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
 	mapsutil "github.com/projectdiscovery/utils/maps"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 )
 
 var (

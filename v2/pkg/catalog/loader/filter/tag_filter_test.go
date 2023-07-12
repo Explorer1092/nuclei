@@ -3,14 +3,6 @@ package filter
 import (
 	"testing"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/dns"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/model"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/stringslice"
@@ -18,7 +10,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http"
 	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
 	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/stretchr/testify/require"
 )
 

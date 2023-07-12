@@ -17,7 +17,7 @@ import (
 
 	jsoniter "github.com/json-iterator/go"
 	"github.com/pkg/errors"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

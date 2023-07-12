@@ -4,20 +4,12 @@ import (
 	"github.com/corpix/uarand"
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD
-	useragent "github.com/Explorer1092/nuclei/v2/pkg/model/types/userAgent"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/headless/engine"
-=======
 	useragent "github.com/projectdiscovery/nuclei/v2/pkg/model/types/userAgent"
 	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/fuzz"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/headless/engine"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	fileutil "github.com/projectdiscovery/utils/file"
 )
 

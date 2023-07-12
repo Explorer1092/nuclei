@@ -5,8 +5,8 @@ package generators
 import (
 	"github.com/pkg/errors"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
 )
 
 // PayloadGenerator is the generator struct for generating payloads

@@ -7,25 +7,9 @@ import (
 	"strings"
 
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/projectdiscovery/ratelimit"
-	ucRunner "github.com/projectdiscovery/uncover/runner"
-	"github.com/projectdiscovery/uncover/uncover"
-	"github.com/projectdiscovery/uncover/uncover/agent/censys"
-	"github.com/projectdiscovery/uncover/uncover/agent/criminalip"
-	"github.com/projectdiscovery/uncover/uncover/agent/fofa"
-	"github.com/projectdiscovery/uncover/uncover/agent/hunter"
-	"github.com/projectdiscovery/uncover/uncover/agent/netlas"
-	"github.com/projectdiscovery/uncover/uncover/agent/quake"
-	"github.com/projectdiscovery/uncover/uncover/agent/shodan"
-	"github.com/projectdiscovery/uncover/uncover/agent/shodanidb"
-	"github.com/projectdiscovery/uncover/uncover/agent/zoomeye"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
 	"github.com/projectdiscovery/uncover"
 	"github.com/projectdiscovery/uncover/sources"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	mapsutil "github.com/projectdiscovery/utils/maps"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

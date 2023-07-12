@@ -1,7 +1,7 @@
 package reporting
 
 import (
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 )
 
 // Client is a client for nuclei issue tracking module

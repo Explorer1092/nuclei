@@ -12,8 +12,8 @@ import (
 
 	"github.com/corpix/uarand"
 	"github.com/pkg/errors"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

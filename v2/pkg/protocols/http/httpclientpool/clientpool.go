@@ -17,16 +17,10 @@ import (
 	"golang.org/x/net/publicsuffix"
 
 	"github.com/projectdiscovery/fastdialer/fastdialer"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/fastdialer/fastdialer/ja3/impersonate"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/rawhttp"
 	"github.com/projectdiscovery/retryablehttp-go"
 )

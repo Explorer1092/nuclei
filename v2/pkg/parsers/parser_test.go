@@ -5,20 +5,11 @@ import (
 	"fmt"
 	"testing"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader/filter"
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/disk"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/stringslice"
 	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/stretchr/testify/require"
 )
 

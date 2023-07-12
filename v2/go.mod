@@ -252,6 +252,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/nwaples/rardecode v1.1.3 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
+	github.com/projectdiscovery/nuclei/v2 v2.9.8
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/src-d/gcfg v1.4.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect

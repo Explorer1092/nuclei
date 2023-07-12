@@ -9,14 +9,6 @@ import (
 	"github.com/remeh/sizedwaitgroup"
 
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/tostring"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
@@ -24,7 +16,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/tostring"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
 	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 )
 
 var _ protocols.Request = &Request{}

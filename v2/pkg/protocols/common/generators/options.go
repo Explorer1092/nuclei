@@ -1,7 +1,7 @@
 package generators
 
 import (
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 )
 
 // BuildPayloadFromOptions returns a map with the payloads provided via CLI

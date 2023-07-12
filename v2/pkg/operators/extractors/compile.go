@@ -7,7 +7,7 @@ import (
 
 	"github.com/Knetic/govaluate"
 	"github.com/itchyny/gojq"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/common/dsl"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators/common/dsl"
 )
 
 // CompileExtractors performs the initial setup operation on an extractor

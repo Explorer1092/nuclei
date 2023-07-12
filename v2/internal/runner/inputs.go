@@ -12,7 +12,7 @@ import (
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/hmap/store/hybrid"
 	"github.com/projectdiscovery/httpx/common/httpx"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/remeh/sizedwaitgroup"
 )
 

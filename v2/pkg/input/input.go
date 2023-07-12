@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/projectdiscovery/hmap/store/hybrid"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	fileutil "github.com/projectdiscovery/utils/file"
 	"github.com/projectdiscovery/utils/ports"
 	stringsutil "github.com/projectdiscovery/utils/strings"

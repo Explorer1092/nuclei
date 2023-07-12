@@ -12,14 +12,9 @@ import (
 	"sync/atomic"
 	"time"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/internal/installer"
-	"github.com/Explorer1092/nuclei/v2/internal/runner/nucleicloud"
-=======
 	"github.com/projectdiscovery/nuclei/v2/internal/installer"
 	"github.com/projectdiscovery/nuclei/v2/internal/runner/nucleicloud"
 	uncoverlib "github.com/projectdiscovery/uncover"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	updateutils "github.com/projectdiscovery/utils/update"
 
 	"github.com/logrusorgru/aurora"
@@ -27,41 +22,6 @@ import (
 	"github.com/projectdiscovery/ratelimit"
 
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/internal/colorizer"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader"
-	"github.com/Explorer1092/nuclei/v2/pkg/core"
-	"github.com/Explorer1092/nuclei/v2/pkg/core/inputs/hybrid"
-	"github.com/Explorer1092/nuclei/v2/pkg/external/customtemplates"
-	"github.com/Explorer1092/nuclei/v2/pkg/input"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
-	"github.com/Explorer1092/nuclei/v2/pkg/progress"
-	"github.com/Explorer1092/nuclei/v2/pkg/projectfile"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/automaticscan"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/hosterrorscache"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolinit"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/uncover"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/excludematchers"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/headless/engine"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/httpclientpool"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting"
-	json_exporter "github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonexporter"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonl"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/markdown"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/sarif"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils/stats"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils/yaml"
-=======
 	"github.com/projectdiscovery/nuclei/v2/internal/colorizer"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
@@ -95,7 +55,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
 	"github.com/projectdiscovery/nuclei/v2/pkg/utils/stats"
 	"github.com/projectdiscovery/nuclei/v2/pkg/utils/yaml"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	"github.com/projectdiscovery/retryablehttp-go"
 	ptrutil "github.com/projectdiscovery/utils/ptr"
 )

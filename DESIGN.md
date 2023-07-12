@@ -395,7 +395,7 @@ Step by step description of how to add a new protocol to Nuclei -
 
 import (
 	...
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/others/websocket"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/others/websocket"
 )
 
 // Template is a YAML input file which defines all the requests and

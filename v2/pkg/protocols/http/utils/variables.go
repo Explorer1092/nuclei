@@ -5,9 +5,9 @@ import (
 	"path"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/dns"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/dns"
 	urlutil "github.com/projectdiscovery/utils/url"
 )
 

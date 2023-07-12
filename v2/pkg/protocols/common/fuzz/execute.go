@@ -5,14 +5,9 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-<<<<<<< HEAD:v2/pkg/protocols/http/fuzz/execute.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93:v2/pkg/protocols/common/fuzz/execute.go
 	"github.com/projectdiscovery/retryablehttp-go"
 	urlutil "github.com/projectdiscovery/utils/url"
 )

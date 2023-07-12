@@ -3,15 +3,9 @@ package fuzz
 import (
 	"testing"
 
-<<<<<<< HEAD:v2/pkg/protocols/http/fuzz/parts_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
-	urlutil "github.com/projectdiscovery/utils/url"
-=======
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/interactsh"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93:v2/pkg/protocols/common/fuzz/parts_test.go
 	"github.com/stretchr/testify/require"
 )
 

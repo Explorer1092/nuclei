@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/disk"
 	"github.com/stretchr/testify/require"
 )
 

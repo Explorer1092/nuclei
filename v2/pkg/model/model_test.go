@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/stringslice"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v2"
 )

@@ -6,13 +6,13 @@ import (
 	"strings"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/writer"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model"
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/writer"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	cryptoutil "github.com/projectdiscovery/utils/crypto"
 )
 
