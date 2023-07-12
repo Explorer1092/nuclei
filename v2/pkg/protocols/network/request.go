@@ -14,6 +14,7 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/exp/maps"
 
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
@@ -27,7 +28,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/replacer"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
 	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

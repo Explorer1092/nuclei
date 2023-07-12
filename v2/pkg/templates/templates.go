@@ -4,6 +4,7 @@ package templates
 import (
 	"encoding/json"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	validate "github.com/go-playground/validator/v10"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
@@ -16,7 +17,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/ssl"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/websocket"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/whois"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v2/pkg/workflows"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	"go.uber.org/multierr"

@@ -9,6 +9,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/rdap"
 
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v2/pkg/operators/extractors"
@@ -23,7 +24,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
 	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/whois/rdapclientpool"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 )

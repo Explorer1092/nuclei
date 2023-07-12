@@ -9,6 +9,7 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/exp/maps"
 
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
@@ -21,7 +22,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/headless/engine"
 	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	urlutil "github.com/projectdiscovery/utils/url"
 )
 

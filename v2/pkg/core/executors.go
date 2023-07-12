@@ -4,11 +4,11 @@ import (
 	"sync"
 	"sync/atomic"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	generalTypes "github.com/projectdiscovery/nuclei/v2/pkg/types"
 	"github.com/remeh/sizedwaitgroup"
 )

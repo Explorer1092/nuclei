@@ -13,6 +13,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/remeh/sizedwaitgroup"
 
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v2/pkg/operators/matchers"
@@ -21,7 +22,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	sliceutil "github.com/projectdiscovery/utils/slice"
 )
 

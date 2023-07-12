@@ -21,6 +21,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/ratelimit"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/internal/colorizer"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
@@ -50,7 +51,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/jsonl"
 	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/markdown"
 	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/sarif"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
 	"github.com/projectdiscovery/nuclei/v2/pkg/utils/stats"

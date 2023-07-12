@@ -9,6 +9,7 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"github.com/pkg/errors"
 
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/fastdialer/fastdialer"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model"
@@ -26,7 +27,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/network/networkclientpool"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
 	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/tlsx/pkg/tlsx"
 	"github.com/projectdiscovery/tlsx/pkg/tlsx/clients"

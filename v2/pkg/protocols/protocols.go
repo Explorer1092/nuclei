@@ -5,6 +5,7 @@ import (
 
 	"github.com/logrusorgru/aurora"
 
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v2/pkg/input"
 	"github.com/projectdiscovery/nuclei/v2/pkg/model"
@@ -21,7 +22,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/variables"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/headless/engine"
 	"github.com/projectdiscovery/nuclei/v2/pkg/reporting"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 )
 

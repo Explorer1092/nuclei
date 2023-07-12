@@ -6,10 +6,10 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/templates/extensions"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates/signer"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/goflags"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/extensions"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/signer"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 

@@ -10,6 +10,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
 	"github.com/julienschmidt/httprouter"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/disk"
@@ -24,7 +25,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/variables"
 	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
 	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
 	"github.com/projectdiscovery/nuclei/v2/pkg/workflows"
 	"github.com/projectdiscovery/ratelimit"

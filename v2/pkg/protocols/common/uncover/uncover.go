@@ -6,8 +6,8 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
 	"github.com/projectdiscovery/uncover"
 	"github.com/projectdiscovery/uncover/sources"
 	mapsutil "github.com/projectdiscovery/utils/maps"
