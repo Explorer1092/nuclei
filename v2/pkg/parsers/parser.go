@@ -136,7 +136,7 @@ var (
 	parsedTemplatesCache *cache.Templates
 	ShouldValidate       bool
 	NoStrictSyntax       bool
-	templateIDRegexp     = regexp.MustCompile(`^([a-zA-Z0-9\p{Han}]+[-_])*[a-zA-Z0-9\p{Han}]+$`)
+	templateIDRegexp     = regexp.MustCompile(`^([a-zA-Z0-9\p{Han}\!\(\)\.]+[-_])*[a-zA-Z0-9\p{Han}\!\(\)\.]+$`)
 )
 
 const (
