@@ -7,13 +7,9 @@ import (
 	"path/filepath"
 	"strings"
 
-<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v2/pkg/templates/extensions"
-=======
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/extensions"
 	fileutil "github.com/projectdiscovery/utils/file"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 
