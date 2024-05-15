@@ -6,18 +6,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/transport/http"
 	"github.com/google/go-github/github"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/external/customtemplates/github.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/external/customtemplates/github.go
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"
 	"golang.org/x/oauth2"

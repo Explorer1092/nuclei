@@ -4,18 +4,11 @@ import (
 	"strings"
 	"testing"
 
-<<<<<<< HEAD:v2/pkg/reporting/format/format_utils_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/markdown/util"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/model"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/markdown/util"
+	"github.com/Explorer1092/nuclei/v3/pkg/model"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown/util"
 	"github.com/stretchr/testify/require"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/reporting/format/format_utils_test.go
 )
 
 func TestToMarkdownTableString(t *testing.T) {

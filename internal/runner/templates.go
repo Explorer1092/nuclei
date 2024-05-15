@@ -6,26 +6,15 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/loader"
 	"github.com/alecthomas/chroma/quick"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/logrusorgru/aurora"
-<<<<<<< HEAD:v2/internal/runner/templates.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/loader"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:internal/runner/templates.go
 
-	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/templates"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/internal/runner/templates.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:internal/runner/templates.go
 )
 
 // log available templates for verbose (-vv)

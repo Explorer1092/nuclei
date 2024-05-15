@@ -11,14 +11,9 @@ import (
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 
-<<<<<<< HEAD:v2/pkg/reporting/dedupe/dedupe.go
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/utils/conversion"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/reporting/dedupe/dedupe.go
 )
 
 // Storage is a duplicate detecting storage for nuclei scan events.

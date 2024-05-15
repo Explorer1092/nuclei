@@ -5,21 +5,12 @@ import (
 	"net/http/cookiejar"
 	"sync/atomic"
 
-<<<<<<< HEAD:v2/pkg/core/workflow_execute.go
-	"github.com/remeh/sizedwaitgroup"
-
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/workflows"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v3/pkg/scan"
+	"github.com/Explorer1092/nuclei/v3/pkg/workflows"
 	"github.com/projectdiscovery/gologger"
-=======
-	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
-	"github.com/projectdiscovery/nuclei/v3/pkg/workflows"
 	syncutil "github.com/projectdiscovery/utils/sync"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/core/workflow_execute.go
 )
 
 const workflowStepExecutionError = "[%s] Could not execute workflow step: %s\n"

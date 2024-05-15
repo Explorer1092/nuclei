@@ -3,16 +3,10 @@ package interactsh
 import (
 	"time"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/progress"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/progress"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting"
 	"github.com/projectdiscovery/interactsh/pkg/client"
-<<<<<<< HEAD:v2/pkg/protocols/common/interactsh/options.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/progress"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/common/interactsh/options.go
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

@@ -4,13 +4,8 @@ import (
 	"regexp"
 	"strings"
 
-<<<<<<< HEAD:v2/pkg/protocols/common/fuzz/fuzz.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/fuzz/fuzz.go
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
 )
 
 // Rule is a single rule which describes how to fuzz the request

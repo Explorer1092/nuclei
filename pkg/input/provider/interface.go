@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/input/formats"
+	"github.com/Explorer1092/nuclei/v3/pkg/input/provider/http"
+	"github.com/Explorer1092/nuclei/v3/pkg/input/provider/list"
+	"github.com/Explorer1092/nuclei/v3/pkg/input/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+	configTypes "github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/formats"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/provider/http"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/provider/list"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/types"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
-	configTypes "github.com/projectdiscovery/nuclei/v3/pkg/types"
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

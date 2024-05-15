@@ -1,12 +1,8 @@
 package rdapclientpool
 
 import (
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/protocols/whois/rdapclientpool/clientpool.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/whois/rdapclientpool/clientpool.go
 	"github.com/projectdiscovery/rdap"
 )
 

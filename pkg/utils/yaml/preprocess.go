@@ -7,11 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-<<<<<<< HEAD:v2/pkg/utils/yaml/preprocess.go
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/extensions"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates/extensions"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/utils/yaml/preprocess.go
+	"github.com/Explorer1092/nuclei/v3/pkg/templates/extensions"
 	fileutil "github.com/projectdiscovery/utils/file"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

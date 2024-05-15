@@ -5,13 +5,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/utils"
-<<<<<<< HEAD:v2/pkg/protocols/headless/engine/instance.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/interactsh"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/headless/engine/instance.go
 )
 
 // Instance is an isolated browser instance opened for doing operations with it.

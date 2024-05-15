@@ -8,22 +8,16 @@ import (
 	"github.com/antchfx/htmlquery"
 	"github.com/antchfx/xmlquery"
 
-<<<<<<< HEAD:v2/pkg/operators/matchers/match.go
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/common/dsl"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/projectdiscovery/gologger"
-=======
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/common/dsl"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
 	dslRepo "github.com/projectdiscovery/dsl"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/common/dsl"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/expressions"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 
 var (
 	// showDSLErr controls whether to show hidden DSL errors or not
 	showDSLErr = strings.EqualFold(os.Getenv("SHOW_DSL_ERRORS"), "true")
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/operators/matchers/match.go
 )
 
 // MatchStatusCode matches a status code check against a corpus

@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
 )
 
 type Parser interface {

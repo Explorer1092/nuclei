@@ -4,23 +4,13 @@ import (
 	"encoding/json"
 	"strings"
 
-<<<<<<< HEAD:v2/pkg/protocols/common/variables/variables.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
-	protocolutils "github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils"
-	"github.com/alecthomas/jsonschema"
-=======
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
+	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/invopop/jsonschema"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/expressions"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/interactsh"
-	protocolutils "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
-	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/common/variables/variables.go
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 

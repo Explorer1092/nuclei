@@ -7,14 +7,9 @@ import (
 	"path"
 	"sync"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
 	"github.com/pkg/errors"
-<<<<<<< HEAD:v2/pkg/reporting/exporters/sarif/sarif.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/reporting/exporters/sarif/sarif.go
 	"github.com/projectdiscovery/sarif"
 )
 
@@ -58,15 +53,9 @@ func (exporter *Exporter) addToolDetails() {
 		FullDescription: &sarif.MultiformatMessageString{
 			Text: "Fast and customizable vulnerability scanner based on simple YAML based DSL",
 		},
-<<<<<<< HEAD:v2/pkg/reporting/exporters/sarif/sarif.go
-		FullName:        "Nuclei v" + config.Version,
-		SemanticVersion: "v" + config.Version,
-		DownloadURI:     "https://github.com/Explorer1092/nuclei/releases",
-=======
 		FullName:        "Nuclei " + config.Version,
 		SemanticVersion: config.Version,
 		DownloadURI:     "https://github.com/projectdiscovery/nuclei/releases",
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/reporting/exporters/sarif/sarif.go
 		Rules:           exporter.rules,
 	}
 	exporter.sarif.RegisterTool(driver)

@@ -14,20 +14,13 @@ import (
 
 	"github.com/Mzack9999/gcache"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/writer"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/writer"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/interactsh/pkg/client"
 	"github.com/projectdiscovery/interactsh/pkg/server"
-<<<<<<< HEAD:v2/pkg/protocols/common/interactsh/interactsh.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/writer"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/common/interactsh/interactsh.go
 	errorutil "github.com/projectdiscovery/utils/errors"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

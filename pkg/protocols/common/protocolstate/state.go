@@ -10,15 +10,11 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/net/proxy"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/utils/expand"
 	"github.com/projectdiscovery/fastdialer/fastdialer"
 	"github.com/projectdiscovery/mapcidr/asn"
 	"github.com/projectdiscovery/networkpolicy"
-<<<<<<< HEAD:v2/pkg/protocols/common/protocolstate/state.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
-	"github.com/projectdiscovery/nuclei/v3/pkg/utils/expand"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/common/protocolstate/state.go
 )
 
 // Dialer is a shared fastdialer instance for host DNS resolution

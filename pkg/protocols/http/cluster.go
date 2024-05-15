@@ -1,12 +1,8 @@
 package http
 
 import (
-<<<<<<< HEAD:v2/pkg/protocols/http/cluster.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/compare"
-=======
 	sliceutil "github.com/projectdiscovery/utils/slice"
 	"golang.org/x/exp/maps"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/http/cluster.go
 )
 
 // CanCluster returns true if the request can be clustered.

@@ -6,13 +6,7 @@ import (
 	"net/url"
 	"strings"
 
-<<<<<<< HEAD:v2/pkg/utils/utils.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils/yaml"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/utils/utils.go
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

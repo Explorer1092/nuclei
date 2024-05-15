@@ -7,17 +7,10 @@ import (
 
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD:v2/pkg/operators/operators.go
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/excludematchers"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/extractors"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/excludematchers"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/operators/operators.go
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/extractors"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/excludematchers"
 	sliceutil "github.com/projectdiscovery/utils/slice"
 )
 

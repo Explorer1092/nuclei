@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http/httpclientpool"
 	"github.com/projectdiscovery/fastdialer/fastdialer"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/httpclientpool"
 	"github.com/projectdiscovery/retryablehttp-go"
 	iputil "github.com/projectdiscovery/utils/ip"
 	stringsutil "github.com/projectdiscovery/utils/strings"

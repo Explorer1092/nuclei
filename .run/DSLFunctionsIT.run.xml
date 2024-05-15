@@ -10,7 +10,7 @@
 <<<<<<< HEAD
     <package value="github.com/Explorer1092/nuclei/v2/cmd/integration-test" />
 =======
-    <package value="github.com/projectdiscovery/nuclei/v3/cmd/integration-test" />
+    <package value="github.com/Explorer1092/nuclei/v3/cmd/integration-test" />
 >>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3
     <directory value="$PROJECT_DIR$" />
     <filePath value="$PROJECT_DIR$/cmd/integration-test/integration-test.go" />

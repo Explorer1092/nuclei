@@ -5,8 +5,8 @@ info:
   author: pd-team
   severity: info
   description: >
-    - https://github.com/Explorer1092/nuclei/pull/3211
-    - https://github.com/Explorer1092/nuclei/pull/3127
+    - https://github.com/projectdiscovery/nuclei/pull/3211
+    - https://github.com/projectdiscovery/nuclei/pull/3127
   reference:
     # adding expected results here for context and debugging
     - "/1337?with=param"

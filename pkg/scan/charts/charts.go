@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/scan/events"
 	"github.com/labstack/echo/v4"
-	"github.com/projectdiscovery/nuclei/v3/pkg/scan/events"
 	fileutil "github.com/projectdiscovery/utils/file"
 )
 

@@ -5,14 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-<<<<<<< HEAD:v2/pkg/model/types/stringslice/stringslice.go
-	"github.com/alecthomas/jsonschema"
-
-	"github.com/Explorer1092/nuclei/v2/pkg/utils"
-=======
+	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/invopop/jsonschema"
-	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/model/types/stringslice/stringslice.go
 )
 
 type StringOrSlice string

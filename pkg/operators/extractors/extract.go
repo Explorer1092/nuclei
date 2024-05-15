@@ -8,11 +8,7 @@ import (
 	"github.com/antchfx/htmlquery"
 	"github.com/antchfx/xmlquery"
 
-<<<<<<< HEAD:v2/pkg/operators/extractors/extract.go
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/operators/extractors/extract.go
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 )
 
 // ExtractRegex extracts text from a corpus and returns it

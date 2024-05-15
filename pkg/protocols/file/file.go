@@ -8,13 +8,8 @@ import (
 	"github.com/h2non/filetype"
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD:v2/pkg/protocols/file/file.go
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/file/file.go
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
 )
 
 var (

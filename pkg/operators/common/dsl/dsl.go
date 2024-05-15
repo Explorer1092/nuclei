@@ -4,17 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/dns/dnsclientpool"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/dns/dnsclientpool"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/Knetic/govaluate"
 	"github.com/miekg/dns"
 	"github.com/projectdiscovery/dsl"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/operators/common/dsl/dsl.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/dns/dnsclientpool"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/operators/common/dsl/dsl.go
 	sliceutil "github.com/projectdiscovery/utils/slice"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

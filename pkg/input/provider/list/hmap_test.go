@@ -7,19 +7,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/utils/expand"
 	"github.com/miekg/dns"
 	"github.com/projectdiscovery/hmap/store/hybrid"
-<<<<<<< HEAD:v2/pkg/core/inputs/hybrid/hmap_test.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
-	"github.com/projectdiscovery/nuclei/v3/pkg/utils/expand"
 	"github.com/projectdiscovery/utils/auth/pdcp"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/input/provider/list/hmap_test.go
 	"github.com/stretchr/testify/require"
 )
 

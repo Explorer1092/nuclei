@@ -1,10 +1,10 @@
 package net
 
 import (
-	lib_net "github.com/projectdiscovery/nuclei/v3/pkg/js/libs/net"
+	lib_net "github.com/Explorer1092/nuclei/v3/pkg/js/libs/net"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/js/gojs"
 	"github.com/dop251/goja"
-	"github.com/projectdiscovery/nuclei/v3/pkg/js/gojs"
 )
 
 var (

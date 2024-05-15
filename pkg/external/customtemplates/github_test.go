@@ -6,14 +6,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/external/customtemplates/github_test.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/external/customtemplates/github_test.go
 	"github.com/stretchr/testify/require"
 )
 

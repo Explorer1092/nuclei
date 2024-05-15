@@ -7,18 +7,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-<<<<<<< HEAD:v2/pkg/protocols/offlinehttp/find_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/model"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/model"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	permissionutil "github.com/projectdiscovery/utils/permission"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/offlinehttp/find_test.go
 )
 
 func TestFindResponses(t *testing.T) {

@@ -5,12 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-<<<<<<< HEAD:v2/pkg/output/format_screen.go
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	mapsutil "github.com/projectdiscovery/utils/maps"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/output/format_screen.go
 )
 
 // formatScreen formats the output for showing on screen.

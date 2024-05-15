@@ -7,14 +7,9 @@ import (
 	"net/http/httptest"
 	"net/url"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	"github.com/julienschmidt/httprouter"
-<<<<<<< HEAD:v2/cmd/integration-test/fuzz.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:cmd/integration-test/fuzz.go
 )
 
 const (

@@ -11,13 +11,9 @@ import (
 	"path/filepath"
 	"sort"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
 	"github.com/Masterminds/semver/v3"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/internal/installer/util.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/installer/util.go
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

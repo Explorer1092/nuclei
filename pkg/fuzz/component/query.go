@@ -3,8 +3,8 @@ package component
 import (
 	"context"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/fuzz/dataformat"
 	"github.com/pkg/errors"
-	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/dataformat"
 	"github.com/projectdiscovery/retryablehttp-go"
 	urlutil "github.com/projectdiscovery/utils/url"
 )

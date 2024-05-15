@@ -5,13 +5,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/common/dsl"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/common/dsl"
 	"github.com/Knetic/govaluate"
 	"github.com/itchyny/gojq"
-<<<<<<< HEAD:v2/pkg/operators/extractors/compile.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/common/dsl"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/operators/extractors/compile.go
 )
 
 // CompileExtractors performs the initial setup operation on an extractor

@@ -6,14 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
 	"github.com/logrusorgru/aurora"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/catalog/disk/find.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/catalog/disk/find.go
 	stringsutil "github.com/projectdiscovery/utils/strings"
 	updateutils "github.com/projectdiscovery/utils/update"
 	urlutil "github.com/projectdiscovery/utils/url"

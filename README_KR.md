@@ -7,11 +7,11 @@
 
 <p align="center">
 <img src="https://img.shields.io/github/go-mod/go-version/projectdiscovery/nuclei?filename=v2%2Fgo.mod">
-<a href="https://github.com/Explorer1092/nuclei/releases"><img src="https://img.shields.io/github/downloads/projectdiscovery/nuclei/total">
-<a href="https://github.com/Explorer1092/nuclei/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/projectdiscovery/nuclei">
-<a href="https://github.com/Explorer1092/nuclei/releases/"><img src="https://img.shields.io/github/release/projectdiscovery/nuclei">
-<a href="https://github.com/Explorer1092/nuclei/issues"><img src="https://img.shields.io/github/issues-raw/projectdiscovery/nuclei">
-<a href="https://github.com/Explorer1092/nuclei/discussions"><img src="https://img.shields.io/github/discussions/projectdiscovery/nuclei">
+<a href="https://github.com/projectdiscovery/nuclei/releases"><img src="https://img.shields.io/github/downloads/projectdiscovery/nuclei/total">
+<a href="https://github.com/projectdiscovery/nuclei/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/projectdiscovery/nuclei">
+<a href="https://github.com/projectdiscovery/nuclei/releases/"><img src="https://img.shields.io/github/release/projectdiscovery/nuclei">
+<a href="https://github.com/projectdiscovery/nuclei/issues"><img src="https://img.shields.io/github/issues-raw/projectdiscovery/nuclei">
+<a href="https://github.com/projectdiscovery/nuclei/discussions"><img src="https://img.shields.io/github/discussions/projectdiscovery/nuclei">
 <a href="https://discord.gg/projectdiscovery"><img src="https://img.shields.io/discord/695645237418131507.svg?logo=discord"></a>
 <a href="https://twitter.com/pdnuclei"><img src="https://img.shields.io/twitter/follow/pdnuclei.svg?logo=twitter"></a>
 </p>
@@ -28,16 +28,16 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Explorer1092/nuclei/blob/main/README.md">English</a> •
-  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_CN.md">中文</a> •
-  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_KR.md">한국어</a>
+  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README.md">English</a> •
+  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_CN.md">中文</a> •
+  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_KR.md">한국어</a>
 </p>
 
 ---
 
 Nuclei는 템플릿을 기반으로 대상 간에 요청을 보내기 위해 사용되며 긍정 오류(false positives)가 0이고 다수의 호스트에서 빠른 스캔을 제공합니다. Nuclei는 TCP, DNS, HTTP, SSL, File, Whois, Websocket, Headless 등을 포함한 다양한 프로토콜의 스캔을 제공합니다. 강력하고 유연한 템플릿을 통해 Nuclei는 모든 종류의 보안 검사를 모델링 할 수 있습니다.
 
-**300명 이상의** 보안 연구원과 엔지니어가 제공한 다양한 유형의 취약점 템플릿을 보관하는 [전용 저장소](https://github.com/Explorer1092/nuclei-templates)를 보유하고 있습니다.
+**300명 이상의** 보안 연구원과 엔지니어가 제공한 다양한 유형의 취약점 템플릿을 보관하는 [전용 저장소](https://github.com/projectdiscovery/nuclei-templates)를 보유하고 있습니다.
 
 
 
@@ -53,11 +53,7 @@ Nuclei는 템플릿을 기반으로 대상 간에 요청을 보내기 위해 사
 Nuclei를 성공적으로 설치하기 위해서 **go1.21**가 필요합니다. 다음 명령을 실행하여 최신 버전을 설치합니다.
 
 ```sh
-<<<<<<< HEAD
-go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
-=======
-go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3
+go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
 ```
 
 **자세한 설치 방법은 [여기](https://nuclei.projectdiscovery.io/nuclei/get-started/)에서 찾을 수 있습니다.**
@@ -68,8 +64,8 @@ go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 
 ### Nuclei 템플릿
 
-Nuclei는 [v2.5.2](https://github.com/Explorer1092/nuclei/releases/tag/v2.5.2)부터 자동 템플릿 다운로드/업데이트를 기본으로 지원합니다.
-[**Nuclei-Templates**](https://github.com/Explorer1092/nuclei-templates) 프로젝트는 지속적으로 업데이트되는 즉시 사용 가능한 템플릿 목록을 제공합니다.
+Nuclei는 [v2.5.2](https://github.com/projectdiscovery/nuclei/releases/tag/v2.5.2)부터 자동 템플릿 다운로드/업데이트를 기본으로 지원합니다.
+[**Nuclei-Templates**](https://github.com/projectdiscovery/nuclei-templates) 프로젝트는 지속적으로 업데이트되는 즉시 사용 가능한 템플릿 목록을 제공합니다.
 
 `update-templates` 플래그를 사용하여 언제든 템플릿을 업데이트할 수 있습니다. Nuclei의 [템플릿 가이드](https://nuclei.projectdiscovery.io/templating-guide/)에 따라 개별 워크플로 및 요구 사항에 대한 자체 검사를 작성할 수 있습니다.
 
@@ -294,13 +290,13 @@ JSON 출력으로 nuclei 실행:
 
 ### Nuclei 실행
 
-[community-curated](https://github.com/Explorer1092/nuclei-templates) nuclei 템플릿으로 대상 도메인을 스캔합니다.
+[community-curated](https://github.com/projectdiscovery/nuclei-templates) nuclei 템플릿으로 대상 도메인을 스캔합니다.
 
 ```sh
 nuclei -u https://example.com
 ```
 
-[community-curated](https://github.com/Explorer1092/nuclei-templates) nuclei 템플릿으로 대상 URL들을 스캔합니다.
+[community-curated](https://github.com/projectdiscovery/nuclei-templates) nuclei 템플릿으로 대상 URL들을 스캔합니다.
 
 ```sh
 nuclei -list urls.txt
@@ -378,16 +374,16 @@ Nuclei는 단순성을 염두에 두고 구축되었으며 수백 명의 보안 
 - **CI/CD:** 엔지니어들은 이미 CI/CD 파이프라인 내에서 Nuclei를 활용하고 있으며 이를 통해 맞춤형 템플릿으로 스테이징 및 프로덕션 환경을 지속적으로 모니터링할 수 있습니다.
 - **Continuous Regression Cycle:** Nuclei를 사용하면 새로 식별된 모든 취약점에 대한 사용자 지정 템플릿을 만들고 Nuclei 엔진에 넣어 지속적인 회귀 주기에서 제거할 수 있습니다.
 
-[이 문제에 대한 논의 스레드](https://github.com/Explorer1092/nuclei-templates/discussions/693)가 있으며, Nuclei 템플릿을 작성해 제출할 때마다 해커에게 인센티브를 제공하는 버그 바운티 프로그램들이 존재합니다. 이 프로그램은 모든 자산에서 취약점을 제거할 뿐만 아니라 미래에 프로덕션에 다시 등장할 위험을 제거할 수 있도록 도와줍니다.
+[이 문제에 대한 논의 스레드](https://github.com/projectdiscovery/nuclei-templates/discussions/693)가 있으며, Nuclei 템플릿을 작성해 제출할 때마다 해커에게 인센티브를 제공하는 버그 바운티 프로그램들이 존재합니다. 이 프로그램은 모든 자산에서 취약점을 제거할 뿐만 아니라 미래에 프로덕션에 다시 등장할 위험을 제거할 수 있도록 도와줍니다.
 이것을 당신의 조직에서 구현하는 것에 관심이 있다면 언제든지 [저희에게 연락하십시오](mailto:contact@projectdiscovery.io).
-시작하는 과정에서 기꺼이 도와드리거나 [도움이 필요한 경우 논의 스레드](https://github.com/Explorer1092/nuclei-templates/discussions/693)에 게시할 수도 있습니다.
+시작하는 과정에서 기꺼이 도와드리거나 [도움이 필요한 경우 논의 스레드](https://github.com/projectdiscovery/nuclei-templates/discussions/693)에 게시할 수도 있습니다.
 
 <h3 align="center">
   <img src="static/regression-with-nuclei.jpg" alt="regression-cycle-with-nuclei" width="1100px"></a>
 </h3>
 
 <h1 align="left">
-  <a href="https://github.com/Explorer1092/nuclei-action"><img src="static/learn-more-button.png" width="170px" alt="Learn More"></a>
+  <a href="https://github.com/projectdiscovery/nuclei-action"><img src="static/learn-more-button.png" width="170px" alt="Learn More"></a>
 </h1>
 
 ### Resources
@@ -406,13 +402,13 @@ Nuclei는 단순성을 염두에 두고 구축되었으며 수백 명의 보안 
 
 ### Credits
 
-Thanks to all the amazing community [contributors for sending PRs](https://github.com/Explorer1092/nuclei/graphs/contributors). Do also check out the below similar open-source projects that may fit in your workflow:
+Thanks to all the amazing community [contributors for sending PRs](https://github.com/projectdiscovery/nuclei/graphs/contributors). Do also check out the below similar open-source projects that may fit in your workflow:
 
 [FFuF](https://github.com/ffuf/ffuf), [Qsfuzz](https://github.com/ameenmaali/qsfuzz), [Inception](https://github.com/proabiral/inception), [Snallygaster](https://github.com/hannob/snallygaster), [Gofingerprint](https://github.com/Static-Flow/gofingerprint), [Sn1per](https://github.com/1N3/Sn1per/tree/master/templates), [Google tsunami](https://github.com/google/tsunami-security-scanner), [Jaeles](https://github.com/jaeles-project/jaeles), [ChopChop](https://github.com/michelin/ChopChop)
 
 ### License
 
-Nuclei is distributed under [MIT License](https://github.com/Explorer1092/nuclei/blob/main/LICENSE.md)
+Nuclei is distributed under [MIT License](https://github.com/projectdiscovery/nuclei/blob/main/LICENSE.md)
 
 <h1 align="left">
   <a href="https://discord.gg/projectdiscovery"><img src="static/Join-Discord.png" width="380" alt="Join Discord"></a> <a href="https://nuclei.projectdiscovery.io"><img src="static/check-nuclei-documentation.png" width="380" alt="Check Nuclei Documentation"></a>

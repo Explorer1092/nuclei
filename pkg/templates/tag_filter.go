@@ -8,22 +8,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/common/dsl"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/common/dsl"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/extractors"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
+	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/Knetic/govaluate"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/catalog/loader/filter/tag_filter.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/common/dsl"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/extractors"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/templates/tag_filter.go
 	sliceutil "github.com/projectdiscovery/utils/slice"
 )
 

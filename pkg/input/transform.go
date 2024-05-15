@@ -5,12 +5,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/hmap/store/hybrid"
-<<<<<<< HEAD:v2/pkg/input/input.go
-=======
-	templateTypes "github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/input/transform.go
 	fileutil "github.com/projectdiscovery/utils/file"
 	"github.com/projectdiscovery/utils/ports"
 	stringsutil "github.com/projectdiscovery/utils/strings"

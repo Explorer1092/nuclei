@@ -4,13 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-<<<<<<< HEAD:v2/cmd/integration-test/template-path.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:cmd/integration-test/template-path.go
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 )
 
 func getTemplatePath() string {

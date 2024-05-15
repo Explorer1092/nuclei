@@ -3,13 +3,8 @@ package offlinehttp
 import (
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD:v2/pkg/protocols/offlinehttp/offlinehttp.go
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/offlinehttp/offlinehttp.go
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
 )
 
 // Request is a offline http response processing request

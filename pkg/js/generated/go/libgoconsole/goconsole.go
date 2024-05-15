@@ -1,10 +1,10 @@
 package goconsole
 
 import (
-	lib_goconsole "github.com/projectdiscovery/nuclei/v3/pkg/js/libs/goconsole"
+	lib_goconsole "github.com/Explorer1092/nuclei/v3/pkg/js/libs/goconsole"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/js/gojs"
 	"github.com/dop251/goja"
-	"github.com/projectdiscovery/nuclei/v3/pkg/js/gojs"
 )
 
 var (

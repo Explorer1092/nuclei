@@ -9,13 +9,9 @@ import (
 
 	"github.com/logrusorgru/aurora"
 
-<<<<<<< HEAD:v2/cmd/integration-test/integration-test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
-=======
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils/fuzzplayground"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils/fuzzplayground"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:cmd/integration-test/integration-test.go
 	sliceutil "github.com/projectdiscovery/utils/slice"
 )
 

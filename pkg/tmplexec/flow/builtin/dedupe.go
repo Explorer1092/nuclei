@@ -4,8 +4,8 @@ import (
 	"crypto/md5"
 	"reflect"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/dop251/goja"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 )
 
 // Dedupe is a javascript builtin for deduping values

@@ -5,11 +5,7 @@ import (
 	"net/http"
 	"testing"
 
-<<<<<<< HEAD:v2/pkg/protocols/http/request_annotations_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/httpclientpool"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/httpclientpool"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/http/request_annotations_test.go
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http/httpclientpool"
 	"github.com/projectdiscovery/retryablehttp-go"
 	"github.com/stretchr/testify/require"
 )

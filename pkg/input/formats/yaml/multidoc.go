@@ -5,10 +5,10 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/input/formats"
+	"github.com/Explorer1092/nuclei/v3/pkg/input/types"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/formats"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/types"
 	YamlUtil "gopkg.in/yaml.v3"
 )
 

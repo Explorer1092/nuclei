@@ -7,11 +7,7 @@ import (
 
 	"github.com/logrusorgru/aurora"
 
-<<<<<<< HEAD:v2/pkg/protocols/common/helpers/responsehighlighter/response_highlighter.go
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/common/helpers/responsehighlighter/response_highlighter.go
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
 )
 
 var colorFunction = aurora.Green

@@ -5,12 +5,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-<<<<<<< HEAD:v2/pkg/protocols/common/generators/generators_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/common/generators/generators_test.go
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 )
 
 func TestBatteringRamGenerator(t *testing.T) {

@@ -2,16 +2,11 @@ package jsonexporter
 
 import (
 	"encoding/json"
-<<<<<<< HEAD:v2/pkg/reporting/exporters/jsonexporter/jsonexporter.go
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/pkg/errors"
-=======
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/reporting/exporters/jsonexporter/jsonexporter.go
 	"os"
 	"sync"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
 	"github.com/pkg/errors"
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 )
 
 type Exporter struct {

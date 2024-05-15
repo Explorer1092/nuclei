@@ -3,22 +3,13 @@ package headless
 import (
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD:v2/pkg/protocols/headless/headless.go
-	useragent "github.com/Explorer1092/nuclei/v2/pkg/model/types/userAgent"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/fuzz"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/headless/engine"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz"
-	useragent "github.com/projectdiscovery/nuclei/v3/pkg/model/types/userAgent"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/headless/engine"
+	"github.com/Explorer1092/nuclei/v3/pkg/fuzz"
+	useragent "github.com/Explorer1092/nuclei/v3/pkg/model/types/userAgent"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/headless/engine"
 	uagent "github.com/projectdiscovery/useragent"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/headless/headless.go
 	fileutil "github.com/projectdiscovery/utils/file"
 )
 

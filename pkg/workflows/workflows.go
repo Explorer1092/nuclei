@@ -3,17 +3,10 @@ package workflows
 import (
 	"fmt"
 
-<<<<<<< HEAD:v2/pkg/workflows/workflows.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
-	templateTypes "github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/workflows/workflows.go
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
+	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 )
 
 // Workflow is a workflow to execute with chained requests, etc.

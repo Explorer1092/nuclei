@@ -8,10 +8,10 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/js/utils"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/dop251/goja"
 	"github.com/go-ldap/ldap/v3"
-	"github.com/projectdiscovery/nuclei/v3/pkg/js/utils"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 )
 
 type (

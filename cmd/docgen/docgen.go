@@ -11,14 +11,10 @@ import (
 
 	"github.com/invopop/jsonschema"
 
-<<<<<<< HEAD:v2/cmd/docgen/docgen.go
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:cmd/docgen/docgen.go
+	"github.com/Explorer1092/nuclei/v3/pkg/templates"
 )
 
-var pathRegex = regexp.MustCompile(`github\.com/projectdiscovery/nuclei/v3/(?:internal|pkg)/(?:.*/)?([A-Za-z.]+)`)
+var pathRegex = regexp.MustCompile(`github\.com/Explorer1092/nuclei/v3/(?:internal|pkg)/(?:.*/)?([A-Za-z.]+)`)
 
 func main() {
 	// Generate yaml syntax documentation

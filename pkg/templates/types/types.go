@@ -5,17 +5,10 @@ import (
 	"fmt"
 	"strings"
 
-<<<<<<< HEAD:v2/pkg/templates/types/types.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/alecthomas/jsonschema"
-	"github.com/pkg/errors"
-	"github.com/projectdiscovery/goflags"
-=======
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
 	"github.com/invopop/jsonschema"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/goflags"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/templates/types/types.go
 )
 
 // ProtocolType is the type of the request protocol specified

@@ -3,11 +3,7 @@ package customtemplates
 import (
 	"context"
 
-<<<<<<< HEAD:v2/pkg/external/customtemplates/templates_provider.go
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/external/customtemplates/templates_provider.go
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

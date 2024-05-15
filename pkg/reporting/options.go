@@ -1,29 +1,17 @@
 package reporting
 
 import (
-<<<<<<< HEAD:v2/pkg/reporting/options.go
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/es"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonexporter"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonl"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/markdown"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/sarif"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/splunk"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/github"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/gitlab"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/jira"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/es"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonexporter"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonl"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/markdown"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/sarif"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/splunk"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/filters"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/gitea"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/github"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/gitlab"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/jira"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/reporting/options.go
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/es"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonexporter"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonl"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/sarif"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/splunk"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/filters"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitea"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/github"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitlab"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/jira"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

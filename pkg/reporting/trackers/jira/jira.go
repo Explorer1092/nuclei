@@ -10,17 +10,11 @@ import (
 	"github.com/andygrunwald/go-jira"
 	"github.com/trivago/tgo/tcontainer"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/markdown/util"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/format"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown/util"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/format"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/filters"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/reporting/trackers/jira/jira.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/markdown/util"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/format"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/filters"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/reporting/trackers/jira/jira.go
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

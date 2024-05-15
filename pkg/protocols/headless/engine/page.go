@@ -9,16 +9,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/proto"
-<<<<<<< HEAD:v2/pkg/protocols/headless/engine/page.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/headless/engine/page.go
 )
 
 // Page is a single page in an isolated browser instance

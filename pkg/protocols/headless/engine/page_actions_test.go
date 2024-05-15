@@ -18,18 +18,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-<<<<<<< HEAD:v2/pkg/protocols/headless/engine/page_actions_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils/testheadless"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils/testheadless"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils/testheadless"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	stringsutil "github.com/projectdiscovery/utils/strings"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/headless/engine/page_actions_test.go
 )
 
 func TestActionNavigate(t *testing.T) {

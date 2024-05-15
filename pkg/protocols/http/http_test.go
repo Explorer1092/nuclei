@@ -5,17 +5,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-<<<<<<< HEAD:v2/pkg/protocols/http/http_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/model"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/protocols/http/http_test.go
+	"github.com/Explorer1092/nuclei/v3/pkg/model"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 )
 
 func TestHTTPCompile(t *testing.T) {
@@ -33,7 +26,7 @@ func TestHTTPCompile(t *testing.T) {
 		AttackType: generators.AttackTypeHolder{Value: generators.ClusterBombAttack},
 		Raw: []string{`GET /manager/html HTTP/1.1
 Host: {{Hostname}}
-User-Agent: Nuclei - Open-source project (github.com/Explorer1092/nuclei)
+User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)
 Connection: close
 Authorization: Basic {{username + ':' + password}}
 Accept-Encoding: gzip`},

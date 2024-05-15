@@ -4,14 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
 	"github.com/logrusorgru/aurora"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD:v2/pkg/templates/log.go
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/templates/log.go
 	mapsutil "github.com/projectdiscovery/utils/maps"
 )
 

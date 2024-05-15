@@ -6,11 +6,7 @@ import (
 	"strings"
 	"testing"
 
-<<<<<<< HEAD:v2/internal/installer/template_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/installer/template_test.go
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
 	"github.com/stretchr/testify/require"
 )
 

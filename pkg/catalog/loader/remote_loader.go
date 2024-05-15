@@ -8,13 +8,8 @@ import (
 
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD:v2/pkg/catalog/loader/remote_loader.go
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/extensions"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils"
-=======
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates/extensions"
-	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
->>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3:pkg/catalog/loader/remote_loader.go
+	"github.com/Explorer1092/nuclei/v3/pkg/templates/extensions"
+	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/retryablehttp-go"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

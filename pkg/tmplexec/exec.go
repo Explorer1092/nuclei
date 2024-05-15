@@ -7,18 +7,18 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/js/compiler"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators/common/dsl"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/writer"
+	"github.com/Explorer1092/nuclei/v3/pkg/scan"
+	"github.com/Explorer1092/nuclei/v3/pkg/scan/events"
+	"github.com/Explorer1092/nuclei/v3/pkg/tmplexec/flow"
+	"github.com/Explorer1092/nuclei/v3/pkg/tmplexec/generic"
+	"github.com/Explorer1092/nuclei/v3/pkg/tmplexec/multiproto"
 	"github.com/dop251/goja"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/js/compiler"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators/common/dsl"
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/writer"
-	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
-	"github.com/projectdiscovery/nuclei/v3/pkg/scan/events"
-	"github.com/projectdiscovery/nuclei/v3/pkg/tmplexec/flow"
-	"github.com/projectdiscovery/nuclei/v3/pkg/tmplexec/generic"
-	"github.com/projectdiscovery/nuclei/v3/pkg/tmplexec/multiproto"
 )
 
 // TemplateExecutor is an executor for a template

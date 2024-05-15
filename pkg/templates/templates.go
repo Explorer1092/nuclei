@@ -9,21 +9,21 @@ import (
 	"strings"
 
 	validate "github.com/go-playground/validator/v10"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/code"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/variables"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/dns"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/file"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/headless"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/javascript"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/network"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/ssl"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/websocket"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/whois"
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
-	"github.com/projectdiscovery/nuclei/v3/pkg/workflows"
+	"github.com/Explorer1092/nuclei/v3/pkg/model"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/code"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/variables"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/dns"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/file"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/headless"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/javascript"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/network"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/ssl"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/websocket"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/whois"
+	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/workflows"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	"go.uber.org/multierr"
@@ -45,7 +45,7 @@ type Template struct {
 	// examples:
 	//   - name: ID Example
 	//     value: "\"CVE-2021-19520\""
-	ID string `yaml:"id" json:"id" jsonschema:"title=id of the template,description=The Unique ID for the template,required,example=cve-2021-19520,pattern=^([a-zA-Z0-9]+[-_])*[a-zA-Z0-9]+$"`
+	ID string `yaml:"id" json:"id" jsonschema:"title=id of the template,description=The Unique ID for the template,required,example=cve-2021-19520,pattern=^([a-zA-Z0-9\p{Han}]+[-_])*[a-zA-Z0-9\p{Han}]+$"`
 	// description: |
 	//   Info contains metadata information about the template.
 	// examples:
