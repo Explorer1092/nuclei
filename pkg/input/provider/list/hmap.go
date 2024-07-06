@@ -378,6 +378,14 @@ func (i *ListInputProvider) Del(value string) {
 	if URL == "" {
 		return
 	}
+
+	if stringsutil.ContainsAny(value, ",") {
+		idxComma := strings.Index(value, ",")
+		metaInput := &contextargs.MetaInput{Input: value[idxComma+1:], CustomIP: value[:idxComma]}
+		i.delItem(metaInput)
+		return
+	}
+
 	// parse hostname if url is given
 	urlx, err := urlutil.Parse(URL)
 	if err != nil || (urlx != nil && urlx.Host == "") {
@@ -477,6 +485,7 @@ func (i *ListInputProvider) setItem(metaInput *contextargs.MetaInput) {
 // setItem in the kv store
 func (i *ListInputProvider) delItem(metaInput *contextargs.MetaInput) {
 	targetUrl, err := urlutil.ParseURL(metaInput.Input, true)
+
 	if err != nil {
 		gologger.Warning().Msgf("%s\n", err)
 		return

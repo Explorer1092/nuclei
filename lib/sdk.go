@@ -11,6 +11,7 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog/loader"
 	"github.com/Explorer1092/nuclei/v3/pkg/core"
 	"github.com/Explorer1092/nuclei/v3/pkg/input/provider"
+	"github.com/Explorer1092/nuclei/v3/pkg/input/provider/list"
 	providerTypes "github.com/Explorer1092/nuclei/v3/pkg/input/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/loader/workflow"
 	"github.com/Explorer1092/nuclei/v3/pkg/output"
@@ -111,12 +112,36 @@ func (e *NucleiEngine) GetTemplates() []*templates.Template {
 	return e.store.Templates()
 }
 
-// LoadTargets(urls/domains/ips only) adds targets to the nuclei engine
+// LoadTargets LoadTargets(urls/domains/ips only) adds targets to the nuclei engine
 func (e *NucleiEngine) LoadTargets(targets []string, probeNonHttp bool) {
 	for _, target := range targets {
 		if probeNonHttp {
 			_ = e.inputProvider.SetWithProbe(target, e.httpxClient)
 		} else {
+			e.inputProvider.Set(target)
+		}
+	}
+}
+
+// LoadTargetsFromList LoadTargetsFromList(urls/domains/ips only) adds targets to the nuclei engine
+func (e *NucleiEngine) LoadTargetsFromList(targets []string, probeNonHttp bool) {
+	e.opts.InputFileMode = "list"
+	listProvider, _ := list.New(&list.Options{
+		Options:          e.opts,
+		NotFoundCallback: nil,
+	})
+	e.inputProvider = listProvider
+	//if err != nil {
+	//	e.opts.TargetsFilePath = ""
+	//	e.opts.InputFileMode = ""
+	//	return err
+	//}
+	//e.inputProvider = httpProvider
+	for _, target := range targets {
+		if probeNonHttp {
+			_ = e.inputProvider.SetWithProbe(target, e.httpxClient)
+		} else {
+
 			e.inputProvider.Set(target)
 		}
 	}
