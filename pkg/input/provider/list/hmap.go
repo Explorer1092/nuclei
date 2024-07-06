@@ -6,6 +6,7 @@ import (
 	"bufio"
 	"context"
 	"fmt"
+	stringsutil "github.com/projectdiscovery/utils/strings"
 	"io"
 	"os"
 	"regexp"
@@ -144,6 +145,14 @@ func (i *ListInputProvider) Set(value string) {
 	if URL == "" {
 		return
 	}
+
+	if stringsutil.ContainsAny(value, ",") {
+		idxComma := strings.Index(value, ",")
+		metaInput := &contextargs.MetaInput{Input: value[idxComma+1:], CustomIP: value[:idxComma]}
+		i.setItem(metaInput)
+		return
+	}
+
 	// parse hostname if url is given
 	urlx, err := urlutil.Parse(URL)
 	if err != nil || (urlx != nil && urlx.Host == "") {
