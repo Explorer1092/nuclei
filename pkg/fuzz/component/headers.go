@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/dataformat"
+	"github.com/Explorer1092/nuclei/v3/pkg/fuzz/dataformat"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

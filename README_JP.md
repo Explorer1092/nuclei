@@ -55,7 +55,7 @@ Nucleiは、テンプレートに基づいてターゲット間でリクエス�
 Nucleiを正常にインストールするには、**go1.21**が必要です。以下のコマンドを実行して最新バージョンをインストールしてください -
 
 ```sh
-go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
 ```
 
 <details>

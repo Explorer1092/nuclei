@@ -14,7 +14,7 @@
     <package value="github.com/Explorer1092/nuclei/v3/cmd/integration-test" />
 >>>>>>> 7f556f8e33080a9eb2e52a9c14fa2e16f32f62c3
 =======
-    <package value="github.com/projectdiscovery/nuclei/v3/cmd/integration-test" />
+    <package value="github.com/Explorer1092/nuclei/v3/cmd/integration-test" />
 >>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a
 >>>>>>> projectdiscovery-main
     <directory value="$PROJECT_DIR$" />

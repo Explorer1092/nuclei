@@ -11,8 +11,8 @@ import (
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/utils/conversion"
 )
 

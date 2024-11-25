@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/kitabisa/go-ci"
-	nuclei "github.com/projectdiscovery/nuclei/v3/lib"
+	nuclei "github.com/Explorer1092/nuclei/v3/lib"
 	"github.com/remeh/sizedwaitgroup"
 )
 

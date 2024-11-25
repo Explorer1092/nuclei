@@ -2,7 +2,7 @@ package rdapclientpool
 
 import (
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/rdap"
 )
 

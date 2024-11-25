@@ -2,8 +2,8 @@ package model
 
 import (
 	"github.com/invopop/jsonschema"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
 )
 
 type schemaMetadata struct {

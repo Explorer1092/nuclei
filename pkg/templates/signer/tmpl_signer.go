@@ -15,7 +15,7 @@ import (
 	"sync"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

@@ -5,10 +5,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/projectdiscovery/nuclei/v3/pkg/model"
-	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/model"
+	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 )
 
 func TestHTTPCompile(t *testing.T) {

@@ -3,9 +3,9 @@ package globalmatchers
 import (
 	"maps"
 
-	"github.com/projectdiscovery/nuclei/v3/pkg/model"
-	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/model"
+	"github.com/Explorer1092/nuclei/v3/pkg/operators"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
 )
 
 // Storage is a struct that holds the global matchers

@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/projectdiscovery/httpx/common/httpx"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/input/types"
 	"github.com/projectdiscovery/useragent"
 )
 

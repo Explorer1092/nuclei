@@ -6,12 +6,12 @@ import (
 	"sync/atomic"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/input/provider"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
-	generalTypes "github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/input/provider"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v3/pkg/scan"
+	"github.com/Explorer1092/nuclei/v3/pkg/templates"
+	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
+	generalTypes "github.com/Explorer1092/nuclei/v3/pkg/types"
 	syncutil "github.com/projectdiscovery/utils/sync"
 )
 

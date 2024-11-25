@@ -8,11 +8,11 @@ import (
 	"github.com/dop251/goja"
 	"github.com/logrusorgru/aurora"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/js/gojs"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
-	"github.com/projectdiscovery/nuclei/v3/pkg/tmplexec/flow/builtin"
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/js/gojs"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
+	"github.com/Explorer1092/nuclei/v3/pkg/tmplexec/flow/builtin"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/utils/sync/sizedpool"
 )
 

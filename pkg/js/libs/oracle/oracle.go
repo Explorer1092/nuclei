@@ -8,7 +8,7 @@ import (
 
 	"github.com/praetorian-inc/fingerprintx/pkg/plugins"
 	"github.com/praetorian-inc/fingerprintx/pkg/plugins/services/oracledb"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
 )
 
 type (

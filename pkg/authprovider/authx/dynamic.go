@@ -7,7 +7,7 @@ import (
 	"sync"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/replacer"
+	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/replacer"
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

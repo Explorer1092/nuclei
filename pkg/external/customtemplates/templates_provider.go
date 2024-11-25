@@ -3,7 +3,7 @@ package customtemplates
 import (
 	"context"
 
-	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

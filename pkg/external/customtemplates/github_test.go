@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	"github.com/stretchr/testify/require"
 )
 

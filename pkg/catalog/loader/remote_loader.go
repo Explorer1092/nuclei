@@ -8,8 +8,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates/extensions"
-	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
+	"github.com/Explorer1092/nuclei/v3/pkg/templates/extensions"
+	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/retryablehttp-go"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

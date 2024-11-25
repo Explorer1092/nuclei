@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
+	"github.com/Explorer1092/nuclei/v3/pkg/templates"
 	"github.com/projectdiscovery/uncover"
 	"github.com/projectdiscovery/uncover/sources"
 	mapsutil "github.com/projectdiscovery/utils/maps"

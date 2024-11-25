@@ -1,19 +1,19 @@
 package reporting
 
 import (
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/es"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonexporter"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonl"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/markdown"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/mongo"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/sarif"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/splunk"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/filters"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/gitea"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/github"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/gitlab"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/jira"
-	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/linear"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/es"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonexporter"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonl"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/mongo"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/sarif"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/splunk"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/filters"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitea"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/github"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitlab"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/jira"
+	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/linear"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 
