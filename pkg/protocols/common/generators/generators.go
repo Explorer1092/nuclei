@@ -5,8 +5,18 @@ package generators
 import (
 	"github.com/pkg/errors"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/generators/generators.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/generators/generators.go
+>>>>>>> projectdiscovery-main
 )
 
 // PayloadGenerator is the generator struct for generating payloads
@@ -25,8 +35,19 @@ func New(payloads map[string]interface{}, attackType AttackType, templatePath st
 
 	// Resolve payload paths if they are files.
 	payloadsFinal := make(map[string]interface{})
-	for name, payload := range payloads {
-		payloadsFinal[name] = payload
+	for payloadName, v := range payloads {
+		switch value := v.(type) {
+		case map[interface{}]interface{}:
+			values, err := parsePayloadsWithAggression(payloadName, value, opts.FuzzAggressionLevel)
+			if err != nil {
+				return nil, errors.Wrap(err, "could not parse payloads with aggression")
+			}
+			for k, v := range values {
+				payloadsFinal[k] = v
+			}
+		default:
+			payloadsFinal[payloadName] = v
+		}
 	}
 
 	generator := &PayloadGenerator{catalog: catalog, options: opts}
@@ -55,6 +76,60 @@ func New(payloads map[string]interface{}, attackType AttackType, templatePath st
 		}
 	}
 	return generator, nil
+}
+
+type aggressionLevelToPayloads struct {
+	Low    []interface{}
+	Medium []interface{}
+	High   []interface{}
+}
+
+// parsePayloadsWithAggression parses the payloads with the aggression level
+//
+// Three agression are supported -
+//   - low
+//   - medium
+//   - high
+//
+// low is the default level. If medium is specified, all templates from
+// low and medium are executed. Similarly with high, including all templates
+// from low, medium, high.
+func parsePayloadsWithAggression(name string, v map[interface{}]interface{}, agression string) (map[string]interface{}, error) {
+	payloadsLevels := &aggressionLevelToPayloads{}
+
+	for k, v := range v {
+		if _, ok := v.([]interface{}); !ok {
+			return nil, errors.Errorf("only lists are supported for aggression levels payloads")
+		}
+		var ok bool
+		switch k {
+		case "low":
+			payloadsLevels.Low, ok = v.([]interface{})
+		case "medium":
+			payloadsLevels.Medium, ok = v.([]interface{})
+		case "high":
+			payloadsLevels.High, ok = v.([]interface{})
+		default:
+			return nil, errors.Errorf("invalid aggression level %s specified for %s", k, name)
+		}
+		if !ok {
+			return nil, errors.Errorf("invalid aggression level %s specified for %s", k, name)
+		}
+	}
+
+	payloads := make(map[string]interface{})
+	switch agression {
+	case "low":
+		payloads[name] = payloadsLevels.Low
+	case "medium":
+		payloads[name] = append(payloadsLevels.Low, payloadsLevels.Medium...)
+	case "high":
+		payloads[name] = append(payloadsLevels.Low, payloadsLevels.Medium...)
+		payloads[name] = append(payloads[name].([]interface{}), payloadsLevels.High...)
+	default:
+		return nil, errors.Errorf("invalid aggression level %s specified for %s", agression, name)
+	}
+	return payloads, nil
 }
 
 // Iterator is a single instance of an iterator for a generator structure

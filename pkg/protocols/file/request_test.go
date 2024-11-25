@@ -8,6 +8,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/model"
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
 	"github.com/Explorer1092/nuclei/v3/pkg/operators"
@@ -17,6 +18,28 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	permissionutil "github.com/projectdiscovery/utils/permission"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/file/request_test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/extractors"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+	permissionutil "github.com/projectdiscovery/utils/permission"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/file/request_test.go
+>>>>>>> projectdiscovery-main
 )
 
 func TestFileExecuteWithResults(t *testing.T) {

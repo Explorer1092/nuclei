@@ -7,6 +7,19 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/progress"
 	"github.com/Explorer1092/nuclei/v3/pkg/reporting"
 	"github.com/projectdiscovery/interactsh/pkg/client"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/interactsh/options.go
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/progress"
+	"github.com/Explorer1092/nuclei/v2/pkg/reporting"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/frequency"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/progress"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/interactsh/options.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 
@@ -46,8 +59,9 @@ type Options struct {
 	// NoColor disables printing colors for matches
 	NoColor bool
 
-	StopAtFirstMatch bool
-	HTTPClient       *retryablehttp.Client
+	FuzzParamsFrequency *frequency.Tracker
+	StopAtFirstMatch    bool
+	HTTPClient          *retryablehttp.Client
 }
 
 // DefaultOptions returns the default options for interactsh client

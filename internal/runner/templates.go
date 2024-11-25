@@ -11,10 +11,30 @@ import (
 	"github.com/alecthomas/chroma/quick"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/logrusorgru/aurora"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/internal/runner/templates.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader"
+>>>>>>> projectdiscovery-main
 
 	"github.com/Explorer1092/nuclei/v3/pkg/templates"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/loader"
+
+	"github.com/projectdiscovery/gologger"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:internal/runner/templates.go
+>>>>>>> projectdiscovery-main
 )
 
 // log available templates for verbose (-vv)

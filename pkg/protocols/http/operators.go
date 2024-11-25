@@ -5,6 +5,7 @@ import (
 	"strings"
 	"time"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/model"
 	"github.com/Explorer1092/nuclei/v3/pkg/operators"
 	"github.com/Explorer1092/nuclei/v3/pkg/operators/extractors"
@@ -14,6 +15,29 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/http/operators.go
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/extractors"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/http/operators.go
+>>>>>>> projectdiscovery-main
 )
 
 // Match matches a generic data response again a given matcher
@@ -166,10 +190,19 @@ func (request *Request) MakeResultEventItem(wrapped *output.InternalWrappedEvent
 	if types.ToString(wrapped.InternalEvent["path"]) != "" {
 		fields.Path = types.ToString(wrapped.InternalEvent["path"])
 	}
+	var isGlobalMatchers bool
+	if value, ok := wrapped.InternalEvent["global-matchers"]; ok {
+		isGlobalMatchers = value.(bool)
+	}
+	var analyzerDetails string
+	if value, ok := wrapped.InternalEvent["analyzer_details"]; ok {
+		analyzerDetails = value.(string)
+	}
 	data := &output.ResultEvent{
 		TemplateID:       types.ToString(wrapped.InternalEvent["template-id"]),
 		TemplatePath:     types.ToString(wrapped.InternalEvent["template-path"]),
 		Info:             wrapped.InternalEvent["template-info"].(model.Info),
+		TemplateVerifier: request.options.TemplateVerifier,
 		Type:             types.ToString(wrapped.InternalEvent["type"]),
 		Host:             fields.Host,
 		Port:             fields.Port,
@@ -182,11 +215,13 @@ func (request *Request) MakeResultEventItem(wrapped *output.InternalWrappedEvent
 		Timestamp:        time.Now(),
 		MatcherStatus:    true,
 		IP:               fields.Ip,
+		GlobalMatchers:   isGlobalMatchers,
 		Request:          types.ToString(wrapped.InternalEvent["request"]),
 		Response:         request.truncateResponse(wrapped.InternalEvent["response"]),
 		CURLCommand:      types.ToString(wrapped.InternalEvent["curl-command"]),
 		TemplateEncoded:  request.options.EncodeTemplate(),
 		Error:            types.ToString(wrapped.InternalEvent["error"]),
+		AnalyzerDetails:  analyzerDetails,
 	}
 	return data
 }

@@ -7,6 +7,14 @@ import (
 
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
 	"github.com/projectdiscovery/goflags"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/model/types/severity/severities.go
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/model/types/severity/severities.go
+>>>>>>> projectdiscovery-main
 )
 
 // Severities used by the goflags library for parsing an array of Severity types, passed as CLI arguments from the user

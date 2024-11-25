@@ -5,10 +5,34 @@ import (
 	"fmt"
 	"testing"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
 	"github.com/Explorer1092/nuclei/v3/pkg/model"
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
+=======
+<<<<<<< HEAD:v2/pkg/parsers/parser_test.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader/filter"
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/disk"
+	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/stringslice"
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/parser_test.go
+>>>>>>> projectdiscovery-main
 	"github.com/stretchr/testify/require"
 )
 
@@ -52,7 +76,15 @@ func TestLoadTemplate(t *testing.T) {
 					SeverityHolder: severity.Holder{Severity: severity.Medium},
 				},
 			},
+<<<<<<< HEAD
 			expectedErr: errors.New("mandatory 'name' field is missing\ninvalid field format for 'id' (allowed format is ^([a-zA-Z0-9\p{Han}\!\(\)\.]+[-_])*[a-zA-Z0-9\p{Han}\!\(\)\.]+$ "),
+=======
+<<<<<<< HEAD:v2/pkg/parsers/parser_test.go
+			expectedErr: errors.New(`mandatory 'name' field is missing, invalid field format for 'id' (allowed format is ^([a-zA-Z0-9\p{Han}\!\(\)\.]+[-_])*[a-zA-Z0-9\p{Han}\!\(\)\.]+$)`),
+=======
+			expectedErr: errors.New("mandatory 'name' field is missing\ninvalid field format for 'id' (allowed format is ^([a-zA-Z0-9]+[-_])*[a-zA-Z0-9]+$)"),
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/parser_test.go
+>>>>>>> projectdiscovery-main
 		},
 		{
 			name: "emptySeverity",

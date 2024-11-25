@@ -22,6 +22,29 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
 	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/protocols/file/request.go
+	"github.com/Explorer1092/nuclei/v2/pkg/operators"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/eventcreator"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
+	templateTypes "github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/file/request.go
+>>>>>>> projectdiscovery-main
 	sliceutil "github.com/projectdiscovery/utils/slice"
 	syncutil "github.com/projectdiscovery/utils/sync"
 )
@@ -50,6 +73,9 @@ func (request *Request) ExecuteWithResults(input *contextargs.Context, metadata,
 	wg, err := syncutil.New(syncutil.WithSize(request.options.Options.BulkSize))
 	if err != nil {
 		return err
+	}
+	if input.MetaInput.Input == "" {
+		return errors.New("input cannot be empty file or folder expected")
 	}
 	err = request.getInputPaths(input.MetaInput.Input, func(filePath string) {
 		wg.Add()
@@ -250,6 +276,8 @@ func (request *Request) findMatchesWithReader(reader io.Reader, input *contextar
 		for k, v := range previous {
 			dslMap[k] = v
 		}
+		// add vars to template context
+		request.options.AddTemplateVars(input.MetaInput, request.Type(), request.ID, dslMap)
 		// add template context variables to DSL map
 		if request.options.HasTemplateCtx(input.MetaInput) {
 			dslMap = generators.MergeMaps(dslMap, request.options.GetTemplateCtx(input.MetaInput).GetAll())
@@ -323,7 +351,6 @@ func (request *Request) buildEvent(input, filePath string, fileMatches []FileMat
 		exprLines[fileMatch.Expr] = append(exprLines[fileMatch.Expr], fileMatch.Line)
 		exprBytes[fileMatch.Expr] = append(exprBytes[fileMatch.Expr], fileMatch.ByteIndex)
 	}
-
 	event := eventcreator.CreateEventWithOperatorResults(request, internalEvent, operatorResult)
 	// Annotate with line numbers if asked by the user
 	if request.options.Options.ShowMatchLine {

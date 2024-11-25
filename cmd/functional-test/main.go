@@ -8,16 +8,24 @@ import (
 	"os"
 	"strings"
 
+	"github.com/kitabisa/go-ci"
 	"github.com/logrusorgru/aurora"
 	"github.com/pkg/errors"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+=======
+<<<<<<< HEAD:v2/cmd/functional-test/main.go
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/functional-test/main.go
+>>>>>>> projectdiscovery-main
 )
 
 var (
-	success      = aurora.Green("[✓]").String()
-	failed       = aurora.Red("[✘]").String()
-	githubAction = os.Getenv("GH_ACTION") == "true"
+	success = aurora.Green("[✓]").String()
+	failed  = aurora.Red("[✘]").String()
 
 	mainNucleiBinary = flag.String("main", "", "Main Branch Nuclei Binary")
 	devNucleiBinary  = flag.String("dev", "", "Dev Branch Nuclei Binary")
@@ -45,7 +53,7 @@ func runFunctionalTests(debug bool) (error, bool) {
 
 	errored, failedTestCases := runTestCases(file, debug)
 
-	if githubAction {
+	if ci.IsCI() {
 		fmt.Println("::group::Failed tests with debug")
 		for _, failedTestCase := range failedTestCases {
 			_ = runTestCase(failedTestCase, true)

@@ -2,6 +2,7 @@ package swagger
 
 import (
 	"encoding/json"
+	"io"
 	"os"
 	"path"
 
@@ -10,7 +11,13 @@ import (
 	"github.com/getkin/kin-openapi/openapi2"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/pkg/errors"
+<<<<<<< HEAD
 	"gopkg.in/yaml.v2"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/input/formats"
+	"github.com/projectdiscovery/nuclei/v3/pkg/input/formats/openapi"
+	"github.com/invopop/yaml"
+>>>>>>> projectdiscovery-main
 
 	"github.com/getkin/kin-openapi/openapi2conv"
 )
@@ -49,7 +56,11 @@ func (j *SwaggerFormat) Parse(input string, resultsCb formats.ParseReqRespCallba
 	ext := path.Ext(input)
 
 	if ext == ".yaml" || ext == ".yml" {
-		err = yaml.NewDecoder(file).Decode(schemav2)
+		data, err_data := io.ReadAll(file)
+		if err_data != nil {
+			return errors.Wrap(err, "could not read data file")
+		}
+		err = yaml.Unmarshal(data, schemav2)
 	} else {
 		err = json.NewDecoder(file).Decode(schemav2)
 	}

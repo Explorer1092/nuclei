@@ -18,11 +18,32 @@ import (
 
 	"github.com/stretchr/testify/require"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils/testheadless"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	stringsutil "github.com/projectdiscovery/utils/strings"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/headless/engine/page_actions_test.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils/testheadless"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v2/pkg/testutils/testheadless"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils/testheadless"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	stringsutil "github.com/projectdiscovery/utils/strings"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/headless/engine/page_actions_test.go
+>>>>>>> projectdiscovery-main
 )
 
 func TestActionNavigate(t *testing.T) {
@@ -38,7 +59,7 @@ func TestActionNavigate(t *testing.T) {
 
 	actions := []*Action{{ActionType: ActionTypeHolder{ActionType: ActionNavigate}, Data: map[string]string{"url": "{{BaseURL}}"}}, {ActionType: ActionTypeHolder{ActionType: ActionWaitLoad}}}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nilf(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 	})
@@ -63,7 +84,7 @@ func TestActionScript(t *testing.T) {
 			{ActionType: ActionTypeHolder{ActionType: ActionScript}, Name: "test", Data: map[string]string{"code": "() => window.test"}},
 		}
 
-		testHeadlessSimpleResponse(t, response, actions, timeout, func(page *Page, err error, out map[string]string) {
+		testHeadlessSimpleResponse(t, response, actions, timeout, func(page *Page, err error, out ActionData) {
 			require.Nil(t, err, "could not run page actions")
 			require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 			require.Equal(t, "some-data", out["test"], "could not run js and get results correctly")
@@ -77,7 +98,7 @@ func TestActionScript(t *testing.T) {
 			{ActionType: ActionTypeHolder{ActionType: ActionWaitLoad}},
 			{ActionType: ActionTypeHolder{ActionType: ActionScript}, Name: "test", Data: map[string]string{"code": "() => window.test"}},
 		}
-		testHeadlessSimpleResponse(t, response, actions, timeout, func(page *Page, err error, out map[string]string) {
+		testHeadlessSimpleResponse(t, response, actions, timeout, func(page *Page, err error, out ActionData) {
 			require.Nil(t, err, "could not run page actions")
 			require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 			require.Equal(t, "some-data", out["test"], "could not run js and get results correctly with js hook")
@@ -101,7 +122,7 @@ func TestActionClick(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionClick}, Data: map[string]string{"selector": "button"}}, // Use css selector for clicking
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 		el := page.Page().MustElement("button")
@@ -134,7 +155,7 @@ func TestActionRightClick(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionRightClick}, Data: map[string]string{"selector": "button"}}, // Use css selector for clicking
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 		el := page.Page().MustElement("button")
@@ -159,7 +180,7 @@ func TestActionTextInput(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionTextInput}, Data: map[string]string{"selector": "input", "value": "test"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 		el := page.Page().MustElement("input")
@@ -182,7 +203,7 @@ func TestActionHeadersChange(t *testing.T) {
 		}
 	}
 
-	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out map[string]string) {
+	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "found", strings.ToLower(strings.TrimSpace(page.Page().MustElement("html").MustText())), "could not set header correctly")
 	})
@@ -201,11 +222,11 @@ func TestActionScreenshot(t *testing.T) {
 	filePath := filepath.Join(os.TempDir(), "test.png")
 	actions := []*Action{
 		{ActionType: ActionTypeHolder{ActionType: ActionNavigate}, Data: map[string]string{"url": "{{BaseURL}}"}},
-		{ActionType: ActionTypeHolder{ActionType: ActionWaitLoad}},
+		{ActionType: ActionTypeHolder{ActionType: ActionWaitFMP}},
 		{ActionType: ActionTypeHolder{ActionType: ActionScreenshot}, Data: map[string]string{"to": filePath}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 		_ = page.Page()
@@ -229,11 +250,11 @@ func TestActionScreenshotToDir(t *testing.T) {
 
 	actions := []*Action{
 		{ActionType: ActionTypeHolder{ActionType: ActionNavigate}, Data: map[string]string{"url": "{{BaseURL}}"}},
-		{ActionType: ActionTypeHolder{ActionType: ActionWaitLoad}},
+		{ActionType: ActionTypeHolder{ActionType: ActionWaitFMP}},
 		{ActionType: ActionTypeHolder{ActionType: ActionScreenshot}, Data: map[string]string{"to": filePath, "mkdir": "true"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 		_ = page.Page()
@@ -260,7 +281,7 @@ func TestActionTimeInput(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionTimeInput}, Data: map[string]string{"selector": "input", "value": "2006-01-02T15:04:05Z"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 		el := page.Page().MustElement("input")
@@ -288,7 +309,7 @@ func TestActionSelectInput(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionSelectInput}, Data: map[string]string{"by": "x", "xpath": "//select[@id='test']", "value": "Test2", "selected": "true"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		el := page.Page().MustElement("select")
 		require.Equal(t, "Test2", el.MustText(), "could not get input change value")
@@ -311,7 +332,7 @@ func TestActionFilesInput(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionFilesInput}, Data: map[string]string{"selector": "input", "value": "test1.pdf"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Nuclei Test Page", page.Page().MustInfo().Title, "could not navigate correctly")
 		el := page.Page().MustElement("input")
@@ -337,7 +358,7 @@ func TestActionFilesInputNegative(t *testing.T) {
 	}
 	t.Setenv("LOCAL_FILE_ACCESS", "false")
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.ErrorContains(t, err, ErrLFAccessDenied.Error(), "got file access when -lfa is false")
 	})
 }
@@ -359,7 +380,7 @@ func TestActionWaitLoad(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionWaitLoad}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		el := page.Page().MustElement("button")
 		style, attributeErr := el.Attribute("style")
@@ -384,9 +405,12 @@ func TestActionGetResource(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionGetResource}, Data: map[string]string{"by": "x", "xpath": "//img[@id='test']"}, Name: "src"},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
-		require.Equal(t, len(out["src"]), 121808, "could not find resource")
+
+		src, ok := out["src"].(string)
+		require.True(t, ok, "could not assert src to string")
+		require.Equal(t, len(src), 121808, "could not find resource")
 	})
 }
 
@@ -404,7 +428,7 @@ func TestActionExtract(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionExtract}, Data: map[string]string{"by": "x", "xpath": "//button[@id='test']"}, Name: "extract"},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "Wait for me!", out["extract"], "could not extract text")
 	})
@@ -423,7 +447,7 @@ func TestActionSetMethod(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionSetMethod}, Data: map[string]string{"part": "x", "method": "SET"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "SET", page.rules[0].Args["method"], "could not find resource")
 	})
@@ -442,7 +466,7 @@ func TestActionAddHeader(t *testing.T) {
 		}
 	}
 
-	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out map[string]string) {
+	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "found", strings.ToLower(strings.TrimSpace(page.Page().MustElement("html").MustText())), "could not set header correctly")
 	})
@@ -463,7 +487,7 @@ func TestActionDeleteHeader(t *testing.T) {
 		}
 	}
 
-	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out map[string]string) {
+	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "header deleted", strings.ToLower(strings.TrimSpace(page.Page().MustElement("html").MustText())), "could not delete header correctly")
 	})
@@ -481,7 +505,7 @@ func TestActionSetBody(t *testing.T) {
 		_, _ = fmt.Fprintln(w, string(body))
 	}
 
-	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out map[string]string) {
+	testHeadless(t, actions, 20*time.Second, handler, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.Equal(t, "hello", strings.ToLower(strings.TrimSpace(page.Page().MustElement("html").MustText())), "could not set header correctly")
 	})
@@ -505,7 +529,7 @@ func TestActionKeyboard(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionKeyboard}, Data: map[string]string{"keys": "Test2"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		el := page.Page().MustElement("input")
 		require.Equal(t, "Test2", el.MustText(), "could not get input change value")
@@ -529,7 +553,7 @@ func TestActionSleep(t *testing.T) {
 		{ActionType: ActionTypeHolder{ActionType: ActionSleep}, Data: map[string]string{"duration": "2"}},
 	}
 
-	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out map[string]string) {
+	testHeadlessSimpleResponse(t, response, actions, 20*time.Second, func(page *Page, err error, out ActionData) {
 		require.Nil(t, err, "could not run page actions")
 		require.True(t, page.Page().MustElement("button").MustVisible(), "could not get button")
 	})
@@ -553,7 +577,7 @@ func TestActionWaitVisible(t *testing.T) {
 	}
 
 	t.Run("wait for an element being visible", func(t *testing.T) {
-		testHeadlessSimpleResponse(t, response, actions, 2*time.Second, func(page *Page, err error, out map[string]string) {
+		testHeadlessSimpleResponse(t, response, actions, 2*time.Second, func(page *Page, err error, out ActionData) {
 			require.Nil(t, err, "could not run page actions")
 
 			page.Page().MustElement("button").MustVisible()
@@ -562,21 +586,82 @@ func TestActionWaitVisible(t *testing.T) {
 
 	t.Run("timeout because of element not visible", func(t *testing.T) {
 		// increased timeout from time.Second/2 to time.Second due to random fails (probably due to overhead and system)
-		testHeadlessSimpleResponse(t, response, actions, time.Second, func(page *Page, err error, out map[string]string) {
+		testHeadlessSimpleResponse(t, response, actions, time.Second, func(page *Page, err error, out ActionData) {
 			require.Error(t, err)
 			require.Contains(t, err.Error(), "Element did not appear in the given amount of time")
 		})
 	})
 }
 
-func testHeadlessSimpleResponse(t *testing.T, response string, actions []*Action, timeout time.Duration, assert func(page *Page, pageErr error, out map[string]string)) {
+func TestActionWaitDialog(t *testing.T) {
+	response := `<html>
+		<head>
+			<title>Nuclei Test Page</title>
+		</head>
+		<body>
+		<script type="text/javascript">
+		const urlParams = new URLSearchParams(window.location.search);
+		const scriptContent = urlParams.get('script');
+		if (scriptContent) {
+		  const scriptElement = document.createElement('script');
+		  scriptElement.textContent = scriptContent;
+
+		  document.body.appendChild(scriptElement);
+		}
+		</script>
+		</body>
+	</html>`
+
+	t.Run("Triggered", func(t *testing.T) {
+		actions := []*Action{
+			{
+				ActionType: ActionTypeHolder{ActionType: ActionNavigate},
+				Data:       map[string]string{"url": "{{BaseURL}}/?script=alert%281%29"},
+			},
+			{
+				ActionType: ActionTypeHolder{ActionType: ActionWaitDialog},
+				Name:       "test",
+			},
+		}
+
+		testHeadlessSimpleResponse(t, response, actions, 1*time.Second, func(page *Page, err error, out ActionData) {
+			require.Nil(t, err, "could not run page actions")
+
+			test, ok := out["test"].(bool)
+			require.True(t, ok, "could not assert test to bool")
+			require.True(t, test, "could not find test")
+		})
+	})
+
+	t.Run("Invalid", func(t *testing.T) {
+		actions := []*Action{
+			{
+				ActionType: ActionTypeHolder{ActionType: ActionNavigate},
+				Data:       map[string]string{"url": "{{BaseURL}}/?script=foo"},
+			},
+			{
+				ActionType: ActionTypeHolder{ActionType: ActionWaitDialog},
+				Name:       "test",
+			},
+		}
+
+		testHeadlessSimpleResponse(t, response, actions, 1*time.Second, func(page *Page, err error, out ActionData) {
+			require.Nil(t, err, "could not run page actions")
+
+			_, ok := out["test"].(bool)
+			require.False(t, ok, "output assertion is success")
+		})
+	})
+}
+
+func testHeadlessSimpleResponse(t *testing.T, response string, actions []*Action, timeout time.Duration, assert func(page *Page, pageErr error, out ActionData)) {
 	t.Helper()
 	testHeadless(t, actions, timeout, func(w http.ResponseWriter, r *http.Request) {
 		_, _ = fmt.Fprintln(w, response)
 	}, assert)
 }
 
-func testHeadless(t *testing.T, actions []*Action, timeout time.Duration, handler func(w http.ResponseWriter, r *http.Request), assert func(page *Page, pageErr error, extractedData map[string]string)) {
+func testHeadless(t *testing.T, actions []*Action, timeout time.Duration, handler func(w http.ResponseWriter, r *http.Request), assert func(page *Page, pageErr error, extractedData ActionData)) {
 	t.Helper()
 
 	lfa := getBoolFromEnv("LOCAL_FILE_ACCESS", true)

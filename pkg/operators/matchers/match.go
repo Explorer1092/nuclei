@@ -12,12 +12,25 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
 	dslRepo "github.com/projectdiscovery/dsl"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/operators/matchers/match.go
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/common/dsl"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/common/dsl"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/expressions"
+>>>>>>> projectdiscovery-main
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 
 var (
 	// showDSLErr controls whether to show hidden DSL errors or not
 	showDSLErr = strings.EqualFold(os.Getenv("SHOW_DSL_ERRORS"), "true")
+<<<<<<< HEAD
+=======
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/operators/matchers/match.go
+>>>>>>> projectdiscovery-main
 )
 
 // MatchStatusCode matches a status code check against a corpus

@@ -27,6 +27,44 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	"github.com/Explorer1092/nuclei/v3/pkg/workflows"
 	"github.com/julienschmidt/httprouter"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/templates/compile_test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
+	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
+	"github.com/Explorer1092/nuclei/v2/pkg/progress"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/variables"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v2/pkg/workflows"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
+	"github.com/projectdiscovery/nuclei/v3/pkg/loader/workflow"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/progress"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/variables"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+	"github.com/projectdiscovery/nuclei/v3/pkg/workflows"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/compile_test.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/ratelimit"
 	"github.com/stretchr/testify/require"
 )
@@ -39,15 +77,15 @@ func setup() {
 	progressImpl, _ := progress.NewStatsTicker(0, false, false, false, 0)
 
 	executerOpts = protocols.ExecutorOptions{
-		Output:       testutils.NewMockOutputWriter(options.OmitTemplate),
-		Options:      options,
-		Progress:     progressImpl,
-		ProjectFile:  nil,
-		IssuesClient: nil,
-		Browser:      nil,
-		Catalog:      disk.NewCatalog(config.DefaultConfig.TemplatesDirectory),
-		RateLimiter:  ratelimit.New(context.Background(), uint(options.RateLimit), time.Second),
-		Parser:       templates.NewParser(),
+		Output:          testutils.NewMockOutputWriter(options.OmitTemplate),
+		Options:         options,
+		Progress:        progressImpl,
+		ProjectFile:     nil,
+		IssuesClient:    nil,
+		Browser:         nil,
+		Catalog:         disk.NewCatalog(config.DefaultConfig.TemplatesDirectory),
+		RateLimiter:     ratelimit.New(context.Background(), uint(options.RateLimit), time.Second),
+		Parser:          templates.NewParser(),
 	}
 	workflowLoader, err := workflow.NewLoader(&executerOpts)
 	if err != nil {
@@ -196,4 +234,13 @@ func Test_WrongTemplate(t *testing.T) {
 	got, err = templates.Parse(filePath, nil, executerOpts)
 	require.Nil(t, got, "could not parse template")
 	require.ErrorContains(t, err, "no requests defined ")
+}
+
+func TestWrongWorkflow(t *testing.T) {
+	setup()
+
+	filePath := "tests/workflow-invalid.yaml"
+	got, err := templates.Parse(filePath, nil, executerOpts)
+	require.Nil(t, got, "could not parse template")
+	require.ErrorContains(t, err, "workflows cannot have other protocols")
 }

@@ -26,6 +26,28 @@ import (
 	"github.com/projectdiscovery/hmap/filekv"
 	"github.com/projectdiscovery/hmap/store/hybrid"
 	"github.com/projectdiscovery/mapcidr/asn"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/core/inputs/hybrid/hmap.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/uncover"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/uncover"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+=======
+	providerTypes "github.com/projectdiscovery/nuclei/v3/pkg/input/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/uncover"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils/expand"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/input/provider/list/hmap.go
+>>>>>>> projectdiscovery-main
 	uncoverlib "github.com/projectdiscovery/uncover"
 	fileutil "github.com/projectdiscovery/utils/file"
 	iputil "github.com/projectdiscovery/utils/ip"
@@ -123,7 +145,7 @@ func (i *ListInputProvider) Iterate(callback func(value *contextargs.MetaInput) 
 		})
 	}
 	callbackFunc := func(k, _ []byte) error {
-		metaInput := &contextargs.MetaInput{}
+		metaInput := contextargs.NewMetaInput()
 		if err := metaInput.Unmarshal(string(k)); err != nil {
 			return err
 		}
@@ -162,14 +184,16 @@ func (i *ListInputProvider) Set(value string) {
 			}
 			return fmt.Sprintf("got empty hostname for %v skipping ip selection", URL)
 		})
-		metaInput := &contextargs.MetaInput{Input: URL}
+		metaInput := contextargs.NewMetaInput()
+		metaInput.Input = URL
 		i.setItem(metaInput)
 		return
 	}
 
 	// Check if input is ip or hostname
 	if iputil.IsIP(urlx.Hostname()) {
-		metaInput := &contextargs.MetaInput{Input: URL}
+		metaInput := contextargs.NewMetaInput()
+		metaInput.Input = URL
 		i.setItem(metaInput)
 		return
 	}
@@ -190,7 +214,9 @@ func (i *ListInputProvider) Set(value string) {
 					if ip == "" {
 						continue
 					}
-					metaInput := &contextargs.MetaInput{Input: value, CustomIP: ip}
+					metaInput := contextargs.NewMetaInput()
+					metaInput.Input = value
+					metaInput.CustomIP = ip
 					i.setItem(metaInput)
 				}
 				return
@@ -220,11 +246,13 @@ func (i *ListInputProvider) Set(value string) {
 	}
 
 	for _, ip := range ips {
+		metaInput := contextargs.NewMetaInput()
 		if ip != "" {
-			metaInput := &contextargs.MetaInput{Input: URL, CustomIP: ip}
+			metaInput.Input = URL
+			metaInput.CustomIP = ip
 			i.setItem(metaInput)
 		} else {
-			metaInput := &contextargs.MetaInput{Input: URL}
+			metaInput.Input = URL
 			i.setItem(metaInput)
 		}
 	}
@@ -362,7 +390,8 @@ func (i *ListInputProvider) scanInputFromReader(reader io.Reader) {
 
 // isExcluded checks if a URL is in the exclusion list
 func (i *ListInputProvider) isExcluded(URL string) bool {
-	metaInput := &contextargs.MetaInput{Input: URL}
+	metaInput := contextargs.NewMetaInput()
+	metaInput.Input = URL
 	key, err := metaInput.MarshalString()
 	if err != nil {
 		gologger.Warning().Msgf("%s\n", err)
@@ -395,14 +424,16 @@ func (i *ListInputProvider) Del(value string) {
 			}
 			return fmt.Sprintf("got empty hostname for %v skipping ip selection", URL)
 		})
-		metaInput := &contextargs.MetaInput{Input: URL}
+		metaInput := contextargs.NewMetaInput()
+		metaInput.Input = URL
 		i.delItem(metaInput)
 		return
 	}
 
 	// Check if input is ip or hostname
 	if iputil.IsIP(urlx.Hostname()) {
-		metaInput := &contextargs.MetaInput{Input: URL}
+		metaInput := contextargs.NewMetaInput()
+		metaInput.Input = URL
 		i.delItem(metaInput)
 		return
 	}
@@ -423,7 +454,9 @@ func (i *ListInputProvider) Del(value string) {
 					if ip == "" {
 						continue
 					}
-					metaInput := &contextargs.MetaInput{Input: value, CustomIP: ip}
+					metaInput := contextargs.NewMetaInput()
+					metaInput.Input = value
+					metaInput.CustomIP = ip
 					i.delItem(metaInput)
 				}
 				return
@@ -453,11 +486,13 @@ func (i *ListInputProvider) Del(value string) {
 	}
 
 	for _, ip := range ips {
+		metaInput := contextargs.NewMetaInput()
 		if ip != "" {
-			metaInput := &contextargs.MetaInput{Input: URL, CustomIP: ip}
+			metaInput.Input = URL
+			metaInput.CustomIP = ip
 			i.delItem(metaInput)
 		} else {
-			metaInput := &contextargs.MetaInput{Input: URL}
+			metaInput.Input = URL
 			i.delItem(metaInput)
 		}
 	}
@@ -532,7 +567,8 @@ func (i *ListInputProvider) addTargets(targets []string) {
 
 func (i *ListInputProvider) removeTargets(targets []string) {
 	for _, target := range targets {
-		metaInput := &contextargs.MetaInput{Input: target}
+		metaInput := contextargs.NewMetaInput()
+		metaInput.Input = target
 		i.delItem(metaInput)
 	}
 }

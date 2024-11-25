@@ -8,6 +8,29 @@ import (
 
 	"github.com/Explorer1092/nuclei/v3/pkg/templates"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/uncover/uncover.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+	"github.com/projectdiscovery/ratelimit"
+	ucRunner "github.com/projectdiscovery/uncover/runner"
+	"github.com/projectdiscovery/uncover/uncover"
+	"github.com/projectdiscovery/uncover/uncover/agent/censys"
+	"github.com/projectdiscovery/uncover/uncover/agent/criminalip"
+	"github.com/projectdiscovery/uncover/uncover/agent/fofa"
+	"github.com/projectdiscovery/uncover/uncover/agent/hunter"
+	"github.com/projectdiscovery/uncover/uncover/agent/netlas"
+	"github.com/projectdiscovery/uncover/uncover/agent/quake"
+	"github.com/projectdiscovery/uncover/uncover/agent/shodan"
+	"github.com/projectdiscovery/uncover/uncover/agent/shodanidb"
+	"github.com/projectdiscovery/uncover/uncover/agent/zoomeye"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/uncover/uncover.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/uncover"
 	"github.com/projectdiscovery/uncover/sources"
 	mapsutil "github.com/projectdiscovery/utils/maps"

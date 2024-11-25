@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	"github.com/andygrunwald/go-jira"
+	"github.com/pkg/errors"
 	"github.com/trivago/tgo/tcontainer"
 
 	"github.com/Explorer1092/nuclei/v3/pkg/output"
@@ -15,7 +16,28 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/reporting/format"
 	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/filters"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/reporting/trackers/jira/jira.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/reporting/format"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/markdown/util"
+	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/markdown/util"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/format"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/filters"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/reporting/trackers/jira/jira.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
+	"github.com/projectdiscovery/utils/ptr"
 )
 
 type Formatter struct {
@@ -69,9 +91,13 @@ type Options struct {
 	// Token is the token for jira instance.
 	Token string `yaml:"token" json:"token" validate:"required"`
 	// ProjectName is the name of the project.
-	ProjectName string `yaml:"project-name" json:"project_name" validate:"required"`
+	ProjectName string `yaml:"project-name" json:"project_name"`
+	// ProjectID is the ID of the project (optional)
+	ProjectID string `yaml:"project-id" json:"project_id"`
 	// IssueType (optional) is the name of the created issue type
 	IssueType string `yaml:"issue-type" json:"issue_type"`
+	// IssueTypeID (optional) is the ID of the created issue type
+	IssueTypeID string `yaml:"issue-type-id" json:"issue_type_id"`
 	// SeverityAsLabel (optional) sends the severity as the label of the created
 	// issue.
 	SeverityAsLabel bool `yaml:"severity-as-label" json:"severity_as_label"`
@@ -147,13 +173,13 @@ func (i *Integration) CreateNewIssue(event *output.ResultEvent) (*filters.Create
 					nestedValue = strings.TrimPrefix(fmtNestedValue, "$")
 					switch nestedValue {
 					case "CVSSMetrics":
-						nestedValue = event.Info.Classification.CVSSMetrics
+						nestedValue = ptr.Safe(event.Info.Classification).CVSSMetrics
 					case "CVEID":
-						nestedValue = event.Info.Classification.CVEID
+						nestedValue = ptr.Safe(event.Info.Classification).CVEID
 					case "CWEID":
-						nestedValue = event.Info.Classification.CWEID
+						nestedValue = ptr.Safe(event.Info.Classification).CWEID
 					case "CVSSScore":
-						nestedValue = event.Info.Classification.CVSSScore
+						nestedValue = ptr.Safe(event.Info.Classification).CVSSScore
 					case "Host":
 						nestedValue = event.Host
 					case "Severity":
@@ -182,6 +208,7 @@ func (i *Integration) CreateNewIssue(event *output.ResultEvent) (*filters.Create
 		Project:     jira.Project{Key: i.options.ProjectName},
 		Summary:     summary,
 	}
+
 	// On-prem version of Jira server does not use AccountID
 	if !i.options.Cloud {
 		fields = &jira.IssueFields{
@@ -193,6 +220,12 @@ func (i *Integration) CreateNewIssue(event *output.ResultEvent) (*filters.Create
 			Labels:      labels,
 			Unknowns:    customFields,
 		}
+	}
+	if i.options.IssueTypeID != "" {
+		fields.Type = jira.IssueType{ID: i.options.IssueTypeID}
+	}
+	if i.options.ProjectID != "" {
+		fields.Project = jira.Project{ID: i.options.ProjectID}
 	}
 
 	issueData := &jira.Issue{
@@ -229,18 +262,22 @@ func (i *Integration) CreateIssue(event *output.ResultEvent) (*filters.CreateIss
 	if i.options.UpdateExisting {
 		issue, err := i.FindExistingIssue(event)
 		if err != nil {
-			return nil, err
+			return nil, errors.Wrap(err, "could not find existing issue")
 		} else if issue.ID != "" {
 			_, _, err = i.jira.Issue.AddComment(issue.ID, &jira.Comment{
 				Body: format.CreateReportDescription(event, i, i.options.OmitRaw),
 			})
 			if err != nil {
-				return nil, err
+				return nil, errors.Wrap(err, "could not add comment to existing issue")
 			}
 			return getIssueResponseFromJira(&issue)
 		}
 	}
-	return i.CreateNewIssue(event)
+	resp, err := i.CreateNewIssue(event)
+	if err != nil {
+		return nil, errors.Wrap(err, "could not create new issue")
+	}
+	return resp, nil
 }
 
 func (i *Integration) CloseIssue(event *output.ResultEvent) error {
@@ -285,7 +322,11 @@ func (i *Integration) CloseIssue(event *output.ResultEvent) error {
 // FindExistingIssue checks if the issue already exists and returns its ID
 func (i *Integration) FindExistingIssue(event *output.ResultEvent) (jira.Issue, error) {
 	template := format.GetMatchedTemplateName(event)
-	jql := fmt.Sprintf("summary ~ \"%s\" AND summary ~ \"%s\" AND status != \"%s\" AND project = \"%s\"", template, event.Host, i.options.StatusNot, i.options.ProjectName)
+	project := i.options.ProjectName
+	if i.options.ProjectID != "" {
+		project = i.options.ProjectID
+	}
+	jql := fmt.Sprintf("summary ~ \"%s\" AND summary ~ \"%s\" AND status != \"%s\" AND project = \"%s\"", template, event.Host, i.options.StatusNot, project)
 
 	searchOptions := &jira.SearchOptions{
 		MaxResults: 1, // if any issue exists, then we won't create a new one
@@ -314,13 +355,13 @@ func (i *Integration) FindExistingIssue(event *output.ResultEvent) (jira.Issue, 
 
 // ShouldFilter determines if an issue should be logged to this tracker
 func (i *Integration) ShouldFilter(event *output.ResultEvent) bool {
-	if i.options.AllowList != nil && i.options.AllowList.GetMatch(event) {
+	if i.options.AllowList != nil && !i.options.AllowList.GetMatch(event) {
 		return false
 	}
 
 	if i.options.DenyList != nil && i.options.DenyList.GetMatch(event) {
-		return true
+		return false
 	}
 
-	return false
+	return true
 }

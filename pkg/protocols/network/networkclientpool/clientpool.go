@@ -4,6 +4,16 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/fastdialer/fastdialer"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/protocols/network/networkclientpool/clientpool.go
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/network/networkclientpool/clientpool.go
+>>>>>>> projectdiscovery-main
 )
 
 var (

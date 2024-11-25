@@ -30,7 +30,8 @@
 <p align="center">
   <a href="https://github.com/projectdiscovery/nuclei/blob/main/README.md">English</a> •
   <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_CN.md">中文</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_KR.md">한국어</a>
+  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_KR.md">한국어</a> •
+  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ES.md">스페인어</a>
 </p>
 
 ---
@@ -53,7 +54,15 @@ Nuclei는 템플릿을 기반으로 대상 간에 요청을 보내기 위해 사
 Nuclei를 성공적으로 설치하기 위해서 **go1.21**가 필요합니다. 다음 명령을 실행하여 최신 버전을 설치합니다.
 
 ```sh
+<<<<<<< HEAD
 go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
+=======
+<<<<<<< HEAD
+go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
+=======
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a
+>>>>>>> projectdiscovery-main
 ```
 
 **자세한 설치 방법은 [여기](https://nuclei.projectdiscovery.io/nuclei/get-started/)에서 찾을 수 있습니다.**

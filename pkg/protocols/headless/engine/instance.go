@@ -8,6 +8,14 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/utils"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/protocols/headless/engine/instance.go
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/interactsh"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/headless/engine/instance.go
+>>>>>>> projectdiscovery-main
 )
 
 // Instance is an isolated browser instance opened for doing operations with it.

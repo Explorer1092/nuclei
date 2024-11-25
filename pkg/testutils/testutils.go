@@ -23,10 +23,39 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/gologger/levels"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/testutils/testutils.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/progress"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolinit"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/progress"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolinit"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
+	protocolUtils "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
+	unitutils "github.com/projectdiscovery/utils/unit"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/testutils/testutils.go
+>>>>>>> projectdiscovery-main
 )
 
 // Init initializes the protocols and their configurations
 func Init(options *types.Options) {
+	_ = protocolstate.Init(options)
 	_ = protocolinit.Init(options)
 }
 
@@ -73,7 +102,6 @@ var DefaultOptions = &types.Options{
 	InteractionsPollDuration:   5,
 	GitHubTemplateRepo:         []string{},
 	GitHubToken:                "",
-	ResponseReadTimeout:        time.Second * 5,
 }
 
 // TemplateInfo contains info for a mock executed template.
@@ -87,17 +115,17 @@ type TemplateInfo struct {
 func NewMockExecuterOptions(options *types.Options, info *TemplateInfo) *protocols.ExecutorOptions {
 	progressImpl, _ := progress.NewStatsTicker(0, false, false, false, 0)
 	executerOpts := &protocols.ExecutorOptions{
-		TemplateID:   info.ID,
-		TemplateInfo: info.Info,
-		TemplatePath: info.Path,
-		Output:       NewMockOutputWriter(options.OmitTemplate),
-		Options:      options,
-		Progress:     progressImpl,
-		ProjectFile:  nil,
-		IssuesClient: nil,
-		Browser:      nil,
-		Catalog:      disk.NewCatalog(config.DefaultConfig.TemplatesDirectory),
-		RateLimiter:  ratelimit.New(context.Background(), uint(options.RateLimit), time.Second),
+		TemplateID:      info.ID,
+		TemplateInfo:    info.Info,
+		TemplatePath:    info.Path,
+		Output:          NewMockOutputWriter(options.OmitTemplate),
+		Options:         options,
+		Progress:        progressImpl,
+		ProjectFile:     nil,
+		IssuesClient:    nil,
+		Browser:         nil,
+		Catalog:         disk.NewCatalog(config.DefaultConfig.TemplatesDirectory),
+		RateLimiter:     ratelimit.New(context.Background(), uint(options.RateLimit), time.Second),
 	}
 	executerOpts.CreateTemplateCtxStore()
 	return executerOpts
@@ -165,7 +193,7 @@ func (m *MockOutputWriter) WriteFailure(wrappedEvent *output.InternalWrappedEven
 
 	// create event
 	event := wrappedEvent.InternalEvent
-	templatePath, templateURL := utils.TemplatePathURL(types.ToString(event["template-path"]), types.ToString(event["template-id"]))
+	templatePath, templateURL := utils.TemplatePathURL(types.ToString(event["template-path"]), types.ToString(event["template-id"]), types.ToString(event["template-verifier"]))
 	var templateInfo model.Info
 	if ti, ok := event["template-info"].(model.Info); ok {
 		templateInfo = ti
@@ -201,7 +229,7 @@ func (m *MockOutputWriter) WriteFailure(wrappedEvent *output.InternalWrappedEven
 	return m.Write(data)
 }
 
-var maxTemplateFileSizeForEncoding = 1024 * 1024
+var maxTemplateFileSizeForEncoding = unitutils.Mega
 
 func (w *MockOutputWriter) encodeTemplate(templatePath string) string {
 	data, err := os.ReadFile(templatePath)

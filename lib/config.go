@@ -164,11 +164,17 @@ func WithConcurrency(opts Concurrency) NucleiSDKOptions {
 }
 
 // WithGlobalRateLimit sets global rate (i.e all hosts combined) limit options
+// Deprecated: will be removed in favour of WithGlobalRateLimitCtx in next release
 func WithGlobalRateLimit(maxTokens int, duration time.Duration) NucleiSDKOptions {
+	return WithGlobalRateLimitCtx(context.Background(), maxTokens, duration)
+}
+
+// WithGlobalRateLimitCtx allows setting a global rate limit for the entire engine
+func WithGlobalRateLimitCtx(ctx context.Context, maxTokens int, duration time.Duration) NucleiSDKOptions {
 	return func(e *NucleiEngine) error {
 		e.opts.RateLimit = maxTokens
 		e.opts.RateLimitDuration = duration
-		e.rateLimiter = ratelimit.New(context.Background(), uint(e.opts.RateLimit), e.opts.RateLimitDuration)
+		e.rateLimiter = ratelimit.New(ctx, uint(e.opts.RateLimit), e.opts.RateLimitDuration)
 		return nil
 	}
 }
@@ -374,6 +380,23 @@ func WithSandboxOptions(allowLocalFileAccess bool, restrictLocalNetworkAccess bo
 func EnableCodeTemplates() NucleiSDKOptions {
 	return func(e *NucleiEngine) error {
 		e.opts.EnableCodeTemplates = true
+		e.opts.EnableSelfContainedTemplates = true
+		return nil
+	}
+}
+
+// EnableSelfContainedTemplates allows loading/executing self-contained templates
+func EnableSelfContainedTemplates() NucleiSDKOptions {
+	return func(e *NucleiEngine) error {
+		e.opts.EnableSelfContainedTemplates = true
+		return nil
+	}
+}
+
+// EnableFileTemplates allows loading/executing file protocol templates
+func EnableFileTemplates() NucleiSDKOptions {
+	return func(e *NucleiEngine) error {
+		e.opts.EnableFileTemplates = true
 		return nil
 	}
 }
@@ -386,10 +409,30 @@ func WithHeaders(headers []string) NucleiSDKOptions {
 	}
 }
 
+// WithVars allows setting custom variables to use in templates/workflows context
+func WithVars(vars []string) NucleiSDKOptions {
+	// Create a goflags.RuntimeMap
+	runtimeVars := goflags.RuntimeMap{}
+	for _, v := range vars {
+		err := runtimeVars.Set(v)
+		if err != nil {
+			return func(e *NucleiEngine) error {
+				return err
+			}
+		}
+	}
+
+	return func(e *NucleiEngine) error {
+		e.opts.Vars = runtimeVars
+		return nil
+	}
+}
+
 // EnablePassiveMode allows enabling passive HTTP response processing mode
 func EnablePassiveMode() NucleiSDKOptions {
 	return func(e *NucleiEngine) error {
 		e.opts.OfflineHTTP = true
+		e.opts.DisableHTTPProbe = true
 		return nil
 	}
 }
@@ -431,6 +474,14 @@ func SignedTemplatesOnly() NucleiSDKOptions {
 func WithCatalog(cat catalog.Catalog) NucleiSDKOptions {
 	return func(e *NucleiEngine) error {
 		e.catalog = cat
+		return nil
+	}
+}
+
+// DisableUpdateCheck disables nuclei update check
+func DisableUpdateCheck() NucleiSDKOptions {
+	return func(e *NucleiEngine) error {
+		DefaultConfig.DisableUpdateCheck()
 		return nil
 	}
 }

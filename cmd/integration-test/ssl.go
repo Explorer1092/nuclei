@@ -4,7 +4,15 @@ import (
 	"crypto/tls"
 	"net"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+=======
+<<<<<<< HEAD:v2/cmd/integration-test/ssl.go
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/integration-test/ssl.go
+>>>>>>> projectdiscovery-main
 )
 
 var sslTestcases = []TestCaseInfo{
@@ -13,6 +21,7 @@ var sslTestcases = []TestCaseInfo{
 	{Path: "protocols/ssl/custom-cipher.yaml", TestCase: &sslCustomCipher{}},
 	{Path: "protocols/ssl/custom-version.yaml", TestCase: &sslCustomVersion{}},
 	{Path: "protocols/ssl/ssl-with-vars.yaml", TestCase: &sslWithVars{}},
+	{Path: "protocols/ssl/multi-req.yaml", TestCase: &sslMultiReq{}},
 }
 
 type sslBasic struct{}
@@ -117,4 +126,24 @@ func (h *sslWithVars) Execute(filePath string) error {
 	}
 
 	return expectResultsCount(results, 1)
+}
+
+type sslMultiReq struct{}
+
+func (h *sslMultiReq) Execute(filePath string) error {
+	ts := testutils.NewTCPServer(&tls.Config{}, defaultStaticPort, func(conn net.Conn) {
+		defer conn.Close()
+		data := make([]byte, 4)
+		if _, err := conn.Read(data); err != nil {
+			return
+		}
+	})
+	defer ts.Close()
+
+	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, ts.URL, debug, "-V")
+	if err != nil {
+		return err
+	}
+
+	return expectResultsCount(results, 2)
 }

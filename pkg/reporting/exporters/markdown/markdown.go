@@ -6,12 +6,29 @@ import (
 	"path/filepath"
 	"strings"
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/reporting/exporters/markdown/markdown.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/reporting/format"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/markdown/util"
+	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
+=======
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/gologger"
 
 	"github.com/Explorer1092/nuclei/v3/pkg/output"
 	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown/util"
 	"github.com/Explorer1092/nuclei/v3/pkg/reporting/format"
 	fileutil "github.com/projectdiscovery/utils/file"
+<<<<<<< HEAD
+=======
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/reporting/exporters/markdown/markdown.go
+>>>>>>> projectdiscovery-main
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 

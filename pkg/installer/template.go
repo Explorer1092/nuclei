@@ -17,6 +17,16 @@ import (
 	"github.com/charmbracelet/glamour"
 	"github.com/olekukonko/tablewriter"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/internal/installer/template.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/external/customtemplates"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/external/customtemplates"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/installer/template.go
+>>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	stringsutil "github.com/projectdiscovery/utils/strings"

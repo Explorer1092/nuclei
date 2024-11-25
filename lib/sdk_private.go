@@ -7,6 +7,7 @@ import (
 	"sync"
 	"time"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/internal/runner"
 	"github.com/Explorer1092/nuclei/v3/pkg/authprovider"
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
@@ -27,6 +28,10 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	nucleiUtils "github.com/Explorer1092/nuclei/v3/pkg/utils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/input"
+
+>>>>>>> projectdiscovery-main
 	"github.com/logrusorgru/aurora"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
@@ -35,10 +40,10 @@ import (
 	"github.com/projectdiscovery/ratelimit"
 )
 
-var sharedInit sync.Once = sync.Once{}
+var sharedInit *sync.Once
 
 // applyRequiredDefaults to options
-func (e *NucleiEngine) applyRequiredDefaults() {
+func (e *NucleiEngine) applyRequiredDefaults(ctx context.Context) {
 	mockoutput := testutils.NewMockOutputWriter(e.opts.OmitTemplate)
 	mockoutput.WriteCallback = func(event *output.ResultEvent) {
 		if len(e.resultCallbacks) > 0 {
@@ -82,7 +87,7 @@ func (e *NucleiEngine) applyRequiredDefaults() {
 		e.interactshOpts = interactsh.DefaultOptions(e.customWriter, e.rc, e.customProgress)
 	}
 	if e.rateLimiter == nil {
-		e.rateLimiter = ratelimit.New(context.Background(), 150, time.Second)
+		e.rateLimiter = ratelimit.New(ctx, 150, time.Second)
 	}
 	if e.opts.ExcludeTags == nil {
 		e.opts.ExcludeTags = []string{}
@@ -95,7 +100,7 @@ func (e *NucleiEngine) applyRequiredDefaults() {
 }
 
 // init
-func (e *NucleiEngine) init() error {
+func (e *NucleiEngine) init(ctx context.Context) error {
 	if e.opts.Verbose {
 		gologger.DefaultLogger.SetMaxLevel(levels.LevelVerbose)
 	} else if e.opts.Debug {
@@ -108,6 +113,16 @@ func (e *NucleiEngine) init() error {
 		return err
 	}
 
+	e.parser = templates.NewParser()
+
+	if sharedInit == nil || protocolstate.ShouldInit() {
+		sharedInit = &sync.Once{}
+	}
+
+	sharedInit.Do(func() {
+		_ = protocolinit.Init(e.opts)
+	})
+
 	if e.opts.ProxyInternal && types.ProxyURL != "" || types.ProxySocksURL != "" {
 		httpclient, err := httpclientpool.Get(e.opts, &httpclientpool.Configuration{})
 		if err != nil {
@@ -116,14 +131,7 @@ func (e *NucleiEngine) init() error {
 		e.httpClient = httpclient
 	}
 
-	e.parser = templates.NewParser()
-
-	sharedInit.Do(func() {
-		_ = protocolstate.Init(e.opts)
-		_ = protocolinit.Init(e.opts)
-	})
-
-	e.applyRequiredDefaults()
+	e.applyRequiredDefaults(ctx)
 	var err error
 
 	// setup progressbar
@@ -168,6 +176,7 @@ func (e *NucleiEngine) init() error {
 		ResumeCfg:       types.NewResumeCfg(),
 		Browser:         e.browserInstance,
 		Parser:          e.parser,
+		InputHelper:     input.NewHelper(),
 	}
 	if len(e.opts.SecretsFile) > 0 {
 		authTmplStore, err := runner.GetAuthTmplStore(*e.opts, e.catalog, e.executerOpts)
@@ -206,9 +215,9 @@ func (e *NucleiEngine) init() error {
 			e.opts.RateLimitDuration = time.Second
 		}
 		if e.opts.RateLimit == 0 && e.opts.RateLimitDuration == 0 {
-			e.executerOpts.RateLimiter = ratelimit.NewUnlimited(context.Background())
+			e.executerOpts.RateLimiter = ratelimit.NewUnlimited(ctx)
 		} else {
-			e.executerOpts.RateLimiter = ratelimit.New(context.Background(), uint(e.opts.RateLimit), e.opts.RateLimitDuration)
+			e.executerOpts.RateLimiter = ratelimit.New(ctx, uint(e.opts.RateLimit), e.opts.RateLimitDuration)
 		}
 	}
 
@@ -228,7 +237,10 @@ func (e *NucleiEngine) init() error {
 	// and also upgrade templates to latest version if available
 	installer.NucleiSDKVersionCheck()
 
-	return e.processUpdateCheckResults()
+	if DefaultConfig.CanCheckForUpdates() {
+		return e.processUpdateCheckResults()
+	}
+	return nil
 }
 
 type syncOnce struct {

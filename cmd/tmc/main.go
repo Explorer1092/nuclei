@@ -69,6 +69,7 @@ func init() {
 	// need to set headless to true for headless templates
 	defaultOpts.Headless = true
 	defaultOpts.EnableCodeTemplates = true
+	defaultOpts.EnableSelfContainedTemplates = true
 	if err := protocolstate.Init(defaultOpts); err != nil {
 		gologger.Fatal().Msgf("Could not initialize protocol state: %s\n", err)
 	}
@@ -162,7 +163,7 @@ func process(opts options) error {
 			var updated bool // if max-requests is updated
 			dataString, updated, err = parseAndAddMaxRequests(templateCatalog, path, dataString)
 			if err != nil {
-				gologger.Info().Label("max-request").Msgf(logErrMsg(path, err, opts.debug, errFile))
+				gologger.Info().Label("max-request").Msg(logErrMsg(path, err, opts.debug, errFile))
 			} else {
 				if updated {
 					gologger.Info().Label("max-request").Msgf("✅ updated template: %s\n", path)
@@ -255,7 +256,7 @@ func enhanceTemplate(data string) (string, bool, error) {
 		return data, false, errorutil.New("validation failed").WithTag("validate")
 	}
 	if templateResp.Error.Name != "" {
-		return data, false, errorutil.New(templateResp.Error.Name)
+		return data, false, errorutil.New("%s", templateResp.Error.Name)
 	}
 	if strings.TrimSpace(templateResp.Enhanced) == "" && !templateResp.Lint {
 		if templateResp.LintError.Reason != "" {
@@ -289,7 +290,7 @@ func formatTemplate(data string) (string, bool, error) {
 		return data, false, errorutil.New("validation failed").WithTag("validate")
 	}
 	if templateResp.Error.Name != "" {
-		return data, false, errorutil.New(templateResp.Error.Name)
+		return data, false, errorutil.New("%s", templateResp.Error.Name)
 	}
 	if strings.TrimSpace(templateResp.Updated) == "" && !templateResp.Lint {
 		if templateResp.LintError.Reason != "" {
@@ -300,7 +301,7 @@ func formatTemplate(data string) (string, bool, error) {
 	return data, false, errorutil.New("template format failed")
 }
 
-// lintTemplateData lints template data using templateman lint api
+// lintTemplate lints template data using templateman lint api
 func lintTemplate(data string) (bool, error) {
 	resp, err := retryablehttp.DefaultClient().Post(fmt.Sprintf("%s/lint", tmBaseUrl), "application/x-yaml", strings.NewReader(data))
 	if err != nil {
@@ -345,7 +346,7 @@ func validateTemplate(data string) (bool, error) {
 		return false, errorutil.New("validation failed").WithTag("validate")
 	}
 	if validateResp.Error.Name != "" {
-		return false, errorutil.New(validateResp.Error.Name)
+		return false, errorutil.New("%s", validateResp.Error.Name)
 	}
 	return false, errorutil.New("template validation failed")
 }

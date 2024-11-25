@@ -12,7 +12,26 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	generalTypes "github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
 	syncutil "github.com/projectdiscovery/utils/sync"
+=======
+<<<<<<< HEAD:v2/pkg/core/executors.go
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates"
+	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+	generalTypes "github.com/Explorer1092/nuclei/v2/pkg/types"
+	"github.com/remeh/sizedwaitgroup"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/input/provider"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
+	generalTypes "github.com/projectdiscovery/nuclei/v3/pkg/types"
+	syncutil "github.com/projectdiscovery/utils/sync"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/core/executors.go
+>>>>>>> projectdiscovery-main
 )
 
 // Executors are low level executors that deals with template execution on a target
@@ -27,7 +46,7 @@ func (e *Engine) executeAllSelfContained(ctx context.Context, alltemplates []*te
 			var match bool
 			ctx := scan.NewScanContext(ctx, contextargs.New(ctx))
 			if e.Callback != nil {
-				if results, err := template.Executer.ExecuteWithResults(ctx); err != nil {
+				if results, err := template.Executer.ExecuteWithResults(ctx); err == nil {
 					for _, result := range results {
 						e.Callback(result)
 					}
@@ -107,7 +126,7 @@ func (e *Engine) executeTemplateWithTargets(ctx context.Context, template *templ
 		currentInfo.Unlock()
 
 		// Skip if the host has had errors
-		if e.executerOpts.HostErrorsCache != nil && e.executerOpts.HostErrorsCache.Check(scannedValue.ID()) {
+		if e.executerOpts.HostErrorsCache != nil && e.executerOpts.HostErrorsCache.Check(e.executerOpts.ProtocolType.String(), contextargs.NewWithMetaInput(ctx, scannedValue)) {
 			return true
 		}
 
@@ -129,7 +148,7 @@ func (e *Engine) executeTemplateWithTargets(ctx context.Context, template *templ
 				match = e.executeWorkflow(ctx, template.CompiledWorkflow)
 			default:
 				if e.Callback != nil {
-					if results, err := template.Executer.ExecuteWithResults(ctx); err != nil {
+					if results, err := template.Executer.ExecuteWithResults(ctx); err == nil {
 						for _, result := range results {
 							e.Callback(result)
 						}
@@ -194,7 +213,7 @@ func (e *Engine) executeTemplatesOnTarget(ctx context.Context, alltemplates []*t
 				match = e.executeWorkflow(ctx, template.CompiledWorkflow)
 			default:
 				if e.Callback != nil {
-					if results, err := template.Executer.ExecuteWithResults(ctx); err != nil {
+					if results, err := template.Executer.ExecuteWithResults(ctx); err == nil {
 						for _, result := range results {
 							e.Callback(result)
 						}

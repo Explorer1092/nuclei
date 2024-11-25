@@ -11,6 +11,7 @@ import (
 
 	"github.com/logrusorgru/aurora"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/authprovider"
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
 	"github.com/Explorer1092/nuclei/v3/pkg/input"
@@ -37,6 +38,37 @@ import (
 
 var (
 	MaxTemplateFileSizeForEncoding = 1024 * 1024
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/authprovider"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
+	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/frequency"
+	"github.com/projectdiscovery/nuclei/v3/pkg/input"
+	"github.com/projectdiscovery/nuclei/v3/pkg/js/compiler"
+	"github.com/projectdiscovery/nuclei/v3/pkg/loader/parser"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/extractors"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/progress"
+	"github.com/projectdiscovery/nuclei/v3/pkg/projectfile"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/globalmatchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/hosterrorscache"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/interactsh"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/excludematchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/variables"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/headless/engine"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting"
+	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
+	templateTypes "github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	unitutils "github.com/projectdiscovery/utils/unit"
+)
+
+var (
+	MaxTemplateFileSizeForEncoding = unitutils.Mega
+>>>>>>> projectdiscovery-main
 )
 
 // Executer is an interface implemented any protocol based request executer.
@@ -59,6 +91,8 @@ type ExecutorOptions struct {
 	TemplatePath string
 	// TemplateInfo contains information block of the template request
 	TemplateInfo model.Info
+	// TemplateVerifier is the verifier for the template
+	TemplateVerifier string
 	// RawTemplate is the raw template for the request
 	RawTemplate []byte
 	// Output is a writer interface for writing output events from executer.
@@ -92,6 +126,8 @@ type ExecutorOptions struct {
 	ExcludeMatchers *excludematchers.ExcludeMatchers
 	// InputHelper is a helper for input normalization
 	InputHelper *input.Helper
+	// FuzzParamsFrequency is a cache for parameter frequency
+	FuzzParamsFrequency *frequency.Tracker
 
 	Operators []*operators.Operators // only used by offlinehttp module
 
@@ -120,6 +156,8 @@ type ExecutorOptions struct {
 	// ExportReqURLPattern exports the request URL pattern
 	// in ResultEvent it contains the exact url pattern (ex: {{BaseURL}}/{{randstr}}/xyz) used in the request
 	ExportReqURLPattern bool
+	// GlobalMatchers is the storage for global matchers with http passive templates
+	GlobalMatchers *globalmatchers.Storage
 }
 
 // todo: centralizing components is not feasible with current clogged architecture
@@ -193,6 +231,11 @@ func (e *ExecutorOptions) AddTemplateVars(input *contextargs.MetaInput, reqType 
 	}
 	templateCtx := e.GetTemplateCtx(input)
 	for k, v := range vars {
+		if stringsutil.HasPrefixAny(k, templateTypes.SupportedProtocolsStrings()...) {
+			// this was inherited from previous protocols no need to modify it we can directly set it or omit
+			templateCtx.Set(k, v)
+			continue
+		}
 		if !stringsutil.EqualFoldAny(k, "template-id", "template-info", "template-path") {
 			if reqID != "" {
 				k = reqID + "_" + k
@@ -212,6 +255,11 @@ func (e *ExecutorOptions) AddTemplateVar(input *contextargs.MetaInput, templateT
 		return
 	}
 	templateCtx := e.GetTemplateCtx(input)
+	if stringsutil.HasPrefixAny(key, templateTypes.SupportedProtocolsStrings()...) {
+		// this was inherited from previous protocols no need to modify it we can directly set it or omit
+		templateCtx.Set(key, value)
+		return
+	}
 	if reqID != "" {
 		key = reqID + "_" + key
 	} else if templateType < templateTypes.InvalidProtocol {

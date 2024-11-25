@@ -9,6 +9,14 @@ import (
 	"github.com/invopop/jsonschema"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/goflags"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/templates/types/types.go
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/types/types.go
+>>>>>>> projectdiscovery-main
 )
 
 // ProtocolType is the type of the request protocol specified
@@ -65,6 +73,18 @@ func GetSupportedProtocolTypes() ProtocolTypes {
 	var result []ProtocolType
 	for index := ProtocolType(1); index < limit; index++ {
 		result = append(result, index)
+	}
+	return result
+}
+
+// SupportedProtocolsStrings returns a slice of strings of supported protocols
+func SupportedProtocolsStrings() []string {
+	var result []string
+	for _, protocol := range GetSupportedProtocolTypes() {
+		if protocol.String() == "" {
+			continue
+		}
+		result = append(result, protocol.String())
 	}
 	return result
 }

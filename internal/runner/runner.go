@@ -13,12 +13,22 @@ import (
 	"sync/atomic"
 	"time"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/internal/pdcp"
 	"github.com/Explorer1092/nuclei/v3/pkg/authprovider"
 	"github.com/Explorer1092/nuclei/v3/pkg/input/provider"
 	"github.com/Explorer1092/nuclei/v3/pkg/installer"
 	"github.com/Explorer1092/nuclei/v3/pkg/loader/parser"
 	"github.com/Explorer1092/nuclei/v3/pkg/scan/events"
+=======
+	"github.com/projectdiscovery/nuclei/v3/internal/pdcp"
+	"github.com/projectdiscovery/nuclei/v3/pkg/authprovider"
+	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/frequency"
+	"github.com/projectdiscovery/nuclei/v3/pkg/input/provider"
+	"github.com/projectdiscovery/nuclei/v3/pkg/installer"
+	"github.com/projectdiscovery/nuclei/v3/pkg/loader/parser"
+	"github.com/projectdiscovery/nuclei/v3/pkg/scan/events"
+>>>>>>> projectdiscovery-main
 	uncoverlib "github.com/projectdiscovery/uncover"
 	pdcpauth "github.com/projectdiscovery/utils/auth/pdcp"
 	"github.com/projectdiscovery/utils/env"
@@ -61,6 +71,40 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/utils/stats"
 	"github.com/Explorer1092/nuclei/v3/pkg/utils/yaml"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+	"github.com/projectdiscovery/nuclei/v3/internal/colorizer"
+	"github.com/projectdiscovery/nuclei/v3/internal/httpapi"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/loader"
+	"github.com/projectdiscovery/nuclei/v3/pkg/core"
+	"github.com/projectdiscovery/nuclei/v3/pkg/external/customtemplates"
+	"github.com/projectdiscovery/nuclei/v3/pkg/input"
+	parsers "github.com/projectdiscovery/nuclei/v3/pkg/loader/workflow"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/progress"
+	"github.com/projectdiscovery/nuclei/v3/pkg/projectfile"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/automaticscan"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/globalmatchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/hosterrorscache"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/interactsh"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolinit"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/uncover"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/excludematchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/headless/engine"
+	httpProtocol "github.com/projectdiscovery/nuclei/v3/pkg/protocols/http"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/httpclientpool"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils/stats"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils/yaml"
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	ptrutil "github.com/projectdiscovery/utils/ptr"
 )
@@ -74,21 +118,22 @@ var (
 
 // Runner is a client for running the enumeration process.
 type Runner struct {
-	output           output.Writer
-	interactsh       *interactsh.Client
-	options          *types.Options
-	projectFile      *projectfile.ProjectFile
-	catalog          catalog.Catalog
-	progress         progress.Progress
-	colorizer        aurora.Aurora
-	issuesClient     reporting.Client
-	browser          *engine.Browser
-	rateLimiter      *ratelimit.Limiter
-	hostErrors       hosterrorscache.CacheInterface
-	resumeCfg        *types.ResumeCfg
-	pprofServer      *http.Server
-	pdcpUploadErrMsg string
-	inputProvider    provider.InputProvider
+	output             output.Writer
+	interactsh         *interactsh.Client
+	options            *types.Options
+	projectFile        *projectfile.ProjectFile
+	catalog            catalog.Catalog
+	progress           progress.Progress
+	colorizer          aurora.Aurora
+	issuesClient       reporting.Client
+	browser            *engine.Browser
+	rateLimiter        *ratelimit.Limiter
+	hostErrors         hosterrorscache.CacheInterface
+	resumeCfg          *types.ResumeCfg
+	pprofServer        *http.Server
+	pdcpUploadErrMsg   string
+	inputProvider      provider.InputProvider
+	fuzzFrequencyCache *frequency.Tracker
 	//general purpose temporary directory
 	tmpDir          string
 	parser          parser.Parser
@@ -359,6 +404,10 @@ func (r *Runner) runStandardEnumeration(executerOpts protocols.ExecutorOptions, 
 
 // Close releases all the resources and cleans up
 func (r *Runner) Close() {
+	// dump hosterrors cache
+	if r.hostErrors != nil {
+		r.hostErrors.Close()
+	}
 	if r.output != nil {
 		r.output.Close()
 	}
@@ -385,6 +434,9 @@ func (r *Runner) Close() {
 	if r.tmpDir != "" {
 		_ = os.RemoveAll(r.tmpDir)
 	}
+
+	//this is no-op unless nuclei is built with stats build tag
+	events.Close()
 }
 
 // setupPDCPUpload sets up the PDCP upload writer
@@ -420,6 +472,9 @@ func (r *Runner) setupPDCPUpload(writer output.Writer) output.Writer {
 	if r.options.ScanName != "" {
 		uploadWriter.SetScanName(r.options.ScanName)
 	}
+	if r.options.TeamID != "" {
+		uploadWriter.SetTeamID(r.options.TeamID)
+	}
 	return output.NewMultiWriter(writer, uploadWriter)
 }
 
@@ -444,27 +499,32 @@ func (r *Runner) RunEnumeration() error {
 		r.options.ExcludedTemplates = append(r.options.ExcludedTemplates, ignoreFile.Files...)
 	}
 
+	fuzzFreqCache := frequency.New(frequency.DefaultMaxTrackCount, r.options.FuzzParamFrequency)
+	r.fuzzFrequencyCache = fuzzFreqCache
+
 	// Create the executor options which will be used throughout the execution
 	// stage by the nuclei engine modules.
 	executorOpts := protocols.ExecutorOptions{
-		Output:             r.output,
-		Options:            r.options,
-		Progress:           r.progress,
-		Catalog:            r.catalog,
-		IssuesClient:       r.issuesClient,
-		RateLimiter:        r.rateLimiter,
-		Interactsh:         r.interactsh,
-		ProjectFile:        r.projectFile,
-		Browser:            r.browser,
-		Colorizer:          r.colorizer,
-		ResumeCfg:          r.resumeCfg,
-		ExcludeMatchers:    excludematchers.New(r.options.ExcludeMatchers),
-		InputHelper:        input.NewHelper(),
-		TemporaryDirectory: r.tmpDir,
-		Parser:             r.parser,
+		Output:              r.output,
+		Options:             r.options,
+		Progress:            r.progress,
+		Catalog:             r.catalog,
+		IssuesClient:        r.issuesClient,
+		RateLimiter:         r.rateLimiter,
+		Interactsh:          r.interactsh,
+		ProjectFile:         r.projectFile,
+		Browser:             r.browser,
+		Colorizer:           r.colorizer,
+		ResumeCfg:           r.resumeCfg,
+		ExcludeMatchers:     excludematchers.New(r.options.ExcludeMatchers),
+		InputHelper:         input.NewHelper(),
+		TemporaryDirectory:  r.tmpDir,
+		Parser:              r.parser,
+		FuzzParamsFrequency: fuzzFreqCache,
+		GlobalMatchers:      globalmatchers.New(),
 	}
 
-	if env.GetEnvOrDefault("NUCLEI_ARGS", "") == "req_url_pattern=true" {
+	if config.DefaultConfig.IsDebugArgEnabled(config.DebugExportURLPattern) {
 		// Go StdLib style experimental/debug feature switch
 		executorOpts.ExportReqURLPattern = true
 	}
@@ -488,8 +548,17 @@ func (r *Runner) RunEnumeration() error {
 	}
 
 	if r.options.ShouldUseHostError() {
-		cache := hosterrorscache.New(r.options.MaxHostError, hosterrorscache.DefaultMaxHostsCount, r.options.TrackError)
+		maxHostError := r.options.MaxHostError
+		if r.options.TemplateThreads > maxHostError {
+			gologger.Print().Msgf("[%v] The concurrency value is higher than max-host-error", r.colorizer.BrightYellow("WRN"))
+			gologger.Info().Msgf("Adjusting max-host-error to the concurrency value: %d", r.options.TemplateThreads)
+
+			maxHostError = r.options.TemplateThreads
+		}
+
+		cache := hosterrorscache.New(maxHostError, hosterrorscache.DefaultMaxHostsCount, r.options.TrackError)
 		cache.SetVerbose(r.options.Verbose)
+
 		r.hostErrors = cache
 		executorOpts.HostErrorsCache = cache
 	}
@@ -615,6 +684,7 @@ func (r *Runner) RunEnumeration() error {
 	if executorOpts.InputHelper != nil {
 		_ = executorOpts.InputHelper.Close()
 	}
+	r.fuzzFrequencyCache.Close()
 
 	// todo: error propagation without canonical straight error check is required by cloud?
 	// use safe dereferencing to avoid potential panics in case of previous unchecked errors
@@ -702,6 +772,8 @@ func (r *Runner) displayExecutionInfo(store *loader.Store) {
 		stats.ForceDisplayWarning(templates.ExcludedCodeTmplStats)
 		stats.ForceDisplayWarning(templates.ExludedDastTmplStats)
 		stats.ForceDisplayWarning(templates.TemplatesExcludedStats)
+		stats.ForceDisplayWarning(templates.ExcludedFileStats)
+		stats.ForceDisplayWarning(templates.ExcludedSelfContainedStats)
 	}
 
 	if tmplCount == 0 && workflowCount == 0 {
@@ -768,6 +840,52 @@ func (r *Runner) SaveResumeConfig(path string) error {
 	data, _ := json.MarshalIndent(resumeCfgClone, "", "\t")
 
 	return os.WriteFile(path, data, permissionutil.ConfigFilePermission)
+}
+
+// upload existing scan results to cloud with progress
+func UploadResultsToCloud(options *types.Options) error {
+	h := &pdcpauth.PDCPCredHandler{}
+	creds, err := h.GetCreds()
+	if err != nil {
+		return errors.Wrap(err, "could not get credentials for cloud upload")
+	}
+	ctx := context.TODO()
+	uploadWriter, err := pdcp.NewUploadWriter(ctx, creds)
+	if err != nil {
+		return errors.Wrap(err, "could not create upload writer")
+	}
+	if options.ScanID != "" {
+		_ = uploadWriter.SetScanID(options.ScanID)
+	}
+	if options.ScanName != "" {
+		uploadWriter.SetScanName(options.ScanName)
+	}
+	if options.TeamID != "" {
+		uploadWriter.SetTeamID(options.TeamID)
+	}
+
+	// Open file to count the number of results first
+	file, err := os.Open(options.ScanUploadFile)
+	if err != nil {
+		return errors.Wrap(err, "could not open scan upload file")
+	}
+	defer file.Close()
+
+	gologger.Info().Msgf("Uploading scan results to cloud dashboard from %s", options.ScanUploadFile)
+	dec := json.NewDecoder(file)
+	for dec.More() {
+		var r output.ResultEvent
+		err := dec.Decode(&r)
+		if err != nil {
+			gologger.Warning().Msgf("Could not decode jsonl: %s\n", err)
+			continue
+		}
+		if err = uploadWriter.Write(&r); err != nil {
+			gologger.Warning().Msgf("[%s] failed to upload: %s\n", r.TemplateID, err)
+		}
+	}
+	uploadWriter.Close()
+	return nil
 }
 
 type WalkFunc func(reflect.Value, reflect.StructField)

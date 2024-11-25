@@ -6,8 +6,24 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/helpers/eventcreator/eventcreator.go
+	"github.com/Explorer1092/nuclei/v2/pkg/operators"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/helpers/eventcreator/eventcreator.go
+>>>>>>> projectdiscovery-main
 )
 
 // CreateEvent wraps the outputEvent with the result of the operators defined on the request
@@ -24,7 +40,7 @@ func CreateEventWithAdditionalOptions(request protocols.Request, outputEvent out
 	// Dump response variables if ran in debug mode
 	if vardump.EnableVarDump {
 		protoName := cases.Title(language.English).String(request.Type().String())
-		gologger.Debug().Msgf("%v Protocol response variables: \n%s\n", protoName, vardump.DumpVariables(outputEvent))
+		gologger.Debug().Msgf("%v Protocol response variables: %s\n", protoName, vardump.DumpVariables(outputEvent))
 	}
 	for _, compiledOperator := range request.GetCompiledOperators() {
 		if compiledOperator != nil {

@@ -5,8 +5,19 @@ import (
 	"fmt"
 	"strings"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/invopop/jsonschema"
+=======
+<<<<<<< HEAD:v2/pkg/model/types/stringslice/stringslice.go
+	"github.com/alecthomas/jsonschema"
+
+	"github.com/Explorer1092/nuclei/v2/pkg/utils"
+=======
+	"github.com/invopop/jsonschema"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/model/types/stringslice/stringslice.go
+>>>>>>> projectdiscovery-main
 )
 
 type StringOrSlice string

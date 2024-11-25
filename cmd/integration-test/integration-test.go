@@ -7,11 +7,22 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/kitabisa/go-ci"
 	"github.com/logrusorgru/aurora"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils/fuzzplayground"
 	"github.com/projectdiscovery/gologger"
+=======
+<<<<<<< HEAD:v2/cmd/integration-test/integration-test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/gologger"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils/fuzzplayground"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/integration-test/integration-test.go
+>>>>>>> projectdiscovery-main
 	sliceutil "github.com/projectdiscovery/utils/slice"
 )
 
@@ -22,10 +33,9 @@ type TestCaseInfo struct {
 }
 
 var (
-	debug        = os.Getenv("DEBUG") == "true"
-	githubAction = os.Getenv("GH_ACTION") == "true"
-	customTests  = os.Getenv("TESTS")
-	protocol     = os.Getenv("PROTO")
+	debug       = os.Getenv("DEBUG") == "true"
+	customTests = os.Getenv("TESTS")
+	protocol    = os.Getenv("PROTO")
 
 	success = aurora.Green("[✓]").String()
 	failed  = aurora.Red("[✘]").String()
@@ -55,6 +65,7 @@ var (
 		"dsl":             dslTestcases,
 		"flow":            flowTestcases,
 		"javascript":      jsTestcases,
+		"matcher-status":  matcherStatusTestcases,
 	}
 	// flakyTests are run with a retry count of 3
 	flakyTests = map[string]bool{
@@ -102,11 +113,19 @@ func main() {
 	failedTestTemplatePaths := runTests(customTestsList)
 
 	if len(failedTestTemplatePaths) > 0 {
-		if githubAction {
-			debug = true
-			fmt.Println("::group::Failed integration tests in debug mode")
-			_ = runTests(failedTestTemplatePaths)
+		if ci.IsCI() {
+			// run failed tests again assuming they are flaky
+			// if they fail as well only then we assume that there is an actual issue
+			fmt.Println("::group::Running failed tests again")
+			failedTestTemplatePaths = runTests(failedTestTemplatePaths)
 			fmt.Println("::endgroup::")
+
+			if len(failedTestTemplatePaths) > 0 {
+				debug = true
+				fmt.Println("::group::Failed integration tests in debug mode")
+				_ = runTests(failedTestTemplatePaths)
+				fmt.Println("::endgroup::")
+			}
 		}
 
 		os.Exit(1)

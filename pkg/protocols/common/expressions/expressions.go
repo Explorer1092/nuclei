@@ -5,9 +5,21 @@ import (
 
 	"github.com/Knetic/govaluate"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/operators/common/dsl"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/marker"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/replacer"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/expressions/expressions.go
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/common/dsl"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/marker"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/replacer"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/common/dsl"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/marker"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/replacer"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/expressions/expressions.go
+>>>>>>> projectdiscovery-main
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 

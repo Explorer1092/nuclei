@@ -24,6 +24,45 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/types/scanstrategy"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/protocols/http/build_request.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/replacer"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/race"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/raw"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/utils"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/race"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/raw"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/utils"
+	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
+	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/authprovider"
+	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/race"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/raw"
+	protocolutils "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
+	httputil "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils/http"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types/scanstrategy"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/http/build_request.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/rawhttp"
 	"github.com/projectdiscovery/retryablehttp-go"
 	errorutil "github.com/projectdiscovery/utils/errors"
@@ -55,6 +94,8 @@ type generatedRequest struct {
 	// requestURLPattern tracks unmodified request url pattern without values ( it is used for constant vuln_hash)
 	// ex: {{BaseURL}}/api/exp?param={{randstr}}
 	requestURLPattern string
+
+	fuzzGeneratedRequest fuzz.GeneratedRequest
 }
 
 // setReqURLPattern sets the url request pattern for the generated request
@@ -90,9 +131,9 @@ func (g *generatedRequest) ApplyAuth(provider authprovider.AuthProvider) {
 		return
 	}
 	if g.request != nil {
-		auth := provider.LookupURLX(g.request.URL)
-		if auth != nil {
-			auth.ApplyOnRR(g.request)
+		authStrategies := provider.LookupURLX(g.request.URL)
+		for _, strategy := range authStrategies {
+			strategy.ApplyOnRR(g.request)
 		}
 	}
 	if g.rawRequest != nil {
@@ -101,11 +142,11 @@ func (g *generatedRequest) ApplyAuth(provider authprovider.AuthProvider) {
 			gologger.Warning().Msgf("[authprovider] Could not parse URL %s: %s\n", g.rawRequest.FullURL, err)
 			return
 		}
-		auth := provider.LookupURLX(parsed)
-		if auth != nil {
-			// here we need to apply it custom because we don't have a standard/official
-			// rawhttp request format ( which we probably should have )
-			g.rawRequest.ApplyAuthStrategy(auth)
+		authStrategies := provider.LookupURLX(parsed)
+		// here we need to apply it custom because we don't have a standard/official
+		// rawhttp request format ( which we probably should have )
+		for _, strategy := range authStrategies {
+			g.rawRequest.ApplyAuthStrategy(strategy)
 		}
 	}
 }
@@ -204,7 +245,7 @@ func (r *requestGenerator) Make(ctx context.Context, input *contextargs.Context,
 	finalVars := generators.MergeMaps(allVars, payloads)
 
 	if vardump.EnableVarDump {
-		gologger.Debug().Msgf("HTTP Protocol request variables: \n%s\n", vardump.DumpVariables(finalVars))
+		gologger.Debug().Msgf("HTTP Protocol request variables: %s\n", vardump.DumpVariables(finalVars))
 	}
 
 	// Note: If possible any changes to current logic (i.e evaluate -> then parse URL)

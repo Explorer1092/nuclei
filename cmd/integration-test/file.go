@@ -1,7 +1,15 @@
 package main
 
 import (
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+=======
+<<<<<<< HEAD:v2/cmd/integration-test/file.go
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/integration-test/file.go
+>>>>>>> projectdiscovery-main
 )
 
 var fileTestcases = []TestCaseInfo{
@@ -15,7 +23,7 @@ type fileWithOrMatcher struct{}
 
 // Execute executes a test case and returns an error if occurred
 func (h *fileWithOrMatcher) Execute(filePath string) error {
-	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "protocols/file/data/", debug)
+	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "protocols/file/data/", debug, "-file")
 	if err != nil {
 		return err
 	}
@@ -27,7 +35,7 @@ type fileWithAndMatcher struct{}
 
 // Execute executes a test case and returns an error if occurred
 func (h *fileWithAndMatcher) Execute(filePath string) error {
-	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "protocols/file/data/", debug)
+	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "protocols/file/data/", debug, "-file")
 	if err != nil {
 		return err
 	}
@@ -39,7 +47,7 @@ type fileWithExtractor struct{}
 
 // Execute executes a test case and returns an error if occurred
 func (h *fileWithExtractor) Execute(filePath string) error {
-	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "protocols/file/data/", debug)
+	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "protocols/file/data/", debug, "-file")
 	if err != nil {
 		return err
 	}

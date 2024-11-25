@@ -4,8 +4,18 @@ import (
 	"regexp"
 	"strings"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/fuzz/fuzz.go
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/fuzz/fuzz.go
+>>>>>>> projectdiscovery-main
 )
 
 // Rule is a single rule which describes how to fuzz the request
@@ -24,12 +34,27 @@ type Rule struct {
 	ruleType ruleType
 	// description: |
 	//   Part is the part of request to fuzz.
-	//
-	//   query fuzzes the query part of url. More parts will be added later.
 	// values:
 	//   - "query"
+	//   - "header"
+	//   - "path"
+	//   - "body"
+	//   - "cookie"
+	//   - "request"
 	Part     string `yaml:"part,omitempty" json:"part,omitempty" jsonschema:"title=part of rule,description=Part of request rule to fuzz,enum=query,enum=header,enum=path,enum=body,enum=cookie,enum=request"`
 	partType partType
+	// description: |
+	//   Parts is the list of parts to fuzz. If multiple parts need to be
+	//   defined while excluding some, this should be used instead of singular part.
+	// values:
+	//   - "query"
+	//   - "header"
+	//   - "path"
+	//   - "body"
+	//   - "cookie"
+	//   - "request"
+	Parts []string `yaml:"parts,omitempty" json:"parts,omitempty" jsonschema:"title=parts of rule,description=Part of request rule to fuzz,enum=query,enum=header,enum=path,enum=body,enum=cookie,enum=request"`
+
 	// description: |
 	//   Mode is the mode of fuzzing to perform.
 	//

@@ -1,12 +1,23 @@
 package generators
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	"gopkg.in/yaml.v2"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/generators/generators_test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/generators/generators_test.go
+>>>>>>> projectdiscovery-main
 )
 
 func TestBatteringRamGenerator(t *testing.T) {
@@ -89,4 +100,50 @@ func getOptions(allowLocalFileAccess bool) *types.Options {
 	opts := types.DefaultOptions()
 	opts.AllowLocalFileAccess = allowLocalFileAccess
 	return opts
+}
+
+func TestParsePayloadsWithAggression(t *testing.T) {
+	testPayload := `linux_path:
+  low:
+    - /etc/passwd
+  medium:
+    - ../etc/passwd
+    - ../../etc/passwd
+  high:
+    - ../../../etc/passwd
+    - ../../../../etc/passwd
+    - ../../../../../etc/passwd`
+
+	var payloads map[string]interface{}
+	err := yaml.NewDecoder(strings.NewReader(testPayload)).Decode(&payloads)
+	require.Nil(t, err, "could not unmarshal yaml")
+
+	aggressionsToValues := map[string][]string{
+		"low": {
+			"/etc/passwd",
+		},
+		"medium": {
+			"/etc/passwd",
+			"../etc/passwd",
+			"../../etc/passwd",
+		},
+		"high": {
+			"/etc/passwd",
+			"../etc/passwd",
+			"../../etc/passwd",
+			"../../../etc/passwd",
+			"../../../../etc/passwd",
+			"../../../../../etc/passwd",
+		},
+	}
+
+	for k, v := range payloads {
+		for aggression, values := range aggressionsToValues {
+			parsed, err := parsePayloadsWithAggression(k, v.(map[interface{}]interface{}), aggression)
+			require.Nil(t, err, "could not parse payloads with aggression")
+
+			gotValues := parsed[k].([]interface{})
+			require.Equal(t, len(values), len(gotValues), "could not get correct number of values")
+		}
+	}
 }

@@ -10,7 +10,21 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/scan"
 	"github.com/Explorer1092/nuclei/v3/pkg/workflows"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
 	syncutil "github.com/projectdiscovery/utils/sync"
+=======
+<<<<<<< HEAD:v2/pkg/core/workflow_execute.go
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/workflows"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
+	"github.com/projectdiscovery/nuclei/v3/pkg/workflows"
+	syncutil "github.com/projectdiscovery/utils/sync"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/core/workflow_execute.go
+>>>>>>> projectdiscovery-main
 )
 
 const workflowStepExecutionError = "[%s] Could not execute workflow step: %s\n"
@@ -98,7 +112,7 @@ func (e *Engine) runWorkflowStep(template *workflows.WorkflowTemplate, ctx *scan
 			}
 			if err != nil {
 				if w.Options.HostErrorsCache != nil {
-					w.Options.HostErrorsCache.MarkFailed(ctx.Input.MetaInput.ID(), err)
+					w.Options.HostErrorsCache.MarkFailed(w.Options.ProtocolType.String(), ctx.Input, err)
 				}
 				if len(template.Executers) == 1 {
 					mainErr = err
@@ -139,7 +153,8 @@ func (e *Engine) runWorkflowStep(template *workflows.WorkflowTemplate, ctx *scan
 							defer swg.Done()
 
 							// create a new context with the same input but with unset callbacks
-							subCtx := scan.NewScanContext(ctx.Context(), ctx.Input)
+							// clone the Input so that other parallel executions won't overwrite the shared variables when subsequent templates are running
+							subCtx := scan.NewScanContext(ctx.Context(), ctx.Input.Clone())
 							if err := e.runWorkflowStep(subtemplate, subCtx, results, swg, w); err != nil {
 								gologger.Warning().Msgf(workflowStepExecutionError, subtemplate.Template, err)
 							}

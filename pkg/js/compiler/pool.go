@@ -35,6 +35,7 @@ import (
 	"github.com/dop251/goja"
 	"github.com/dop251/goja_nodejs/console"
 	"github.com/dop251/goja_nodejs/require"
+	"github.com/kitabisa/go-ci"
 	"github.com/projectdiscovery/gologger"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 	syncutil "github.com/projectdiscovery/utils/sync"
@@ -84,11 +85,18 @@ func executeWithRuntime(runtime *goja.Runtime, p *goja.Program, args *ExecuteArg
 			opts.Cleanup(runtime)
 		}
 	}()
+
+	// TODO(dwisiswant0): remove this once we get the RCA.
 	defer func() {
+		if ci.IsCI() {
+			return
+		}
+
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic: %s", r)
 		}
 	}()
+
 	// set template ctx
 	_ = runtime.Set("template", args.TemplateCtx)
 	// set args
@@ -241,5 +249,5 @@ func stringify(gojaValue goja.Value, runtime *goja.Runtime) string {
 		}
 	}
 	// for everything else stringify
-	return fmt.Sprintf("%v", value)
+	return fmt.Sprintf("%+v", value)
 }

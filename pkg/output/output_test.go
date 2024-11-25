@@ -7,6 +7,14 @@ import (
 
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/pkg/errors"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/output/output_test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/output/output_test.go
+>>>>>>> projectdiscovery-main
 	"github.com/stretchr/testify/require"
 )
 
@@ -30,7 +38,7 @@ func TestStandardWriterRequest(t *testing.T) {
 		require.NoError(t, err)
 		w.Request("path", "input", "http", nil)
 
-		require.Equal(t, `{"template":"path","input":"input","error":"none","type":"http"}`, traceWriter.String())
+		require.Equal(t, `{"template":"path","type":"http","input":"input","address":"input:","error":"none"}`, traceWriter.String())
 		require.Empty(t, errorWriter.String())
 	})
 
@@ -47,7 +55,7 @@ func TestStandardWriterRequest(t *testing.T) {
 			fmt.Errorf("GET https://example.com/tcpconfig.html/tcpconfig.html giving up after 2 attempts: %w", errors.New("context deadline exceeded (Client.Timeout exceeded while awaiting headers)")),
 		)
 
-		require.Equal(t, `{"template":"misconfiguration/tcpconfig.yaml","input":"https://example.com/tcpconfig.html","error":"context deadline exceeded (Client.Timeout exceeded while awaiting headers)","type":"http"}`, errorWriter.String())
+		require.Equal(t, `{"template":"misconfiguration/tcpconfig.yaml","type":"http","input":"https://example.com/tcpconfig.html","address":"example.com:443","error":"context deadline exceeded (Client.Timeout exceeded while awaiting headers)","kind":"unknown-error"}`, errorWriter.String())
 	})
 }
 

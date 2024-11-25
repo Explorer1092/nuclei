@@ -17,12 +17,21 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/yaml.v2"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+=======
+<<<<<<< HEAD:v2/cmd/integration-test/http.go
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/integration-test/http.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	logutil "github.com/projectdiscovery/utils/log"
 	sliceutil "github.com/projectdiscovery/utils/slice"
 	stringsutil "github.com/projectdiscovery/utils/strings"
+	unitutils "github.com/projectdiscovery/utils/unit"
 )
 
 var httpTestcases = []TestCaseInfo{
@@ -154,7 +163,7 @@ func (h *httpInteractshRequest) Execute(filePath string) error {
 		return err
 	}
 
-	return expectResultsCount(results, 1)
+	return expectResultsCount(results, 1, 2)
 }
 
 type httpDefaultMatcherCondition struct{}
@@ -509,7 +518,7 @@ func (h *httpPostMultipartBody) Execute(filePath string) error {
 	var routerErr error
 
 	router.POST("/", func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-		if err := r.ParseMultipartForm(1 * 1024); err != nil {
+		if err := r.ParseMultipartForm(unitutils.Mega); err != nil {
 			routerErr = err
 			return
 		}
@@ -951,7 +960,7 @@ func (h *httpRequestSelfContained) Execute(filePath string) error {
 	}()
 	defer server.Close()
 
-	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "", debug)
+	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "", debug, "-esc")
 	if err != nil {
 		return err
 	}
@@ -987,7 +996,7 @@ func (h *httpRequestSelfContainedWithParams) Execute(filePath string) error {
 	}()
 	defer server.Close()
 
-	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "", debug)
+	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "", debug, "-esc")
 	if err != nil {
 		return err
 	}
@@ -1030,7 +1039,7 @@ func (h *httpRequestSelfContainedFileInput) Execute(filePath string) error {
 	}
 	defer FileLoc.Close()
 
-	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "", debug, "-V", "test="+FileLoc.Name())
+	results, err := testutils.RunNucleiTemplateAndGetResults(filePath, "", debug, "-V", "test="+FileLoc.Name(), "-esc")
 	if err != nil {
 		return err
 	}

@@ -2,6 +2,14 @@ package jsonexporter
 
 import (
 	"encoding/json"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/reporting/exporters/jsonexporter/jsonexporter.go
+	"github.com/pkg/errors"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+=======
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/reporting/exporters/jsonexporter/jsonexporter.go
+>>>>>>> projectdiscovery-main
 	"os"
 	"sync"
 

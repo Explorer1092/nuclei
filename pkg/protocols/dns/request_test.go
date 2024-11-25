@@ -6,6 +6,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/model"
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
 	"github.com/Explorer1092/nuclei/v3/pkg/operators"
@@ -14,6 +15,27 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/output"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/dns/request_test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
+	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/extractors"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/dns/request_test.go
+>>>>>>> projectdiscovery-main
 )
 
 func TestDNSExecuteWithResults(t *testing.T) {
@@ -67,19 +89,5 @@ func TestDNSExecuteWithResults(t *testing.T) {
 	require.Equal(t, 1, len(finalEvent.Results[0].ExtractedResults), "could not get correct number of extracted results")
 	require.Equal(t, "93.184.215.14", finalEvent.Results[0].ExtractedResults[0], "could not get correct extracted results")
 	finalEvent = nil
-
-	t.Run("url-to-domain", func(t *testing.T) {
-		metadata := make(output.InternalEvent)
-		previous := make(output.InternalEvent)
-		err := request.ExecuteWithResults(contextargs.NewWithInput(context.Background(), "https://example.com"), metadata, previous, func(event *output.InternalWrappedEvent) {
-			finalEvent = event
-		})
-		require.Nil(t, err, "could not execute dns request")
-	})
-	require.NotNil(t, finalEvent, "could not get event output from request")
-	require.Equal(t, 1, len(finalEvent.Results), "could not get correct number of results")
-	require.Equal(t, "test", finalEvent.Results[0].MatcherName, "could not get correct matcher name of results")
-	require.Equal(t, 1, len(finalEvent.Results[0].ExtractedResults), "could not get correct number of extracted results")
-	require.Equal(t, "93.184.215.14", finalEvent.Results[0].ExtractedResults[0], "could not get correct extracted results")
-	finalEvent = nil
+	// Note: changing url to domain is responsible at tmplexec package and is implemented there
 }

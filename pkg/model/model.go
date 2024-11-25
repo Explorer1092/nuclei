@@ -1,9 +1,20 @@
 package model
 
 import (
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
 	"github.com/invopop/jsonschema"
+=======
+<<<<<<< HEAD:v2/pkg/model/model.go
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
+=======
+	"github.com/invopop/jsonschema"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/model/model.go
+>>>>>>> projectdiscovery-main
 )
 
 type schemaMetadata struct {

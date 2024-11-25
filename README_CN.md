@@ -32,7 +32,8 @@
   <a href="https://github.com/projectdiscovery/nuclei/blob/main/README.md">English</a> •
   <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_CN.md">中文</a> •
   <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_KR.md">Korean</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ID.md">Indonesia</a>
+  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ID.md">Indonesia</a> •
+  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ES.md">Spanish</a>
 </p>
 
 ---
@@ -60,7 +61,15 @@ Nuclei使用零误报的定制模板向目标发送请求，同时可以对主�
 Nuclei需要 **go1.21** 才能安装成功。执行下列命令安装最新版本的Nuclei
 
 ```sh
+<<<<<<< HEAD
 go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
+=======
+<<<<<<< HEAD
+go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
+=======
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a
+>>>>>>> projectdiscovery-main
 ```
 
 <details>

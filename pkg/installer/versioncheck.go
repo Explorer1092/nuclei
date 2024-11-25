@@ -7,8 +7,17 @@ import (
 	"os"
 	"sync"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/gologger"
+=======
+<<<<<<< HEAD:v2/internal/installer/versioncheck.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+=======
+	"github.com/projectdiscovery/gologger"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/installer/versioncheck.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	updateutils "github.com/projectdiscovery/utils/update"
 )
@@ -87,6 +96,7 @@ func doVersionCheck(isSDK bool) error {
 	// and according our config we have idle connections which are shown as leaked by goleak in tests
 	// i.e we close all idle connections after our use and it doesn't affect any other part of the code
 	defer retryableHttpClient.HTTPClient.CloseIdleConnections()
+
 	resp, err := retryableHttpClient.Get(pdtmNucleiVersionEndpoint + "?" + getpdtmParams(isSDK))
 	if err != nil {
 		return err

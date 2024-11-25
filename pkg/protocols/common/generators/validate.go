@@ -6,8 +6,17 @@ import (
 	"path/filepath"
 	"strings"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/common/generators/validate.go
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/generators/validate.go
+>>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"
 )
@@ -20,6 +29,13 @@ func (g *PayloadGenerator) validate(payloads map[string]interface{}, templatePat
 			// check if it's a multiline string list
 			if len(strings.Split(payloadType, "\n")) != 1 {
 				return errors.New("invalid number of lines in payload")
+			}
+
+			// For historical reasons, "validate" checks to see if the payload file exist.
+			// If we're using a custom helper function, then we need to skip any validation beyond just checking the string syntax.
+			// Actually attempting to load the file will determine whether or not it exists.
+			if g.options.LoadHelperFileFunction != nil {
+				return nil
 			}
 
 			// check if it's a file and try to load it

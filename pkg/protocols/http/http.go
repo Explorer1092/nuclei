@@ -3,12 +3,15 @@ package http
 import (
 	"bytes"
 	"fmt"
+	"math"
 	"strings"
+	"time"
 
 	"github.com/invopop/jsonschema"
 	json "github.com/json-iterator/go"
 	"github.com/pkg/errors"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/fuzz"
 	"github.com/Explorer1092/nuclei/v3/pkg/operators"
 	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
@@ -19,6 +22,39 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http/httpclientpool"
 	httputil "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils/http"
 	"github.com/Explorer1092/nuclei/v3/pkg/utils/stats"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/http/http.go
+<<<<<<< HEAD
+	"github.com/Explorer1092/nuclei/v2/pkg/operators"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/fuzz"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/httpclientpool"
+=======
+	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/fuzz"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/httpclientpool"
+>>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
+=======
+	_ "github.com/projectdiscovery/nuclei/v3/pkg/fuzz/analyzers/time"
+
+	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz"
+	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/analyzers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/operators/matchers"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/expressions"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/httpclientpool"
+	httputil "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils/http"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils/stats"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/http/http.go
+>>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/rawhttp"
 	"github.com/projectdiscovery/retryablehttp-go"
 	fileutil "github.com/projectdiscovery/utils/file"
@@ -126,6 +162,9 @@ type Request struct {
 
 	// Fuzzing describes schema to fuzz http requests
 	Fuzzing []*fuzz.Rule `yaml:"fuzzing,omitempty" json:"fuzzing,omitempty" jsonschema:"title=fuzzin rules for http fuzzing,description=Fuzzing describes rule schema to fuzz http requests"`
+	// description: |
+	//   Analyzer is an analyzer to use for matching the response.
+	Analyzer *analyzers.AnalyzerTemplate `yaml:"analyzer,omitempty" json:"analyzer,omitempty" jsonschema:"title=analyzer for http request,description=Analyzer for HTTP Request"`
 
 	CompiledOperators *operators.Operators `yaml:"-" json:"-"`
 
@@ -146,6 +185,10 @@ type Request struct {
 	// values:
 	//   - "AWS"
 	Signature SignatureTypeHolder `yaml:"signature,omitempty" json:"signature,omitempty" jsonschema:"title=signature is the http request signature method,description=Signature is the HTTP Request signature Method,enum=AWS"`
+
+	// description: |
+	//   SkipSecretFile skips the authentication or authorization configured in the secret file.
+	SkipSecretFile bool `yaml:"skip-secret-file,omitempty" json:"skip-secret-file,omitempty" jsonschema:"title=bypass secret file,description=Skips the authentication or authorization configured in the secret file"`
 
 	// description: |
 	//   CookieReuse is an optional setting that enables cookie reuse for
@@ -219,6 +262,9 @@ type Request struct {
 	//  FuzzPreConditionOperator is the operator between multiple PreConditions for fuzzing Default is OR
 	FuzzPreConditionOperator string                 `yaml:"pre-condition-operator,omitempty" json:"pre-condition-operator,omitempty" jsonschema:"title=condition between the filters,description=Operator to use between multiple per-conditions,enum=and,enum=or"`
 	fuzzPreConditionOperator matchers.ConditionType `yaml:"-" json:"-"`
+	// description: |
+	//   GlobalMatchers marks matchers as static and applies globally to all result events from other templates
+	GlobalMatchers bool `yaml:"global-matchers,omitempty" json:"global-matchers,omitempty" jsonschema:"title=global matchers,description=marks matchers as static and applies globally to all result events from other templates"`
 }
 
 func (e Request) JSONSchemaExtend(schema *jsonschema.Schema) {
@@ -296,6 +342,21 @@ func (request *Request) Compile(options *protocols.ExecutorOptions) error {
 		},
 		RedirectFlow: httpclientpool.DontFollowRedirect,
 	}
+	var customTimeout int
+	if request.Analyzer != nil && request.Analyzer.Name == "time_delay" {
+		var timeoutVal int
+		if timeout, ok := request.Analyzer.Parameters["sleep_duration"]; ok {
+			timeoutVal, _ = timeout.(int)
+		} else {
+			timeoutVal = 5
+		}
+
+		// Add 3x buffer to the timeout
+		customTimeout = int(math.Ceil(float64(timeoutVal) * 3))
+	}
+	if customTimeout > 0 {
+		connectionConfiguration.Connection.CustomMaxTimeout = time.Duration(customTimeout) * time.Second
+	}
 
 	if request.Redirects || options.Options.FollowRedirects {
 		connectionConfiguration.RedirectFlow = httpclientpool.FollowAllRedirect
@@ -336,7 +397,7 @@ func (request *Request) Compile(options *protocols.ExecutorOptions) error {
 				request.Raw[i] = strings.ReplaceAll(raw, "\n", "\r\n")
 			}
 		}
-		request.rawhttpClient = httpclientpool.GetRawHTTP(options.Options)
+		request.rawhttpClient = httpclientpool.GetRawHTTP(options)
 	}
 	if len(request.Matchers) > 0 || len(request.Extractors) > 0 {
 		compiled := &request.Operators
@@ -359,6 +420,12 @@ func (request *Request) Compile(options *protocols.ExecutorOptions) error {
 	for _, filter := range request.FuzzPreCondition {
 		if err := filter.CompileMatchers(); err != nil {
 			return errors.Wrap(err, "could not compile matcher")
+		}
+	}
+
+	if request.Analyzer != nil {
+		if analyzer := analyzers.GetAnalyzer(request.Analyzer.Name); analyzer == nil {
+			return errors.Errorf("analyzer %s not found", request.Analyzer.Name)
 		}
 	}
 

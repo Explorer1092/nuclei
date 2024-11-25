@@ -13,6 +13,16 @@ import (
 	"github.com/google/go-github/github"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/external/customtemplates/github.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/external/customtemplates/github.go
+>>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"
 	"golang.org/x/oauth2"
@@ -137,33 +147,59 @@ getRepo:
 
 // download the git repo to a given path
 func (ctr *customTemplateGitHubRepo) cloneRepo(clonePath, githubToken string) error {
-	r, err := git.PlainClone(clonePath, false, &git.CloneOptions{
-		URL:  ctr.gitCloneURL,
-		Auth: getAuth(ctr.owner, githubToken),
-	})
+	cloneOpts := &git.CloneOptions{
+		URL:          ctr.gitCloneURL,
+		Auth:         getAuth(ctr.owner, githubToken),
+		SingleBranch: true,
+		Depth:        1,
+	}
+
+	err := cloneOpts.Validate()
+	if err != nil {
+		return err
+	}
+
+	r, err := git.PlainClone(clonePath, false, cloneOpts)
 	if err != nil {
 		return errors.Errorf("%s/%s: %s", ctr.owner, ctr.reponame, err.Error())
 	}
+
 	// Add the user as well in the config. By default, user is not set
 	config, _ := r.Storer.Config()
 	config.User.Name = ctr.owner
+
 	return r.SetConfig(config)
 }
 
 // performs the git pull on given repo
 func (ctr *customTemplateGitHubRepo) pullChanges(repoPath, githubToken string) error {
+	pullOpts := &git.PullOptions{
+		RemoteName:   "origin",
+		Auth:         getAuth(ctr.owner, githubToken),
+		SingleBranch: true,
+		Depth:        1,
+	}
+
+	err := pullOpts.Validate()
+	if err != nil {
+		return err
+	}
+
 	r, err := git.PlainOpen(repoPath)
 	if err != nil {
 		return err
 	}
+
 	w, err := r.Worktree()
 	if err != nil {
 		return err
 	}
-	err = w.Pull(&git.PullOptions{RemoteName: "origin", Auth: getAuth(ctr.owner, githubToken)})
+
+	err = w.Pull(pullOpts)
 	if err != nil {
 		return errors.Errorf("%s/%s: %s", ctr.owner, ctr.reponame, err.Error())
 	}
+
 	return nil
 }
 

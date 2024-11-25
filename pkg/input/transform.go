@@ -7,6 +7,14 @@ import (
 
 	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/hmap/store/hybrid"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/pkg/input/input.go
+	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
+=======
+	templateTypes "github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/input/transform.go
+>>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 	"github.com/projectdiscovery/utils/ports"
 	stringsutil "github.com/projectdiscovery/utils/strings"
@@ -47,6 +55,8 @@ func (h *Helper) Transform(input string, protocol templateTypes.ProtocolType) st
 		return h.convertInputToType(input, typeHostWithOptionalPort, "")
 	case templateTypes.WebsocketProtocol:
 		return h.convertInputToType(input, typeWebsocket, "")
+	case templateTypes.SSLProtocol:
+		return h.convertInputToType(input, typeHostWithPort, "443")
 	}
 	return input
 }
@@ -94,6 +104,8 @@ func (h *Helper) convertInputToType(input string, inputType inputType, defaultPo
 		if _, err := filepath.Match(input, ""); err != filepath.ErrBadPattern && !isURL {
 			return input
 		}
+		// if none of these satisfy the condition return empty
+		return ""
 	case typeHostOnly:
 		if hasHost {
 			return host
@@ -110,6 +122,10 @@ func (h *Helper) convertInputToType(input string, inputType inputType, defaultPo
 			if probed, ok := h.InputsHTTP.Get(input); ok {
 				return string(probed)
 			}
+		}
+		// try to parse it as absolute url and return
+		if absUrl, err := urlutil.ParseAbsoluteURL(input, false); err == nil {
+			return absUrl.String()
 		}
 	case typeHostWithPort, typeHostWithOptionalPort:
 		if hasHost && hasPort {
@@ -128,6 +144,9 @@ func (h *Helper) convertInputToType(input string, inputType inputType, defaultPo
 		if uri != nil && stringsutil.EqualFoldAny(uri.Scheme, "ws", "wss") {
 			return input
 		}
+		// empty if prefix is not given
+		return ""
 	}
-	return ""
+	// do not return empty
+	return input
 }

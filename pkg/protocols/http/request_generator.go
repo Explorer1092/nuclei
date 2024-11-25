@@ -1,8 +1,18 @@
 package http
 
 import (
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/http/request_generator.go
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/http/request_generator.go
+>>>>>>> projectdiscovery-main
 )
 
 // requestGenerator generates requests sequentially based on various

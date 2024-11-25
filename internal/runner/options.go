@@ -29,6 +29,29 @@ import (
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/gologger/formatter"
 	"github.com/projectdiscovery/gologger/levels"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:v2/internal/runner/options.go
+	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolinit"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/headless/engine"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolinit"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/headless/engine"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonexporter"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonl"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/markdown"
+	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/sarif"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates/extensions"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils/yaml"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:internal/runner/options.go
+>>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 	"github.com/projectdiscovery/utils/generic"
 	logutil "github.com/projectdiscovery/utils/log"
@@ -68,6 +91,7 @@ func ParseOptions(options *types.Options) {
 
 	if options.ShowVarDump {
 		vardump.EnableVarDump = true
+		vardump.Limit = options.VarDumpLimit
 	}
 	if options.ShowActions {
 		gologger.Info().Msgf("Showing available headless actions: ")
@@ -303,10 +327,17 @@ func createReportingOptions(options *types.Options) (*reporting.Options, error) 
 			OmitRaw: options.OmitRawRequests,
 		}
 	}
+	// Combine options.
 	if options.JSONLExport != "" {
-		reportingOptions.JSONLExporter = &jsonl.Options{
-			File:    options.JSONLExport,
-			OmitRaw: options.OmitRawRequests,
+		// Combine the CLI options with the config file options with the CLI options taking precedence
+		if reportingOptions.JSONLExporter != nil {
+			reportingOptions.JSONLExporter.File = options.JSONLExport
+			reportingOptions.JSONLExporter.OmitRaw = options.OmitRawRequests
+		} else {
+			reportingOptions.JSONLExporter = &jsonl.Options{
+				File:    options.JSONLExport,
+				OmitRaw: options.OmitRawRequests,
+			}
 		}
 	}
 
@@ -316,9 +347,6 @@ func createReportingOptions(options *types.Options) (*reporting.Options, error) 
 
 // configureOutput configures the output logging levels to be displayed on the screen
 func configureOutput(options *types.Options) {
-	// disable standard logger (ref: https://github.com/golang/go/issues/19895)
-	defer logutil.DisableDefaultLogger()
-
 	if options.NoColor {
 		gologger.DefaultLogger.SetFormatter(formatter.NewCLI(true))
 	}
@@ -337,6 +365,9 @@ func configureOutput(options *types.Options) {
 	if options.Silent {
 		gologger.DefaultLogger.SetMaxLevel(levels.LevelSilent)
 	}
+
+	// disable standard logger (ref: https://github.com/golang/go/issues/19895)
+	logutil.DisableDefaultLogger()
 }
 
 // loadResolvers loads resolvers from both user-provided flags and file

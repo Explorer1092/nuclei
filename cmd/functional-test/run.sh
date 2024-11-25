@@ -20,7 +20,15 @@ echo "::group::Installing nuclei templates"
 echo "::endgroup::"
 
 echo "::group::Building latest release of nuclei"
+<<<<<<< HEAD
 go build -o nuclei$extension -v github.com/Explorer1092/nuclei/v3/cmd/nuclei
+=======
+<<<<<<< HEAD:v2/cmd/functional-test/run.sh
+go build -o nuclei$extension -v github.com/Explorer1092/nuclei/v2/cmd/nuclei
+=======
+go build -o nuclei$extension -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/functional-test/run.sh
+>>>>>>> projectdiscovery-main
 echo "::endgroup::"
 
 echo 'Starting Nuclei functional test'

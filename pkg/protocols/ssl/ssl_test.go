@@ -6,11 +6,27 @@ import (
 
 	"github.com/stretchr/testify/require"
 
+<<<<<<< HEAD
 	"github.com/Explorer1092/nuclei/v3/pkg/model"
 	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
 	"github.com/Explorer1092/nuclei/v3/pkg/output"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+=======
+<<<<<<< HEAD:v2/pkg/protocols/ssl/ssl_test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/model"
+	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
+	"github.com/Explorer1092/nuclei/v2/pkg/output"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/model"
+	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
+	"github.com/projectdiscovery/nuclei/v3/pkg/output"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/ssl/ssl_test.go
+>>>>>>> projectdiscovery-main
 )
 
 func TestSSLProtocol(t *testing.T) {
@@ -35,9 +51,4 @@ func TestSSLProtocol(t *testing.T) {
 	})
 	require.Nil(t, err, "could not run ssl request")
 	require.NotEmpty(t, gotEvent, "could not get event items")
-}
-
-func TestGetAddress(t *testing.T) {
-	address, _ := getAddress("https://scanme.sh")
-	require.Equal(t, "scanme.sh:443", address, "could not get correct address")
 }

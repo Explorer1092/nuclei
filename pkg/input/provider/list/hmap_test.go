@@ -13,7 +13,21 @@ import (
 	"github.com/Explorer1092/nuclei/v3/pkg/utils/expand"
 	"github.com/miekg/dns"
 	"github.com/projectdiscovery/hmap/store/hybrid"
+<<<<<<< HEAD
 	"github.com/projectdiscovery/utils/auth/pdcp"
+=======
+<<<<<<< HEAD:v2/pkg/core/inputs/hybrid/hmap_test.go
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/Explorer1092/nuclei/v2/pkg/types"
+=======
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v3/pkg/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/utils/expand"
+	"github.com/projectdiscovery/utils/auth/pdcp"
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/input/provider/list/hmap_test.go
+>>>>>>> projectdiscovery-main
 	"github.com/stretchr/testify/require"
 )
 
@@ -40,7 +54,7 @@ func Test_expandCIDR(t *testing.T) {
 		// scan
 		got := []string{}
 		input.hostMap.Scan(func(k, _ []byte) error {
-			var metainput contextargs.MetaInput
+			metainput := contextargs.NewMetaInput()
 			if err := metainput.Unmarshal(string(k)); err != nil {
 				return err
 			}
@@ -141,7 +155,7 @@ func Test_scanallips_normalizeStoreInputValue(t *testing.T) {
 		// scan
 		got := []string{}
 		input.hostMap.Scan(func(k, v []byte) error {
-			var metainput contextargs.MetaInput
+			metainput := contextargs.NewMetaInput()
 			if err := metainput.Unmarshal(string(k)); err != nil {
 				return err
 			}
@@ -184,7 +198,7 @@ func Test_expandASNInputValue(t *testing.T) {
 		// scan the hmap
 		got := []string{}
 		input.hostMap.Scan(func(k, v []byte) error {
-			var metainput contextargs.MetaInput
+			metainput := contextargs.NewMetaInput()
 			if err := metainput.Unmarshal(string(k)); err != nil {
 				return err
 			}
