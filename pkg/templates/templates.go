@@ -28,7 +28,6 @@ import (
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	"go.uber.org/multierr"
-	"gopkg.in/yaml.v2"
 )
 
 // Template is a YAML input file which defines all the requests and
@@ -46,7 +45,7 @@ type Template struct {
 	// examples:
 	//   - name: ID Example
 	//     value: "\"CVE-2021-19520\""
-	ID string `yaml:"id" json:"id" jsonschema:"title=id of the template,description=The Unique ID for the template,required,example=cve-2021-19520,pattern=^([a-zA-Z0-9]+[-_])*[a-zA-Z0-9]+$"`
+	ID string `yaml:"id" json:"id" jsonschema:"title=id of the template,description=The Unique ID for the template,required,example=cve-2021-19520,pattern=^([a-zA-Z0-9\p{Han}\!\(\)\.]+[-_])*[a-zA-Z0-9\p{Han}\!\(\)\.]+$"`
 	// description: |
 	//   Info contains metadata information about the template.
 	// examples:
