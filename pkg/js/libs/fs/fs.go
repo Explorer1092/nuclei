@@ -3,7 +3,7 @@ package fs
 import (
 	"os"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 )
 
 // ListDir lists itemType values within a directory

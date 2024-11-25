@@ -6,30 +6,13 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/network/networkclientpool"
 	"github.com/projectdiscovery/fastdialer/fastdialer"
-<<<<<<< HEAD
-	errorutil "github.com/projectdiscovery/utils/errors"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/network/network.go
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/network/networkclientpool"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/expressions"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/network/networkclientpool"
 	errorutil "github.com/projectdiscovery/utils/errors"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/network/network.go
->>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 )
 

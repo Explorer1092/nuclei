@@ -3,12 +3,8 @@ package utils
 import (
 	"strings"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/keys"
->>>>>>> projectdiscovery-main
 )
 
 const (

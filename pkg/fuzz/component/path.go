@@ -5,12 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/fuzz/dataformat"
-	"github.com/pkg/errors"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/dataformat"
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	mapsutil "github.com/projectdiscovery/utils/maps"
 	urlutil "github.com/projectdiscovery/utils/url"

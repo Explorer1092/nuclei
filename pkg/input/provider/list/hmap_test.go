@@ -7,27 +7,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils/expand"
 	"github.com/miekg/dns"
 	"github.com/projectdiscovery/hmap/store/hybrid"
-<<<<<<< HEAD
-	"github.com/projectdiscovery/utils/auth/pdcp"
-=======
-<<<<<<< HEAD:v2/pkg/core/inputs/hybrid/hmap_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils/expand"
 	"github.com/projectdiscovery/utils/auth/pdcp"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/input/provider/list/hmap_test.go
->>>>>>> projectdiscovery-main
 	"github.com/stretchr/testify/require"
 )
 

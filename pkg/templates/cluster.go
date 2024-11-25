@@ -5,25 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/writer"
-	"github.com/Explorer1092/nuclei/v3/pkg/scan"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/templates/cluster.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/writer"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/model"
 	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
@@ -31,8 +13,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/writer"
 	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/cluster.go
->>>>>>> projectdiscovery-main
 	cryptoutil "github.com/projectdiscovery/utils/crypto"
 )
 

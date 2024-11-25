@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
 )
 
 var multiProtoTestcases = []TestCaseInfo{

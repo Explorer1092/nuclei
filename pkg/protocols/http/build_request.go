@@ -12,43 +12,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/useragent"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/authprovider"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http/race"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http/raw"
-	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	httputil "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils/http"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/types/scanstrategy"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/protocols/http/build_request.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/replacer"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/race"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/raw"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/utils"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/race"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/raw"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/utils"
-	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/authprovider"
 	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
@@ -61,8 +25,6 @@ import (
 	httputil "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils/http"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types/scanstrategy"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/http/build_request.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/rawhttp"
 	"github.com/projectdiscovery/retryablehttp-go"
 	errorutil "github.com/projectdiscovery/utils/errors"

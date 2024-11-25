@@ -8,13 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http/httpclientpool"
 	"github.com/projectdiscovery/fastdialer/fastdialer"
-<<<<<<< HEAD
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/httpclientpool"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types/nucleierr"
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	"github.com/projectdiscovery/utils/errkit"
 	iputil "github.com/projectdiscovery/utils/ip"

@@ -5,17 +5,6 @@ import (
 	"fmt"
 	"strings"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/authprovider/authx"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/loader"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/writer"
-	"github.com/Explorer1092/nuclei/v3/pkg/scan"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/authprovider/authx"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/loader"
@@ -28,7 +17,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/utils/env"
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 )
 

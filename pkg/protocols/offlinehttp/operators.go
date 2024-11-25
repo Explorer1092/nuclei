@@ -5,28 +5,6 @@ import (
 	"strings"
 	"time"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/extractors"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/offlinehttp/operators.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/utils"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/model"
 	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v3/pkg/operators/extractors"
@@ -36,8 +14,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/offlinehttp/operators.go
->>>>>>> projectdiscovery-main
 )
 
 // Match matches a generic data response again a given matcher

@@ -11,48 +11,7 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/exp/maps"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/fuzz"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/eventcreator"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/headless/engine"
-	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/protocols/headless/request.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/utils"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/fuzz"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/interactsh"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/utils/vardump"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/headless/engine"
-	protocolutils "github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz"
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
@@ -66,8 +25,6 @@ import (
 	protocolutils "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
 	templateTypes "github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/headless/request.go
->>>>>>> projectdiscovery-main
 	urlutil "github.com/projectdiscovery/utils/url"
 )
 

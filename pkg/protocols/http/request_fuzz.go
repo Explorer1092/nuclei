@@ -11,20 +11,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/fuzz"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
-	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz"
 	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/analyzers"
 	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
@@ -37,7 +25,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
 	protocolutils "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	"github.com/projectdiscovery/useragent"
 	urlutil "github.com/projectdiscovery/utils/url"

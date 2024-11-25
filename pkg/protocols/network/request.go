@@ -15,23 +15,7 @@ import (
 	"go.uber.org/multierr"
 	"golang.org/x/exp/maps"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/eventcreator"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/responsehighlighter"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/replacer"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
-	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/operators"
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
@@ -46,7 +30,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
 	protocolutils "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils"
 	templateTypes "github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	mapsutil "github.com/projectdiscovery/utils/maps"
 	"github.com/projectdiscovery/utils/reader"

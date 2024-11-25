@@ -11,31 +11,7 @@ import (
 
 	"github.com/logrusorgru/aurora"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/progress"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolinit"
-	protocolUtils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/gologger/levels"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/testutils/testutils.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/progress"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolinit"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
 	"github.com/projectdiscovery/nuclei/v3/pkg/model"
@@ -49,8 +25,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
 	unitutils "github.com/projectdiscovery/utils/unit"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/testutils/testutils.go
->>>>>>> projectdiscovery-main
 )
 
 // Init initializes the protocols and their configurations

@@ -3,30 +3,6 @@
 package templates
 
 import (
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/extractors"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/dns"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/file"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/network"
-=======
-<<<<<<< HEAD:v2/pkg/templates/templates_doc_examples.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/extractors"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/dns"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/file"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/network"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/model"
 	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
 	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
@@ -37,8 +13,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/file"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/network"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/templates_doc_examples.go
->>>>>>> projectdiscovery-main
 )
 
 var (

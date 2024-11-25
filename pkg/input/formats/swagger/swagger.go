@@ -6,18 +6,12 @@ import (
 	"os"
 	"path"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/input/formats"
-	"github.com/Explorer1092/nuclei/v3/pkg/input/formats/openapi"
 	"github.com/getkin/kin-openapi/openapi2"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/pkg/errors"
-<<<<<<< HEAD
-	"gopkg.in/yaml.v2"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/input/formats"
 	"github.com/projectdiscovery/nuclei/v3/pkg/input/formats/openapi"
 	"github.com/invopop/yaml"
->>>>>>> projectdiscovery-main
 
 	"github.com/getkin/kin-openapi/openapi2conv"
 )

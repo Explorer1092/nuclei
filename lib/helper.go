@@ -3,9 +3,9 @@ package nuclei
 import (
 	"context"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	uncoverNuclei "github.com/Explorer1092/nuclei/v3/pkg/protocols/common/uncover"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates"
+	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
+	uncoverNuclei "github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/uncover"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
 	"github.com/projectdiscovery/uncover"
 )
 

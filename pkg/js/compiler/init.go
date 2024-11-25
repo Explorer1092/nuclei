@@ -1,12 +1,8 @@
 package compiler
 
-<<<<<<< HEAD
-import "github.com/Explorer1092/nuclei/v3/pkg/types"
-=======
 import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 )
->>>>>>> projectdiscovery-main
 
 // jsprotocolInit
 

@@ -7,17 +7,6 @@ import (
 	"testing"
 	"time"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v3/pkg/loader/workflow"
-	"github.com/Explorer1092/nuclei/v3/pkg/progress"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/scan"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates"
-	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
 	"github.com/projectdiscovery/nuclei/v3/pkg/input"
@@ -28,7 +17,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
 	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/ratelimit"
 	"github.com/stretchr/testify/require"
 )

@@ -3,25 +3,12 @@ package templates
 import (
 	"github.com/pkg/errors"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils/stats"
-	"github.com/Explorer1092/nuclei/v3/pkg/workflows"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/templates/workflows.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/workflows"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/keys"
 	"github.com/projectdiscovery/nuclei/v3/pkg/model"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils/stats"
 	"github.com/projectdiscovery/nuclei/v3/pkg/workflows"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/workflows.go
->>>>>>> projectdiscovery-main
 )
 
 // compileWorkflow compiles the workflow for execution

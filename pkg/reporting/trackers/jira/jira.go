@@ -11,31 +11,11 @@ import (
 	"github.com/pkg/errors"
 	"github.com/trivago/tgo/tcontainer"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown/util"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/format"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/filters"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/reporting/trackers/jira/jira.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/format"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/exporters/markdown/util"
-	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/markdown/util"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/format"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/filters"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/reporting/trackers/jira/jira.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	"github.com/projectdiscovery/utils/ptr"
 )

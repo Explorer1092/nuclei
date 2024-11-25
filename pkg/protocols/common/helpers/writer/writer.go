@@ -1,22 +1,10 @@
 package writer
 
 import (
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/progress"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/protocols/common/helpers/writer/writer.go
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/progress"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/progress"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/helpers/writer/writer.go
->>>>>>> projectdiscovery-main
 )
 
 // WriteResult is a helper for writing results to the output

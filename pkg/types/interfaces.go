@@ -9,16 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
 	"github.com/asaskevich/govalidator"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/types/interfaces.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/types/interfaces.go
->>>>>>> projectdiscovery-main
 )
 
 // JSONScalarToString converts an interface coming from json to string

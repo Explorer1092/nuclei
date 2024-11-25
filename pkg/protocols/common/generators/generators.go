@@ -5,18 +5,8 @@ package generators
 import (
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/common/generators/generators.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/generators/generators.go
->>>>>>> projectdiscovery-main
 )
 
 // PayloadGenerator is the generator struct for generating payloads

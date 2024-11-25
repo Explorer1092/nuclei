@@ -6,14 +6,9 @@ import (
 	"strings"
 	"sync"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/utils/errkit"
->>>>>>> projectdiscovery-main
 )
 
 type ScanContextOption func(*ScanContext)

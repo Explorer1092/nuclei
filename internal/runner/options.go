@@ -13,31 +13,10 @@ import (
 
 	"github.com/go-playground/validator/v10"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolinit"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/headless/engine"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonexporter"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonl"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/sarif"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/extensions"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils/yaml"
 	"github.com/projectdiscovery/goflags"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/gologger/formatter"
 	"github.com/projectdiscovery/gologger/levels"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/internal/runner/options.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolinit"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/headless/engine"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolinit"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
@@ -50,8 +29,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/extensions"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils/yaml"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:internal/runner/options.go
->>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 	"github.com/projectdiscovery/utils/generic"
 	logutil "github.com/projectdiscovery/utils/log"

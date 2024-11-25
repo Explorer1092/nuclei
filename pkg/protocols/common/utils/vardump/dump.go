@@ -3,14 +3,9 @@ package vardump
 import (
 	"strings"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	mapsutil "github.com/projectdiscovery/utils/maps"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	mapsutil "github.com/projectdiscovery/utils/maps"
 	"github.com/yassinebenaid/godump"
->>>>>>> projectdiscovery-main
 )
 
 // variables is a map of variables

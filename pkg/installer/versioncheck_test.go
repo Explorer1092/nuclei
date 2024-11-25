@@ -3,15 +3,7 @@ package installer
 import (
 	"testing"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-=======
-<<<<<<< HEAD:v2/internal/installer/versioncheck_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/installer/versioncheck_test.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/utils/generic"
 	"github.com/stretchr/testify/require"
 )

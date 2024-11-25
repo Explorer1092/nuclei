@@ -11,34 +11,6 @@ import (
 
 	"github.com/logrusorgru/aurora"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/authprovider"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v3/pkg/input"
-	"github.com/Explorer1092/nuclei/v3/pkg/js/compiler"
-	"github.com/Explorer1092/nuclei/v3/pkg/loader/parser"
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/extractors"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/progress"
-	"github.com/Explorer1092/nuclei/v3/pkg/projectfile"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/hosterrorscache"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/excludematchers"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/variables"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/headless/engine"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting"
-	"github.com/Explorer1092/nuclei/v3/pkg/scan"
-	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-)
-
-var (
-	MaxTemplateFileSizeForEncoding = 1024 * 1024
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/authprovider"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz/frequency"
@@ -68,7 +40,6 @@ var (
 
 var (
 	MaxTemplateFileSizeForEncoding = unitutils.Mega
->>>>>>> projectdiscovery-main
 )
 
 // Executer is an interface implemented any protocol based request executer.

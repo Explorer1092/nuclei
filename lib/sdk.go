@@ -6,27 +6,6 @@ import (
 	"context"
 	"io"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/authprovider"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/loader"
-	"github.com/Explorer1092/nuclei/v3/pkg/core"
-	"github.com/Explorer1092/nuclei/v3/pkg/input/provider"
-	"github.com/Explorer1092/nuclei/v3/pkg/input/provider/list"
-	providerTypes "github.com/Explorer1092/nuclei/v3/pkg/input/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/loader/workflow"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/progress"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/hosterrorscache"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/headless/engine"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/signer"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/authprovider"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/loader"
@@ -45,7 +24,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/signer"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/ratelimit"
 	"github.com/projectdiscovery/retryablehttp-go"
 	errorutil "github.com/projectdiscovery/utils/errors"
@@ -134,9 +112,6 @@ func (e *NucleiEngine) GetTemplates() []*templates.Template {
 	return e.store.Templates()
 }
 
-<<<<<<< HEAD
-// LoadTargets LoadTargets(urls/domains/ips only) adds targets to the nuclei engine
-=======
 // GetWorkflows returns all nuclei workflows that are loaded
 func (e *NucleiEngine) GetWorkflows() []*templates.Template {
 	if !e.templatesLoaded {
@@ -146,36 +121,11 @@ func (e *NucleiEngine) GetWorkflows() []*templates.Template {
 }
 
 // LoadTargets(urls/domains/ips only) adds targets to the nuclei engine
->>>>>>> projectdiscovery-main
 func (e *NucleiEngine) LoadTargets(targets []string, probeNonHttp bool) {
 	for _, target := range targets {
 		if probeNonHttp {
 			_ = e.inputProvider.SetWithProbe(target, e.httpxClient)
 		} else {
-			e.inputProvider.Set(target)
-		}
-	}
-}
-
-// LoadTargetsFromList LoadTargetsFromList(urls/domains/ips only) adds targets to the nuclei engine
-func (e *NucleiEngine) LoadTargetsFromList(targets []string, probeNonHttp bool) {
-	e.opts.InputFileMode = "list"
-	listProvider, _ := list.New(&list.Options{
-		Options:          e.opts,
-		NotFoundCallback: nil,
-	})
-	e.inputProvider = listProvider
-	//if err != nil {
-	//	e.opts.TargetsFilePath = ""
-	//	e.opts.InputFileMode = ""
-	//	return err
-	//}
-	//e.inputProvider = httpProvider
-	for _, target := range targets {
-		if probeNonHttp {
-			_ = e.inputProvider.SetWithProbe(target, e.httpxClient)
-		} else {
-
 			e.inputProvider.Set(target)
 		}
 	}

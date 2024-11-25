@@ -7,18 +7,8 @@ import (
 	"net/url"
 	"strings"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
-=======
-<<<<<<< HEAD:v2/pkg/utils/utils.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils/yaml"
-=======
 	"github.com/cespare/xxhash"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/utils/utils.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	mapsutil "github.com/projectdiscovery/utils/maps"
 	"golang.org/x/exp/constraints"

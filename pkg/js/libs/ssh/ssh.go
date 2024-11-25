@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	"github.com/zmap/zgrab2/lib/ssh"
 )

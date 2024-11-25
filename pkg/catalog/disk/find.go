@@ -6,19 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
 	"github.com/logrusorgru/aurora"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/catalog/disk/find.go
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/catalog/disk/find.go
->>>>>>> projectdiscovery-main
 	stringsutil "github.com/projectdiscovery/utils/strings"
 	updateutils "github.com/projectdiscovery/utils/update"
 	urlutil "github.com/projectdiscovery/utils/url"

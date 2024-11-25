@@ -10,13 +10,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
-	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	httputil "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils/http"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/input"
 	"github.com/go-rod/rod/lib/proto"
@@ -24,17 +17,6 @@ import (
 	"github.com/kitabisa/go-ci"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	contextutil "github.com/projectdiscovery/utils/context"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/headless/engine/page_actions.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/expressions"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
@@ -44,8 +26,6 @@ import (
 	httputil "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils/http"
 	contextutil "github.com/projectdiscovery/utils/context"
 	"github.com/projectdiscovery/utils/errkit"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/headless/engine/page_actions.go
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"

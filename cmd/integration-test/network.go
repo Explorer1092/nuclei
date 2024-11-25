@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
 	osutils "github.com/projectdiscovery/utils/os"
 	"github.com/projectdiscovery/utils/reader"
 )

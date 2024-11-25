@@ -9,20 +9,14 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/js/gojs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/utils/vardump"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/dop251/goja"
 	"github.com/logrusorgru/aurora"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/js/gojs"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/utils/vardump"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/utils/errkit"
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

@@ -1,14 +1,10 @@
 package main
 
 import (
-<<<<<<< HEAD
-	nuclei "github.com/Explorer1092/nuclei/v3/lib"
-=======
 	"context"
 
 	nuclei "github.com/projectdiscovery/nuclei/v3/lib"
 	"github.com/projectdiscovery/nuclei/v3/pkg/installer"
->>>>>>> projectdiscovery-main
 	syncutil "github.com/projectdiscovery/utils/sync"
 )
 

@@ -1,6 +1,6 @@
-module github.com/Explorer1092/nuclei/v3
+module github.com/projectdiscovery/nuclei/v3
 
-go 1.22
+go 1.21.0
 
 require (
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible
@@ -49,7 +49,6 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.6.0
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.1.0
 	github.com/DataDog/gostackparse v0.6.0
-	github.com/Explorer1092/n3iwf v0.0.0-20240520140556-e3218a4830c6
 	github.com/Masterminds/semver/v3 v3.2.1
 	github.com/Mzack9999/gcache v0.0.0-20230410081825-519e28eab057
 	github.com/antchfx/xmlquery v1.3.17
@@ -91,12 +90,8 @@ require (
 	github.com/projectdiscovery/gozero v0.0.3
 	github.com/projectdiscovery/httpx v1.6.9
 	github.com/projectdiscovery/mapcidr v1.1.34
-<<<<<<< HEAD
-	github.com/projectdiscovery/ratelimit v0.0.39
-=======
 	github.com/projectdiscovery/n3iwf v0.0.0-20230523120440-b8cd232ff1f5
 	github.com/projectdiscovery/ratelimit v0.0.61
->>>>>>> projectdiscovery-main
 	github.com/projectdiscovery/rdap v0.9.1-0.20221108103045-9865884d1917
 	github.com/projectdiscovery/sarif v0.0.1
 	github.com/projectdiscovery/tlsx v1.1.8

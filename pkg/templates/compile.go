@@ -13,19 +13,7 @@ import (
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/js/compiler"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/offlinehttp"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/signer"
-	"github.com/Explorer1092/nuclei/v3/pkg/tmplexec"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/js/compiler"
 	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
@@ -37,7 +25,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/signer"
 	"github.com/projectdiscovery/nuclei/v3/pkg/tmplexec"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )

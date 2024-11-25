@@ -7,36 +7,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/helpers/eventcreator"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	"github.com/projectdiscovery/utils/conversion"
-	syncutil "github.com/projectdiscovery/utils/sync"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/offlinehttp/request.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/tostring"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/eventcreator"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/tostring"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/utils"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
@@ -47,8 +18,6 @@ import (
 	"github.com/projectdiscovery/utils/conversion"
 	syncutil "github.com/projectdiscovery/utils/sync"
 	unitutils "github.com/projectdiscovery/utils/unit"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/offlinehttp/request.go
->>>>>>> projectdiscovery-main
 )
 
 var _ protocols.Request = &Request{}

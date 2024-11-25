@@ -7,56 +7,16 @@ import (
 	"strings"
 	"sync/atomic"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	json_exporter "github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonexporter"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonl"
-	"github.com/projectdiscovery/gologger"
-=======
-<<<<<<< HEAD:v2/pkg/reporting/reporting.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	json_exporter "github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonexporter"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonl"
-=======
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	json_exporter "github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonexporter"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonl"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/reporting/reporting.go
->>>>>>> projectdiscovery-main
 
 	"go.uber.org/multierr"
 	"gopkg.in/yaml.v2"
 
 	"errors"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/dedupe"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/es"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/sarif"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/splunk"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/filters"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitea"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/github"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitlab"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/jira"
-=======
-<<<<<<< HEAD:v2/pkg/reporting/reporting.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/dedupe"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/es"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/markdown"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/sarif"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/splunk"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/github"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/gitlab"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/jira"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/stringslice"
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/dedupe"
@@ -70,8 +30,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/gitlab"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/jira"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/linear"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/reporting/reporting.go
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 )

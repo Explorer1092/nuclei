@@ -19,39 +19,10 @@ import (
 	_ "github.com/projectdiscovery/utils/pprof"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 
-	"github.com/Explorer1092/nuclei/v3/internal/runner"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/input/provider"
-	"github.com/Explorer1092/nuclei/v3/pkg/installer"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/common/dsl"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/uncover"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/extensions"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/signer"
-	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/types/scanstrategy"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils/monitor"
 	"github.com/projectdiscovery/goflags"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/gologger/levels"
 	"github.com/projectdiscovery/interactsh/pkg/client"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/cmd/nuclei/main.go
-	"github.com/Explorer1092/nuclei/v2/internal/runner"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/common/dsl"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/uncover"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http"
-	templateTypes "github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/types/scanstrategy"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils/monitor"
-=======
 	"github.com/projectdiscovery/nuclei/v3/internal/runner"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/input/provider"
@@ -67,8 +38,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types/scanstrategy"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils/monitor"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/nuclei/main.go
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	unitutils "github.com/projectdiscovery/utils/unit"

@@ -3,8 +3,8 @@ package core
 import (
 	"context"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/gologger"
+	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
 	syncutil "github.com/projectdiscovery/utils/sync"
 )
 

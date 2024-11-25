@@ -20,26 +20,8 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"github.com/logrusorgru/aurora"
 
-	"github.com/Explorer1092/nuclei/v3/internal/colorizer"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	protocolUtils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/interactsh/pkg/server"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/output/output.go
-	"github.com/Explorer1092/nuclei/v2/internal/colorizer"
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-	"github.com/Explorer1092/nuclei/v2/pkg/utils"
-=======
 	"github.com/projectdiscovery/nuclei/v3/internal/colorizer"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/model"
@@ -50,8 +32,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/types/nucleierr"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/utils/errkit"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/output/output.go
->>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 	osutils "github.com/projectdiscovery/utils/os"
 	unitutils "github.com/projectdiscovery/utils/unit"

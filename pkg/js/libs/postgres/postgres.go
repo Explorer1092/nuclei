@@ -8,18 +8,13 @@ import (
 	"strings"
 	"time"
 
-	utils "github.com/Explorer1092/nuclei/v3/pkg/js/utils"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/go-pg/pg"
 	"github.com/praetorian-inc/fingerprintx/pkg/plugins"
 	postgres "github.com/praetorian-inc/fingerprintx/pkg/plugins/services/postgresql"
-<<<<<<< HEAD
-=======
 	utils "github.com/projectdiscovery/nuclei/v3/pkg/js/utils"
 	"github.com/projectdiscovery/nuclei/v3/pkg/js/utils/pgwrap"
 	_ "github.com/projectdiscovery/nuclei/v3/pkg/js/utils/pgwrap"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
->>>>>>> projectdiscovery-main
 )
 
 type (

@@ -6,15 +6,7 @@ import (
 	"path/filepath"
 	"sync"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-=======
-<<<<<<< HEAD:v2/pkg/types/resume.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/types/resume.go
->>>>>>> projectdiscovery-main
 	"github.com/rs/xid"
 )
 

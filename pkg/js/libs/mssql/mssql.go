@@ -9,13 +9,9 @@ import (
 	"strings"
 	"time"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	_ "github.com/denisenkom/go-mssqldb"
-=======
 	_ "github.com/microsoft/go-mssqldb"
->>>>>>> projectdiscovery-main
 	"github.com/praetorian-inc/fingerprintx/pkg/plugins/services/mssql"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 )
 
 type (

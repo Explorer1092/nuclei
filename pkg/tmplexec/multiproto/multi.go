@@ -4,19 +4,12 @@ import (
 	"strconv"
 	"sync/atomic"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/scan"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/output"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
 	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
 	stringsutil "github.com/projectdiscovery/utils/strings"
->>>>>>> projectdiscovery-main
 )
 
 // Mutliprotocol is a template executer engine that executes multiple protocols

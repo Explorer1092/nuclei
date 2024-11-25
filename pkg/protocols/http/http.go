@@ -11,35 +11,6 @@ import (
 	json "github.com/json-iterator/go"
 	"github.com/pkg/errors"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/fuzz"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http/httpclientpool"
-	httputil "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils/http"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils/stats"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/http/http.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/fuzz"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http/httpclientpool"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/fuzz"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/httpclientpool"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
-=======
 	_ "github.com/projectdiscovery/nuclei/v3/pkg/fuzz/analyzers/time"
 
 	"github.com/projectdiscovery/nuclei/v3/pkg/fuzz"
@@ -53,8 +24,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/http/httpclientpool"
 	httputil "github.com/projectdiscovery/nuclei/v3/pkg/protocols/utils/http"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils/stats"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/http/http.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/rawhttp"
 	"github.com/projectdiscovery/retryablehttp-go"
 	fileutil "github.com/projectdiscovery/utils/file"

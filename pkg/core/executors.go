@@ -5,24 +5,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/input/provider"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/scan"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
-	generalTypes "github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/gologger"
-<<<<<<< HEAD
-	syncutil "github.com/projectdiscovery/utils/sync"
-=======
-<<<<<<< HEAD:v2/pkg/core/executors.go
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-	generalTypes "github.com/Explorer1092/nuclei/v2/pkg/types"
-	"github.com/remeh/sizedwaitgroup"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/input/provider"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v3/pkg/scan"
@@ -30,8 +13,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
 	generalTypes "github.com/projectdiscovery/nuclei/v3/pkg/types"
 	syncutil "github.com/projectdiscovery/utils/sync"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/core/executors.go
->>>>>>> projectdiscovery-main
 )
 
 // Executors are low level executors that deals with template execution on a target

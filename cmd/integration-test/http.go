@@ -17,15 +17,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/yaml.v2"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
-=======
-<<<<<<< HEAD:v2/cmd/integration-test/http.go
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/integration-test/http.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	logutil "github.com/projectdiscovery/utils/log"

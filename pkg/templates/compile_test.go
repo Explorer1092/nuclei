@@ -10,43 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v3/pkg/loader/workflow"
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators"
-	"github.com/Explorer1092/nuclei/v3/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v3/pkg/progress"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/variables"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates"
-	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
-	"github.com/Explorer1092/nuclei/v3/pkg/workflows"
 	"github.com/julienschmidt/httprouter"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/templates/compile_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v2/pkg/model"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators"
-	"github.com/Explorer1092/nuclei/v2/pkg/operators/matchers"
-	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
-	"github.com/Explorer1092/nuclei/v2/pkg/progress"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/variables"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/http"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
-	"github.com/Explorer1092/nuclei/v2/pkg/workflows"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
 	"github.com/projectdiscovery/nuclei/v3/pkg/loader/workflow"
@@ -63,8 +27,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
 	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
 	"github.com/projectdiscovery/nuclei/v3/pkg/workflows"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/templates/compile_test.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/ratelimit"
 	"github.com/stretchr/testify/require"
 )

@@ -56,15 +56,7 @@ Kami memiliki [repositori khusus](https://github.com/projectdiscovery/nuclei-tem
 Nuclei membutuhkan **go1.21** agar dapat diinstall. Jalankan perintah berikut untuk menginstal versi terbaru -
 
 ```sh
-<<<<<<< HEAD
-go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
-=======
-<<<<<<< HEAD
-go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
-=======
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a
->>>>>>> projectdiscovery-main
 ```
 
 **Metode [instalasi lain dapat ditemukan di sini](https://nuclei.projectdiscovery.io/nuclei/get-started/).**

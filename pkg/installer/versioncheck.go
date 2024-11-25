@@ -7,17 +7,8 @@ import (
 	"os"
 	"sync"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/projectdiscovery/gologger"
-=======
-<<<<<<< HEAD:v2/internal/installer/versioncheck.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-=======
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/installer/versioncheck.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 	updateutils "github.com/projectdiscovery/utils/update"
 )

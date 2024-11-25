@@ -6,7 +6,6 @@ import (
 	"bufio"
 	"context"
 	"fmt"
-	stringsutil "github.com/projectdiscovery/utils/strings"
 	"io"
 	"os"
 	"regexp"
@@ -16,38 +15,16 @@ import (
 
 	"github.com/pkg/errors"
 
-	providerTypes "github.com/Explorer1092/nuclei/v3/pkg/input/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/uncover"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/utils/expand"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/hmap/filekv"
 	"github.com/projectdiscovery/hmap/store/hybrid"
 	"github.com/projectdiscovery/mapcidr/asn"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/pkg/core/inputs/hybrid/hmap.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/uncover"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/uncover"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
-=======
 	providerTypes "github.com/projectdiscovery/nuclei/v3/pkg/input/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/uncover"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils/expand"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/input/provider/list/hmap.go
->>>>>>> projectdiscovery-main
 	uncoverlib "github.com/projectdiscovery/uncover"
 	fileutil "github.com/projectdiscovery/utils/file"
 	iputil "github.com/projectdiscovery/utils/ip"
@@ -167,14 +144,6 @@ func (i *ListInputProvider) Set(value string) {
 	if URL == "" {
 		return
 	}
-
-	if stringsutil.ContainsAny(value, ",") {
-		idxComma := strings.Index(value, ",")
-		metaInput := &contextargs.MetaInput{Input: value[idxComma+1:], CustomIP: value[:idxComma]}
-		i.setItem(metaInput)
-		return
-	}
-
 	// parse hostname if url is given
 	urlx, err := urlutil.Parse(URL)
 	if err != nil || (urlx != nil && urlx.Host == "") {
@@ -407,14 +376,6 @@ func (i *ListInputProvider) Del(value string) {
 	if URL == "" {
 		return
 	}
-
-	if stringsutil.ContainsAny(value, ",") {
-		idxComma := strings.Index(value, ",")
-		metaInput := &contextargs.MetaInput{Input: value[idxComma+1:], CustomIP: value[:idxComma]}
-		i.delItem(metaInput)
-		return
-	}
-
 	// parse hostname if url is given
 	urlx, err := urlutil.Parse(URL)
 	if err != nil || (urlx != nil && urlx.Host == "") {
@@ -520,7 +481,6 @@ func (i *ListInputProvider) setItem(metaInput *contextargs.MetaInput) {
 // setItem in the kv store
 func (i *ListInputProvider) delItem(metaInput *contextargs.MetaInput) {
 	targetUrl, err := urlutil.ParseURL(metaInput.Input, true)
-
 	if err != nil {
 		gologger.Warning().Msgf("%s\n", err)
 		return

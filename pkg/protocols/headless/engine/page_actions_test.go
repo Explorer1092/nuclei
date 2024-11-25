@@ -18,32 +18,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/testutils/testheadless"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-	stringsutil "github.com/projectdiscovery/utils/strings"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/headless/engine/page_actions_test.go
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils/testheadless"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils/testheadless"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
->>>>>>> bb98eced070f4ae137b8cd2a7f887611bc1b9c93
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/projectdiscovery/nuclei/v3/pkg/testutils/testheadless"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
 	stringsutil "github.com/projectdiscovery/utils/strings"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/headless/engine/page_actions_test.go
->>>>>>> projectdiscovery-main
 )
 
 func TestActionNavigate(t *testing.T) {

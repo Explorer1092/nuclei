@@ -5,18 +5,8 @@ import (
 
 	"github.com/projectdiscovery/fasttemplate"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/marker"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/common/replacer/replacer.go
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/marker"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/marker"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/replacer/replacer.go
->>>>>>> projectdiscovery-main
 )
 
 // Replace replaces placeholders in template with values on the fly.

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/input/types"
+	"github.com/projectdiscovery/nuclei/v3/pkg/input/types"
 	"github.com/stretchr/testify/require"
 )
 

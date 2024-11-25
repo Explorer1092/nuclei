@@ -7,12 +7,8 @@ import (
 	"os"
 	"testing"
 
-<<<<<<< HEAD
-	nuclei "github.com/Explorer1092/nuclei/v3/lib"
-=======
 	"github.com/kitabisa/go-ci"
 	nuclei "github.com/projectdiscovery/nuclei/v3/lib"
->>>>>>> projectdiscovery-main
 	"github.com/remeh/sizedwaitgroup"
 )
 

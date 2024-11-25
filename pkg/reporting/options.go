@@ -1,30 +1,6 @@
 package reporting
 
 import (
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/es"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonexporter"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/jsonl"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/markdown"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/sarif"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/exporters/splunk"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/filters"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitea"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/github"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/gitlab"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting/trackers/jira"
-=======
-<<<<<<< HEAD:v2/pkg/reporting/options.go
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/es"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonexporter"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/jsonl"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/markdown"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/sarif"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/exporters/splunk"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/github"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/gitlab"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting/trackers/jira"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/es"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonexporter"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/exporters/jsonl"
@@ -38,8 +14,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/gitlab"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/jira"
 	"github.com/projectdiscovery/nuclei/v3/pkg/reporting/trackers/linear"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/reporting/options.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 

@@ -11,46 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/loader"
-	"github.com/Explorer1092/nuclei/v3/pkg/core"
-	"github.com/Explorer1092/nuclei/v3/pkg/input/provider"
-	parsers "github.com/Explorer1092/nuclei/v3/pkg/loader/workflow"
-	"github.com/Explorer1092/nuclei/v3/pkg/output"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/hosterrorscache"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolinit"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v3/pkg/reporting"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates"
-	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/julienschmidt/httprouter"
 	"github.com/logrusorgru/aurora"
 	"github.com/pkg/errors"
 	"github.com/projectdiscovery/goflags"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:v2/cmd/integration-test/code.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/loader"
-	"github.com/Explorer1092/nuclei/v2/pkg/core"
-	"github.com/Explorer1092/nuclei/v2/pkg/core/inputs"
-	"github.com/Explorer1092/nuclei/v2/pkg/output"
-	"github.com/Explorer1092/nuclei/v2/pkg/parsers"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/hosterrorscache"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/interactsh"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolinit"
-	"github.com/Explorer1092/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/Explorer1092/nuclei/v2/pkg/reporting"
-	"github.com/Explorer1092/nuclei/v2/pkg/testutils"
-	"github.com/Explorer1092/nuclei/v2/pkg/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/loader"
@@ -67,8 +31,6 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates"
 	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:cmd/integration-test/library.go
->>>>>>> projectdiscovery-main
 	"github.com/projectdiscovery/ratelimit"
 )
 

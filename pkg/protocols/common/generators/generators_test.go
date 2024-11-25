@@ -7,17 +7,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/disk"
-	"github.com/Explorer1092/nuclei/v3/pkg/types"
-=======
-<<<<<<< HEAD:v2/pkg/protocols/common/generators/generators_test.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog/disk"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/disk"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/protocols/common/generators/generators_test.go
->>>>>>> projectdiscovery-main
 )
 
 func TestBatteringRamGenerator(t *testing.T) {

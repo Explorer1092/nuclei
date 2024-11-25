@@ -9,23 +9,6 @@ import (
 	"strings"
 
 	validate "github.com/go-playground/validator/v10"
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/model"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/code"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/variables"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/dns"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/file"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/headless"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/http"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/javascript"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/network"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/ssl"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/websocket"
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/whois"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
-	"github.com/Explorer1092/nuclei/v3/pkg/workflows"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/model"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols"
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/code"
@@ -42,10 +25,10 @@ import (
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/nuclei/v3/pkg/utils"
 	"github.com/projectdiscovery/nuclei/v3/pkg/workflows"
->>>>>>> projectdiscovery-main
 	errorutil "github.com/projectdiscovery/utils/errors"
 	fileutil "github.com/projectdiscovery/utils/file"
 	"go.uber.org/multierr"
+	"gopkg.in/yaml.v2"
 )
 
 // Template is a YAML input file which defines all the requests and
@@ -63,11 +46,7 @@ type Template struct {
 	// examples:
 	//   - name: ID Example
 	//     value: "\"CVE-2021-19520\""
-<<<<<<< HEAD
-	ID string `yaml:"id" json:"id" jsonschema:"title=id of the template,description=The Unique ID for the template,required,example=cve-2021-19520,pattern=^([a-zA-Z0-9\p{Han}]+[-_])*[a-zA-Z0-9\p{Han}]+$"`
-=======
-	ID string `yaml:"id" json:"id" jsonschema:"title=id of the template,description=The Unique ID for the template,required,example=cve-2021-19520,pattern=^([a-zA-Z0-9\p{Han}\!\(\)\.]+[-_])*[a-zA-Z0-9\p{Han}\!\(\)\.]+$"`
->>>>>>> projectdiscovery-main
+	ID string `yaml:"id" json:"id" jsonschema:"title=id of the template,description=The Unique ID for the template,required,example=cve-2021-19520,pattern=^([a-zA-Z0-9]+[-_])*[a-zA-Z0-9]+$"`
 	// description: |
 	//   Info contains metadata information about the template.
 	// examples:

@@ -3,8 +3,8 @@ package code
 import (
 	goruntime "runtime"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/js/gojs"
 	"github.com/dop251/goja"
+	"github.com/projectdiscovery/nuclei/v3/pkg/js/gojs"
 	osutils "github.com/projectdiscovery/utils/os"
 )
 

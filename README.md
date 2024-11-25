@@ -67,20 +67,10 @@ Nuclei is a modern, high-performance vulnerability scanner that leverages simple
 
 Install Nuclei on your machine. Get started by following the installation guide [here](https://docs.projectdiscovery.io/tools/nuclei/install?utm_source=github&utm_medium=web&utm_campaign=nuclei_readme). Additionally, We provide [a free cloud tier](https://cloud.projectdiscovery.io/sign-up) and comes with a generous monthly free limits:
 
-<<<<<<< HEAD
-```sh
-<<<<<<< HEAD
-go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
-=======
-go install -v github.com/Explorer1092/nuclei/v2/cmd/nuclei@latest
->>>>>>> projectdiscovery-main
-```
-=======
 - Store and visualize your vulnerability findings
 - Write and manage your nuclei templates
 - Access latest nuclei templates
 - Discover and store your targets
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a
 
 ### **2. Pro and Enterprise Editions**
 
@@ -358,9 +348,6 @@ Additional documentation is available at: [https://docs.nuclei.sh/getting-starte
 
 ### Single target scan
 
-<<<<<<< HEAD
-Complete guide of using Nuclei as Library/SDK is available at [godoc](https://pkg.go.dev/github.com/Explorer1092/nuclei/v3/lib#section-readme)
-=======
 To perform a quick scan on web-application:
 
 ```sh
@@ -408,7 +395,6 @@ nuclei -target https://example.com -dashboard
 Try it online with our free AI powered Nuclei Templates Editor by [clicking here.](https://cloud.projectdiscovery.io/templates)
 
 Nuclei Templates offer a streamlined way to identify and communicate vulnerabilities, combining essential details like severity ratings and detection methods. This open-source, community-developed tool accelerates threat response and is widely recognized in the cybersecurity world. Nuclei templates are actively contributed by thousands of security researchers globally. We run two programs for our contributors: [Pioneers](https://projectdiscovery.io/pioneers) and [💎 bounties](https://github.com/projectdiscovery/nuclei-templates/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22%F0%9F%92%8E%20Bounty%22).
->>>>>>> projectdiscovery-main
 
 
 <p align="left">

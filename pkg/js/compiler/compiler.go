@@ -8,12 +8,8 @@ import (
 	"github.com/dop251/goja"
 	"github.com/kitabisa/go-ci"
 
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/generators"
 	"github.com/projectdiscovery/nuclei/v3/pkg/types"
->>>>>>> projectdiscovery-main
 	contextutil "github.com/projectdiscovery/utils/context"
 	"github.com/projectdiscovery/utils/errkit"
 	stringsutil "github.com/projectdiscovery/utils/strings"

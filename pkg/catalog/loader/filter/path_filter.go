@@ -1,15 +1,7 @@
 package filter
 
 import (
-<<<<<<< HEAD
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
-=======
-<<<<<<< HEAD:v2/pkg/catalog/loader/filter/path_filter.go
-	"github.com/Explorer1092/nuclei/v2/pkg/catalog"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/catalog/loader/filter/path_filter.go
->>>>>>> projectdiscovery-main
 )
 
 // PathFilter is a path based template filter

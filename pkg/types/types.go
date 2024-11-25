@@ -7,25 +7,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog"
-	"github.com/Explorer1092/nuclei/v3/pkg/catalog/config"
-	"github.com/Explorer1092/nuclei/v3/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/projectdiscovery/goflags"
-<<<<<<< HEAD
-	errorutil "github.com/projectdiscovery/utils/errors"
-=======
-<<<<<<< HEAD:v2/pkg/types/types.go
-	"github.com/Explorer1092/nuclei/v2/pkg/model/types/severity"
-	"github.com/Explorer1092/nuclei/v2/pkg/templates/types"
-=======
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog"
 	"github.com/projectdiscovery/nuclei/v3/pkg/catalog/config"
 	"github.com/projectdiscovery/nuclei/v3/pkg/model/types/severity"
 	"github.com/projectdiscovery/nuclei/v3/pkg/templates/types"
 	errorutil "github.com/projectdiscovery/utils/errors"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:pkg/types/types.go
->>>>>>> projectdiscovery-main
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"
 	unitutils "github.com/projectdiscovery/utils/unit"

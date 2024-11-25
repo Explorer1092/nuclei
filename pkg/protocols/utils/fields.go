@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	"github.com/projectdiscovery/nuclei/v3/pkg/protocols/common/contextargs"
 	iputil "github.com/projectdiscovery/utils/ip"
 	urlutil "github.com/projectdiscovery/utils/url"
 )
