@@ -7,9 +7,13 @@
       <env name="TESTS" value="http/dsl-functions.yaml" />
     </envs>
     <kind value="PACKAGE" />
+<<<<<<< HEAD
     <package value="github.com/Explorer1092/nuclei/v2/cmd/integration-test" />
+=======
+    <package value="github.com/projectdiscovery/nuclei/v3/cmd/integration-test" />
+>>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a
     <directory value="$PROJECT_DIR$" />
-    <filePath value="$PROJECT_DIR$/v2/cmd/integration-test/integration-test.go" />
+    <filePath value="$PROJECT_DIR$/cmd/integration-test/integration-test.go" />
     <method v="2" />
   </configuration>
 </component>
