@@ -7,11 +7,11 @@
 
 <p align="center">
 <img src="https://img.shields.io/github/go-mod/go-version/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/releases"><img src="https://img.shields.io/github/downloads/projectdiscovery/nuclei/total">
-<a href="https://github.com/projectdiscovery/nuclei/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/releases/"><img src="https://img.shields.io/github/release/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/issues"><img src="https://img.shields.io/github/issues-raw/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/discussions"><img src="https://img.shields.io/github/discussions/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/releases"><img src="https://img.shields.io/github/downloads/projectdiscovery/nuclei/total">
+<a href="https://github.com/Explorer1092/nuclei/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/releases/"><img src="https://img.shields.io/github/release/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/issues"><img src="https://img.shields.io/github/issues-raw/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/discussions"><img src="https://img.shields.io/github/discussions/projectdiscovery/nuclei">
 <a href="https://discord.gg/projectdiscovery"><img src="https://img.shields.io/discord/695645237418131507.svg?logo=discord"></a>
 <a href="https://twitter.com/pdnuclei"><img src="https://img.shields.io/twitter/follow/pdnuclei.svg?logo=twitter"></a>
 </p>
@@ -26,18 +26,18 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README.md">英語</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_CN.md">中国語</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_KR.md">韓国語</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ID.md">インドネシア語</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ES.md">スペイン語</a>
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README.md">英語</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_CN.md">中国語</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_KR.md">韓国語</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_ID.md">インドネシア語</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_ES.md">スペイン語</a>
 </p>
 
 ---
 
 Nucleiは、テンプレートに基づいてターゲット間でリクエストを送信するために使用され、偽陽性がゼロであり、多数のホストで高速なスキャンを提供します。Nucleiは、TCP、DNS、HTTP、SSL、ファイル、Whois、Websocket、Headless、Codeなど、さまざまなプロトコルのスキャンを提供します。強力で柔軟なテンプレートを使用して、Nucleiはすべての種類のセキュリティチェックをモデル化するために使用できます。
 
-**300人以上の** セキュリティ研究者およびエンジニアが提供するさまざまなタイプの脆弱性テンプレートを収容する[専用リポジトリ](https://github.com/projectdiscovery/nuclei-templates)を持っています。
+**300人以上の** セキュリティ研究者およびエンジニアが提供するさまざまなタイプの脆弱性テンプレートを収容する[専用リポジトリ](https://github.com/Explorer1092/nuclei-templates)を持っています。
 
 ## 動作原理
 
@@ -83,7 +83,7 @@ go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
 
 ### Nucleiテンプレート
 
-Nucleiは、バージョン[v2.5.2](https://github.com/projectdiscovery/nuclei/releases/tag/v2.5.2)以降、デフォルトでテンプレートの自動ダウンロード/更新をサポートしています。[**Nuclei-Templates**](https://github.com/projectdiscovery/nuclei-templates)プロジェクトは、常に更新されるコミュニティ提供の即時使用可能なテンプレートのリストを提供します。
+Nucleiは、バージョン[v2.5.2](https://github.com/Explorer1092/nuclei/releases/tag/v2.5.2)以降、デフォルトでテンプレートの自動ダウンロード/更新をサポートしています。[**Nuclei-Templates**](https://github.com/Explorer1092/nuclei-templates)プロジェクトは、常に更新されるコミュニティ提供の即時使用可能なテンプレートのリストを提供します。
 
 `update-templates`フラグを使用して、いつでもNucleiテンプレートを更新することができます。Nucleiの[テンプレートガイド](https://docs.projectdiscovery.io/templates/)に従って、個々のワークフローとニーズに合わせた独自のチェックを作成することができます。
 

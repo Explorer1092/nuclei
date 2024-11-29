@@ -11,7 +11,6 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/exp/maps"
 
-	"github.com/projectdiscovery/gologger"
 	"github.com/Explorer1092/nuclei/v3/pkg/fuzz"
 	"github.com/Explorer1092/nuclei/v3/pkg/output"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols"
@@ -25,6 +24,7 @@ import (
 	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
 	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
+	"github.com/projectdiscovery/gologger"
 	urlutil "github.com/projectdiscovery/utils/url"
 )
 
@@ -186,7 +186,7 @@ func (request *Request) executeRequestWithPayloads(input *contextargs.Context, p
 	header := out.GetOrDefault("header", "").(string)
 
 	// NOTE(dwisiswant0): `status_code` key should be an integer type.
-	// Ref: https://github.com/projectdiscovery/nuclei/pull/5545#discussion_r1721291013
+	// Ref: https://github.com/Explorer1092/nuclei/pull/5545#discussion_r1721291013
 	statusCode := out.GetOrDefault("status_code", "").(string)
 
 	outputEvent := request.responseToDSLMap(responseBody, header, statusCode, reqBuilder.String(), input.MetaInput.Input, navigatedURL, page.DumpHistory())

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/projectdiscovery/nuclei/v3/pkg/output"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/output"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
 )
 
 var matcherStatusTestcases = []TestCaseInfo{

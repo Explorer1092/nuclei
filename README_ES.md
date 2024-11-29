@@ -8,11 +8,11 @@
 
 <p align="center">
 <img src="https://img.shields.io/github/go-mod/go-version/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/releases"><img src="https://img.shields.io/github/downloads/projectdiscovery/nuclei/total">
-<a href="https://github.com/projectdiscovery/nuclei/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/releases/"><img src="https://img.shields.io/github/release/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/issues"><img src="https://img.shields.io/github/issues-raw/projectdiscovery/nuclei">
-<a href="https://github.com/projectdiscovery/nuclei/discussions"><img src="https://img.shields.io/github/discussions/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/releases"><img src="https://img.shields.io/github/downloads/projectdiscovery/nuclei/total">
+<a href="https://github.com/Explorer1092/nuclei/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/releases/"><img src="https://img.shields.io/github/release/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/issues"><img src="https://img.shields.io/github/issues-raw/projectdiscovery/nuclei">
+<a href="https://github.com/Explorer1092/nuclei/discussions"><img src="https://img.shields.io/github/discussions/projectdiscovery/nuclei">
 <a href="https://discord.gg/projectdiscovery"><img src="https://img.shields.io/discord/695645237418131507.svg?logo=discord"></a>
 <a href="https://twitter.com/pdnuclei"><img src="https://img.shields.io/twitter/follow/pdnuclei.svg?logo=twitter"></a>
 </p>
@@ -27,18 +27,18 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README.md">English</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_CN.md">中文</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_KR.md">Korean</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ID.md">Indonesia</a> •
-  <a href="https://github.com/projectdiscovery/nuclei/blob/main/README_ES.md">Spanish</a>
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README.md">English</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_CN.md">中文</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_KR.md">Korean</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_ID.md">Indonesia</a> •
+  <a href="https://github.com/Explorer1092/nuclei/blob/main/README_ES.md">Spanish</a>
 </p>
 
 ---
 
 Nuclei se utiliza para enviar peticiones a múltiples objetivos basándose en una plantilla, lo que resulta en cero falsos positivos y proporciona un escaneo rápido en un gran número de hosts. Nuclei ofrece escaneos para una variedad de protocolos, incluyendo TCP, DNS, HTTP, SSL, File, Whois, Websocket, Headless, Code, etc. Con plantillas potentes y flexibles, Nuclei puede utilizarse para modelar todo tipo de comprobaciones de seguridad.
 
-Tenemos un [repositorio dedicado](https://github.com/projectdiscovery/nuclei-templates) que alberga varios tipos de plantillas de vulnerabilidades, contribuidas por **más de 300** investigadores y ingenieros de seguridad.
+Tenemos un [repositorio dedicado](https://github.com/Explorer1092/nuclei-templates) que alberga varios tipos de plantillas de vulnerabilidades, contribuidas por **más de 300** investigadores y ingenieros de seguridad.
 
 ## Cómo funciona
 
@@ -86,7 +86,7 @@ go install -v github.com/Explorer1092/nuclei/v3/cmd/nuclei@latest
 
 ### Plantillas de Nuclei
 
-Nuclei cuenta con soporte incorporado para la descarga/actualización automática de plantillas desde la versión [v2.5.2](https://github.com/projectdiscovery/nuclei/releases/tag/v2.5.2) en adelante. El proyecto [**Nuclei-Templates**](https://github.com/projectdiscovery/nuclei-templates) proporciona una lista de plantillas listas para usar, aportadas por la comunidad, y que se actualizan constantemente.
+Nuclei cuenta con soporte incorporado para la descarga/actualización automática de plantillas desde la versión [v2.5.2](https://github.com/Explorer1092/nuclei/releases/tag/v2.5.2) en adelante. El proyecto [**Nuclei-Templates**](https://github.com/Explorer1092/nuclei-templates) proporciona una lista de plantillas listas para usar, aportadas por la comunidad, y que se actualizan constantemente.
 
 También puedes utilizar la bandera `update-templates` para actualizar las plantillas de Nuclei en cualquier momento; puedes escribir tus propias pruebas para tu flujo de trabajo y necesidades individuales siguiendo la [guía de plantillas](https://docs.projectdiscovery.io/templates/) de Nuclei.
 
@@ -345,12 +345,12 @@ Puedes acceder a la documentación principal de Nuclei en https://docs.projectdi
 
 ### Créditos
 
-Gracias a todos los increíbles [contribuyentes de la comunidad que enviaron PRs](https://github.com/projectdiscovery/nuclei/graphs/contributors) y mantienen este proyecto actualizado. :heart:
+Gracias a todos los increíbles [contribuyentes de la comunidad que enviaron PRs](https://github.com/Explorer1092/nuclei/graphs/contributors) y mantienen este proyecto actualizado. :heart:
 
 Si tienes una idea o algún tipo de mejora, eres bienvenido a contribuir y participar en el Proyecto, siéntete libre de enviar tu PR.
 
 <p align="center">
-<a href="https://github.com/projectdiscovery/nuclei/graphs/contributors">
+<a href="https://github.com/Explorer1092/nuclei/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=projectdiscovery/nuclei&max=500">
 </a>
 </p>
@@ -362,7 +362,7 @@ También echa un vistazo a los siguientes proyectos de código abierto similares
 
 ### Licencia
 
-Nuclei se distribuye bajo la [Licencia MIT](https://github.com/projectdiscovery/nuclei/blob/main/LICENSE.md)
+Nuclei se distribuye bajo la [Licencia MIT](https://github.com/Explorer1092/nuclei/blob/main/LICENSE.md)
 
 <h1 align="left">
   <a href="https://discord.gg/projectdiscovery"><img src="static/Join-Discord.png" width="380" alt="Join Discord"></a> <a href="https://docs.projectdiscovery.io"><img src="static/check-nuclei-documentation.png" width="380" alt="Check Nuclei Documentation"></a>

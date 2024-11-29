@@ -10,9 +10,9 @@ import (
 	"github.com/kitabisa/go-ci"
 	"github.com/logrusorgru/aurora"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils"
+	"github.com/Explorer1092/nuclei/v3/pkg/testutils/fuzzplayground"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils"
-	"github.com/projectdiscovery/nuclei/v3/pkg/testutils/fuzzplayground"
 	sliceutil "github.com/projectdiscovery/utils/slice"
 )
 

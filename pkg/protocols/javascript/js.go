@@ -9,11 +9,6 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/alecthomas/chroma/quick"
-	"github.com/ditashi/jsbeautifier-go/jsbeautifier"
-	"github.com/dop251/goja"
-	"github.com/pkg/errors"
-	"github.com/projectdiscovery/gologger"
 	"github.com/Explorer1092/nuclei/v3/pkg/js/compiler"
 	"github.com/Explorer1092/nuclei/v3/pkg/js/gojs"
 	"github.com/Explorer1092/nuclei/v3/pkg/model"
@@ -32,6 +27,11 @@ import (
 	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
 	templateTypes "github.com/Explorer1092/nuclei/v3/pkg/templates/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
+	"github.com/alecthomas/chroma/quick"
+	"github.com/ditashi/jsbeautifier-go/jsbeautifier"
+	"github.com/dop251/goja"
+	"github.com/pkg/errors"
+	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/utils/errkit"
 	errorutil "github.com/projectdiscovery/utils/errors"
 	iputil "github.com/projectdiscovery/utils/ip"
@@ -618,7 +618,7 @@ func (request *Request) generateEventData(input *contextargs.Context, values map
 	if input.MetaInput.CustomIP != "" {
 		data["ip"] = input.MetaInput.CustomIP
 	} else {
-		// context: https://github.com/projectdiscovery/nuclei/issues/5021
+		// context: https://github.com/Explorer1092/nuclei/issues/5021
 		hostname := input.MetaInput.Input
 		if strings.Contains(hostname, ":") {
 			host, _, err := net.SplitHostPort(hostname)

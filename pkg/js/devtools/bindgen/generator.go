@@ -13,8 +13,8 @@ import (
 
 	_ "embed"
 
+	"github.com/Explorer1092/nuclei/v3/pkg/js/compiler"
 	"github.com/pkg/errors"
-	"github.com/projectdiscovery/nuclei/v3/pkg/js/compiler"
 )
 
 var (

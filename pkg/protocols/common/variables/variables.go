@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/invopop/jsonschema"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/expressions"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/generators"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/interactsh"
 	protocolutils "github.com/Explorer1092/nuclei/v3/pkg/protocols/utils"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/utils"
+	"github.com/invopop/jsonschema"
 	stringsutil "github.com/projectdiscovery/utils/strings"
 )
 
@@ -136,7 +136,7 @@ func (variables *Variable) checkForLazyEval() bool {
 			}
 		}
 		// this is a hotfix and not the best way to do it
-		// will be refactored once we move scan state to scanContext (see: https://github.com/projectdiscovery/nuclei/issues/4631)
+		// will be refactored once we move scan state to scanContext (see: https://github.com/Explorer1092/nuclei/issues/4631)
 		if strings.Contains(types.ToString(value), "interactsh-url") {
 			variables.LazyEval = true
 			return

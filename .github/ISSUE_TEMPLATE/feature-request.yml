@@ -8,7 +8,7 @@ body:
       value: |
         Thanks for taking the time to fill out this feature request!
 
-        Please make sure to provide a detailed description with all the relevant information that might be required to start working on this feature. In case you are not sure about your request or whether the particular feature is already supported or not, please [start a discussion](https://github.com/projectdiscovery/nuclei/discussions/categories/ideas) instead.
+        Please make sure to provide a detailed description with all the relevant information that might be required to start working on this feature. In case you are not sure about your request or whether the particular feature is already supported or not, please [start a discussion](https://github.com/Explorer1092/nuclei/discussions/categories/ideas) instead.
 
         Join our [Discord server](https://discord.gg/projectdiscovery) to discuss the idea on the **#nuclei** channel.
   - type: textarea
