@@ -3,6 +3,9 @@ package provider
 import (
 	"github.com/Explorer1092/nuclei/v3/pkg/input/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
+	iputil "github.com/projectdiscovery/utils/ip"
+	stringsutil "github.com/projectdiscovery/utils/strings"
+	"strings"
 )
 
 // SimpleInputProvider is a simple input provider for nuclei
@@ -43,9 +46,22 @@ func (s *SimpleInputProvider) Iterate(callback func(value *contextargs.MetaInput
 
 // Set adds an item to the input provider
 func (s *SimpleInputProvider) Set(value string) {
-	metaInput := contextargs.NewMetaInput()
-	metaInput.Input = value
-	s.Inputs = append(s.Inputs, metaInput)
+	if stringsutil.ContainsAny(value, ",") {
+		parts := strings.Split(value, ",")
+		// 处理2列的情况: CustomIP,Host
+		if len(parts) == 2 {
+			if iputil.IsIP(strings.TrimSpace(parts[0])) {
+				metaInput := contextargs.NewMetaInput()
+				metaInput.CustomIP = strings.TrimSpace(parts[0])
+				metaInput.Input = strings.TrimSpace(parts[1])
+				s.Inputs = append(s.Inputs, metaInput)
+			}
+		}
+	} else {
+		metaInput := contextargs.NewMetaInput()
+		metaInput.Input = value
+		s.Inputs = append(s.Inputs, metaInput)
+	}
 }
 
 // SetWithProbe adds an item to the input provider with HTTP probing
