@@ -6,36 +6,16 @@ on:
       - '*'
   workflow_dispatch:
 
-jobs: 
-  release: 
-<<<<<<< HEAD:.github/workflows/release-binary.yml
-    runs-on: self-hosted
-
-=======
+jobs:
+  release:
     runs-on: ubuntu-latest-16-cores
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:.github/workflows/release.yaml
-    steps: 
+    steps:
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
       - uses: projectdiscovery/actions/setup/go@v1
       - uses: projectdiscovery/actions/goreleaser@v1
-        with: 
-<<<<<<< HEAD:.github/workflows/release-binary.yml
-          go-version: 1.20.x
-
-      - uses: goreleaser/goreleaser-action@v4
-        with: 
-          args: "release --clean"
-          version: latest
-          workdir: v2/
-        env: 
-          GITHUB_TOKEN: "${{ secrets.NUCLEI_GITHUB_TOKEN }}"
-=======
+        with:
           release: true
-        env: 
+        env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          SLACK_WEBHOOK: "${{ secrets.RELEASE_SLACK_WEBHOOK }}"
-          DISCORD_WEBHOOK_ID: "${{ secrets.DISCORD_WEBHOOK_ID }}"
-          DISCORD_WEBHOOK_TOKEN: "${{ secrets.DISCORD_WEBHOOK_TOKEN }}"
->>>>>>> 419f08f61ce5ca2d3f0eae9fe36dc7c44c1f532a:.github/workflows/release.yaml

@@ -1,8 +1,6 @@
 module github.com/Explorer1092/nuclei/v3
 
-go 1.21.0
-
-toolchain go1.21.3
+go 1.22.9
 
 require (
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible

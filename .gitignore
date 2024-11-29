@@ -49,3 +49,4 @@ vendor
 *.prof
 *.pprof
 *.trace
+examples/chinese_name
