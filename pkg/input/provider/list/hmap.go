@@ -6,6 +6,7 @@ import (
 	"bufio"
 	"context"
 	"fmt"
+	stringsutil "github.com/projectdiscovery/utils/strings"
 	"io"
 	"os"
 	"regexp"
@@ -15,16 +16,16 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/hmap/filekv"
-	"github.com/projectdiscovery/hmap/store/hybrid"
-	"github.com/projectdiscovery/mapcidr/asn"
 	providerTypes "github.com/Explorer1092/nuclei/v3/pkg/input/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/contextargs"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/protocolstate"
 	"github.com/Explorer1092/nuclei/v3/pkg/protocols/common/uncover"
 	"github.com/Explorer1092/nuclei/v3/pkg/types"
 	"github.com/Explorer1092/nuclei/v3/pkg/utils/expand"
+	"github.com/projectdiscovery/gologger"
+	"github.com/projectdiscovery/hmap/filekv"
+	"github.com/projectdiscovery/hmap/store/hybrid"
+	"github.com/projectdiscovery/mapcidr/asn"
 	uncoverlib "github.com/projectdiscovery/uncover"
 	fileutil "github.com/projectdiscovery/utils/file"
 	iputil "github.com/projectdiscovery/utils/ip"
@@ -144,6 +145,21 @@ func (i *ListInputProvider) Set(value string) {
 	if URL == "" {
 		return
 	}
+
+	if stringsutil.ContainsAny(value, ",") {
+		parts := strings.Split(value, ",")
+		// 处理2列的情况: CustomIP,Host
+		if len(parts) == 2 {
+			if iputil.IsIP(strings.TrimSpace(parts[0])) {
+				metaInput := contextargs.NewMetaInput()
+				metaInput.CustomIP = strings.TrimSpace(parts[0])
+				metaInput.Input = strings.TrimSpace(parts[1])
+				i.setItem(metaInput)
+				return
+			}
+		}
+	}
+
 	// parse hostname if url is given
 	urlx, err := urlutil.Parse(URL)
 	if err != nil || (urlx != nil && urlx.Host == "") {
